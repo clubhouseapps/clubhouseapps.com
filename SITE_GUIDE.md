@@ -21,7 +21,7 @@ The site is pure static HTML and CSS. No JavaScript frameworks, no build tools, 
 
 The site is hosted on **GitHub Pages** — GitHub's free static site hosting service.
 
-- **Repository:** `https://github.com/ybmeclaudia-lab/clubhouseapps.com`
+- **Repository:** `https://github.com/clubhouseapps/clubhouseapps.com`
 - **Branch:** `main` (GitHub Pages serves directly from this branch)
 - **Local path:** `~/Desktop/ClubhouseApps/Website/`
 
@@ -38,7 +38,7 @@ GitHub Pages picks up the push automatically and the live site updates within ~6
 
 ### Custom domain
 
-The file `CNAME` in the repo root contains `clubhouseapps.com`. This is how GitHub Pages knows to serve the site at that domain instead of the default `ybmeclaudia-lab.github.io` URL.
+The file `CNAME` in the repo root contains `clubhouseapps.com`. This is how GitHub Pages knows to serve the site at that domain instead of the default `clubhouseapps.github.io` URL.
 
 **DNS is configured separately** (in the domain registrar's DNS settings, not in this repo). The DNS A records point to GitHub Pages' servers. If you need to change the domain, update both the `CNAME` file and the DNS records.
 

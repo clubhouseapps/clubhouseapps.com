@@ -62,8 +62,10 @@ clubhouseapps.com/          ← repo root
     │   └── index.html      ← Privacy Policy (/dinnerpilot/privacy/)
     ├── terms/
     │   └── index.html      ← Terms of Service (/dinnerpilot/terms/)
-    └── data-deletion/
-        └── index.html      ← Data Deletion Request (/dinnerpilot/data-deletion/)
+    ├── data-deletion/
+    │   └── index.html      ← Data Deletion Request (/dinnerpilot/data-deletion/)
+    └── account/
+        └── index.html      ← Where DinnerPilot account emails lead: set a new password, email confirmed, expired link (/dinnerpilot/account/). Added 2026-11-12; Supabase Auth's Site URL must point here
 ```
 
 URL structure mirrors folder structure exactly. `index.html` files serve as the default for each folder, so `/dinnerpilot/` loads `dinnerpilot/index.html`.

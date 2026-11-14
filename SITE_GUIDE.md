@@ -209,8 +209,7 @@ collage hero, tonal buttons, ring mark.
 
 **Still true:** when DinnerPilot launches, update the hero proof line, the FAQ launch answer and the
 close line ("in TestFlight now"), and consider an App Store badge. Pro pricing on this page says
-$5.99/month / $39.99/year (what app build 55 shows); `dinnerpilot/index.html` still says $6.99 —
-reconcile when pricing is final.
+$5.99/month / $39.99/year, matching the app (build 55), `dinnerpilot/index.html` and the Terms.
 
 ---
 
@@ -224,7 +223,7 @@ reconcile when pricing is final.
 2. **Hero** — pulsing orange dot eyebrow, "Your family's meals. Planned in a minute." headline, email capture form (Formspree), CSS phone mockup showing a sample week plan
 3. **Features** — 6-column bento grid layout with 5 feature cards: Personalized Meal Plans, Smart Grocery Lists, Budget Tracking, One-Tap Swaps, Likes & Dislikes, Traditions Built In
 4. **How it works** — dark card section with 3 numbered steps and an orange connector line
-5. **Pro section** — 2-column: left lists Pro features, right is the gold-gradient pricing card ($6.99/mo)
+5. **Pro section** — 2-column: left lists Pro features, right is the gold-gradient pricing card ($5.99/mo, or $39.99/yr)
 6. **Bottom CTA** — second email capture form
 7. **Footer** — copyright, links to all legal pages and contact
 
@@ -257,7 +256,7 @@ The stylesheet is referenced as `../../assets/shared.css` (two levels up from `d
 
 **URL:** `clubhouseapps.com/dinnerpilot/terms/`
 
-Terms of Service for DinnerPilot. References $6.99/month Pro subscription pricing, App Store billing, and Clubhouse Apps as the legal entity.
+Terms of Service for DinnerPilot. References $5.99/month / $39.99/year Pro subscription pricing with a 7-day free trial, App Store billing, and Clubhouse Apps as the legal entity.
 
 ---
 

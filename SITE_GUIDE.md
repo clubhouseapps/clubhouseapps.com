@@ -6,12 +6,34 @@ Everything an AI (or human) needs to understand, maintain, and update this websi
 
 ## Overview
 
-**clubhouseapps.com** is the public website for Clubhouse Apps, an indie iOS studio. It currently serves two purposes:
+**clubhouseapps.com** is the public website for Clubhouse Apps, the parent company. Everything sits under
+it in one site with one look:
 
-1. **Company homepage** — introduces Clubhouse Apps, lists current and upcoming apps
-2. **DinnerPilot product page** — marketing landing page for the DinnerPilot iOS app
+1. **Apps**: DinnerPilot (the first app), with its product page and its help and legal pages
+2. **Studio**: Clubhouse Apps Studio, which builds websites for local businesses
 
-The site is pure static HTML and CSS. No JavaScript frameworks, no build tools, no package manager. Every file you see is exactly what gets served to the browser.
+The site is pure static HTML and CSS plus the Taste Skill kit's own scripts. No framework, no build step,
+no package manager. Every file you see is exactly what gets served to the browser.
+
+### Site map
+
+| URL | Page | Notes |
+|-----|------|-------|
+| `/` | Clubhouse Apps home | Apps, Studio, About, contact |
+| `/dinnerpilot/` | DinnerPilot product page | Launch sign-up form (Formspree `maeezoew`) |
+| `/dinnerpilot/privacy/` | Privacy policy | Text page |
+| `/dinnerpilot/terms/` | Terms of service | Text page |
+| `/dinnerpilot/data-deletion/` | Data deletion policy | Text page; Apple requires it |
+| `/dinnerpilot/account/` | Account help | Where DinnerPilot account emails lead (password reset, email confirmed); `noindex` |
+| `/studio/` | Studio: websites for local businesses | Quote form (Formspree `mlgvvbay`) |
+| `/samples/` | Internal sample library | `noindex, nofollow`; **never link it from a public page** |
+
+### Navigation (identical on every page)
+
+- **Header:** Clubhouse Apps logo (home) · **Apps** (menu: DinnerPilot; DinnerPilot help) · **Studio** · **About** · button **Get in touch** (to the home page's contact close).
+- **Footer:** the company line, then four columns: **Apps** (DinnerPilot, Pantry Chef, Account help) · **Studio** (Websites, Pricing, Get a quote) · **Company** (About, Contact) · **Legal** (Privacy policy, Terms of service, Delete your data). Legal row: © 2026 Clubhouse Apps LLC.
+
+Every label appears once. Don't add a second link with the same words, and don't link `/samples/`.
 
 ---
 
@@ -53,22 +75,22 @@ Contact email referenced throughout the site: `dave@clubhouseapps.com`
 ```
 clubhouseapps.com/          ← repo root
 ├── CNAME                   ← custom domain declaration
-├── index.html              ← company homepage (clubhouseapps.com/)
+├── index.html              ← Clubhouse Apps home (/)
+├── .site/stamp.py          ← stamps the shared head, header, footer and scripts into every page
 ├── assets/
-│   └── shared.css          ← shared stylesheet used by ALL pages
-└── dinnerpilot/
-    ├── index.html          ← DinnerPilot product page (/dinnerpilot/)
-    ├── privacy/
-    │   └── index.html      ← Privacy Policy (/dinnerpilot/privacy/)
-    ├── terms/
-    │   └── index.html      ← Terms of Service (/dinnerpilot/terms/)
-    ├── data-deletion/
-    │   └── index.html      ← Data Deletion Request (/dinnerpilot/data-deletion/)
-    └── account/
-        └── index.html      ← Where DinnerPilot account emails lead: set a new password, email confirmed, expired link (/dinnerpilot/account/). Added 2026-11-12; Supabase Auth's Site URL must point here
+│   ├── site.css            ← the site's own CSS: product mocks + the text-page layout
+│   ├── system.css/js, ui/, motion/, layout/, backgrounds/, moments/, effects/, icons/
+│   │                       ← the Taste Skill kit (never edit these; only requested files are committed)
+│   ├── dp-icon.png, favicon.svg
+│   └── shared.css          ← the OLD stylesheet; no page uses it any more (safe to delete with Dave's OK)
+├── dinnerpilot/
+│   ├── index.html          ← DinnerPilot product page
+│   ├── privacy/ terms/ data-deletion/ account/   ← text pages
+├── studio/index.html       ← Studio service page
+└── samples/index.html      ← internal, unlinked, noindex
 ```
 
-URL structure mirrors folder structure exactly. `index.html` files serve as the default for each folder, so `/dinnerpilot/` loads `dinnerpilot/index.html`.
+URL structure mirrors folder structure exactly. `index.html` files serve as the default for each folder.
 
 ---
 
@@ -81,7 +103,8 @@ URL structure mirrors folder structure exactly. `index.html` files serve as the 
 | 2026-05-17 | `34288cf` | Add Privacy Policy, Terms of Service, Data Deletion pages; update footers |
 | 2026-05-17 | `3403e0d` | Move legal pages under /dinnerpilot/ to reflect org structure |
 | 2026-05-17 | `9599ff0` | Full visual redesign — modern, premium look |
-| 2026-11-13 | — | Homepage rebuilt with the Taste Skill kit (see the index.html section) |
+| 2026-11-13 | `ab5e7e6` | Homepage rebuilt with the Taste Skill kit |
+| 2026-11-14 | — | Whole site rebuilt as one: parent-company home, every page on the same kit, shared header and footer |
 
 The major work happened on **2026-05-17**: legal pages were added, then immediately reorganized under `/dinnerpilot/` (they had initially been at the root), then the entire site got a full visual redesign in one large commit that touched all three primary files.
 
@@ -89,223 +112,79 @@ The major work happened on **2026-05-17**: legal pages were added, then immediat
 
 ## Design System
 
-All visual tokens live in `assets/shared.css`. Every page links to this file. Do not define brand colors or core styles inline — add them here and reference the CSS variables.
+Every page uses the **Taste Skill** kit (`github.com/Leonxlnx/taste-skill`) with one dealt look:
+clay-pine palette (warm stone ground `#efe9e0`, pine green accent `#2e5b44`), Mona Sans + Geist Mono,
+tonal pill buttons, ring mark, round corners. The tokens live in the `site:head` block that `stamp.py`
+writes into every page; change them there, then re-stamp.
 
-### Brand colors
+- **Kit files** (`assets/system.css`, `assets/ui/…`, etc.) are never edited. Override in `assets/site.css` or a page's own `<style>`.
+- **`assets/site.css`** holds what the kit doesn't: the hand-drawn DinnerPilot phone (`.ph`), the small step card (`.dpn`), the browser window with the Sparky's Electric sample (`.bw`, `.sp__*`), the pricing halves (`.pricing`), and the text-page layout (`.doc`, `.prose`, `.doc__side`).
+- **Page `<style>` blocks** only position each hero's pieces and set panel heights per breakpoint (the kit sizes every section to whole screens).
+- **No screenshots**: every app screen on the site is live HTML drawn from real app data (build 55).
+- **Motion** follows design-motion-principles: one entrance per hero, one timed loop per page at most, hover answers on every link; all of it stops under reduced motion.
 
-```css
---dp-orange:        #D4713B;   /* Primary brand color — used for CTAs, accents, active states */
---dp-orange-deep:   #B85E2A;   /* Darker orange — used in gradients */
---dp-orange-light:  #F5E6DB;   /* Light orange tint */
---dp-orange-pale:   #FDF4EE;   /* Very pale orange — backgrounds, hover states */
---dp-green:         #3D7A5F;   /* Secondary — "live" badge, success states */
---dp-green-light:   #E8F0EB;   /* Green tint background */
---dp-purple:        #7B6B9E;   /* Accent — used sparingly */
+### Shared header and footer: `.site/stamp.py`
+
+The header, footer links, `<head>` assets and scripts are written into every page between marker comments
+(`<!-- site:header current=apps -->` … `<!-- /site:header -->`). To change the nav or footer, edit the
+blocks in `.site/stamp.py` and run:
+
+```bash
+python3 .site/stamp.py
 ```
 
-### Ink (text) scale
-
-```css
---ink:        #1A1917;   /* Primary text */
---ink-mid:    #4A4845;   /* Body text, descriptions */
---ink-soft:   #8A8885;   /* Secondary labels, captions */
---ink-faint:  #C4C2BE;   /* Placeholders, disabled */
-```
-
-### Surfaces and borders
-
-```css
---surface:        #FAFAF8;   /* Page background */
---surface-warm:   #F7F4F0;   /* Slightly warmer background */
---card:           #FFFFFF;   /* Card background */
---card-warm:      #FDFCFA;
---border:         #E8E6E2;
---border-warm:    #E2DDD7;
-```
-
-### Shadows (warm-tinted)
-
-```css
---shadow-soft:    0 1px 4px rgba(212,113,59,0.06), 0 2px 10px rgba(0,0,0,0.04);
---shadow-card:    0 2px 16px rgba(212,113,59,0.08), 0 4px 24px rgba(0,0,0,0.06);
---shadow-float:   0 8px 40px rgba(212,113,59,0.15), 0 16px 60px rgba(0,0,0,0.1);
---shadow-orange:  0 8px 32px rgba(212,113,59,0.35);
-```
-
-### Border radius
-
-```css
---radius-sm:   8px;
---radius-md:   14px;
---radius-lg:   22px;
---radius-xl:   32px;
-```
-
-### Typography classes (defined in shared.css)
-
-| Class | Size | Weight | Usage |
-|-------|------|--------|-------|
-| `.display` | clamp(2.8rem–4.8rem) | 800 | Hero headlines |
-| `.headline` | clamp(1.6rem–2.4rem) | 700 | Section headings |
-| `.title` | 1.2rem | 600 | Card titles |
-| `.body` | 1.05rem | 400 | Body text |
-| `.caption` | 0.875rem | 400 | Small supporting text |
-| `.overline` | 0.75rem | 700 | Uppercase labels |
-
-Font: **Inter** (400, 500, 600, 700, 800) loaded from Google Fonts.
-
-### Button classes (defined in shared.css)
-
-| Class | Appearance | Usage |
-|-------|-----------|-------|
-| `.btn` | Base styles only | Always combine with a variant |
-| `.btn-primary` | Orange gradient, white text | Primary CTAs |
-| `.btn-outline` | Transparent, orange border | Secondary actions |
-| `.btn-dark` | Dark background, white text | Dark-section CTAs |
-
-The DinnerPilot page adds `.btn-sm` (locally) for compact nav buttons and `.btn-pro` for the gold Pro CTA.
-
-### Card class
-
-`.card` — white background, `--radius-lg` corners, `--border`, `--shadow-card`. Used as a base; pages add additional classes on top.
-
-### Layout
-
-`.container` — max-width 1100px, centered, 28px horizontal padding. Applied to section wrappers.
-
-### Nav (shared.css)
-
-`nav` is sticky, top: 0, z-index: 100, with `backdrop-filter: blur(16px)` for the frosted glass effect. `.nav-inner` is the 64px tall flex container inside.
+It rewrites all eight pages. `current=` sets which nav item is underlined (home, apps, studio, about).
+Asset paths are relative (`../` per folder level); page links are root-absolute (`/studio/`).
 
 ---
 
 ## Pages
 
-### `index.html` — Company Homepage
+### `/` Home (parent company)
+Hero (iPhone apps for families, websites for local businesses; a Studio sample site and DinnerPilot's
+home screen) · **#apps** DinnerPilot with three phone screens · **#studio** the Studio with both plans and a
+project checklist · **#about** "Made with care, not by committee." (ripples under the pointer) with three
+principles · **#contact** close: "Get in touch" emails dave@.
 
-**URL:** `clubhouseapps.com/`
+### `/dinnerpilot/`
+Hero with the grocery-list card that ticks off · **#week** three screens · **#features** budget, reminders,
+diets, traditions · **#pantry** Pantry Chef · **#pricing** Free plan and Pro plan ($5.99/mo or $39.99/yr,
+7-day trial) · **#questions** · **#notify** the launch sign-up (Formspree `maeezoew`, sends with fetch and
+shows its confirmation only after Formspree answers).
 
-**Rebuilt 2026-11-13** with the Taste Skill design kit (`github.com/Leonxlnx/taste-skill`). The page no
-longer uses `assets/shared.css` (that stylesheet still serves every DinnerPilot page); it loads the kit
-stylesheets and scripts from `assets/` (system.css, ui/, motion/, backgrounds/, layout/, moments/,
-effects/ — only the files the page requests are committed). The look was "dealt" by the kit's scripts:
-clay-pine palette (warm stone ground `#efe9e0`, pine green accent `#2e5b44`), Mona Sans + Geist Mono,
-collage hero, tonal buttons, ring mark.
+### `/studio/`
+Hero (sample site + project card) · **#services** six kinds of work beside "Your website includes" ·
+**#pricing** The Handoff ($2,000) and The Care Plan ($500 + $100/mo) · **#sample** Sparky's Electric on a
+phone · **#questions** · **#contact** the quote form (Formspree `mlgvvbay`, honeypot `_gotcha`).
 
-**Sections (one per screen, enforced by the kit's checker):**
+### Text pages: privacy, terms, data-deletion, account
+Same header and footer; a side list of the four DinnerPilot help pages; the wording itself is unchanged
+from the legal versions (Nov 2026). **Don't rewrite Privacy or Terms content without being asked.** The
+Account page keeps its Supabase password-reset script exactly as it was (Supabase Auth's Site URL must
+point to `/dinnerpilot/account/`).
 
-1. **Nav** — fixed bar, ring mark + "Clubhouse Apps", centred words (DinnerPilot, Features, Studio, Questions), "See DinnerPilot" button. A small hover menu under "DinnerPilot". On phones a bottom action bar carries the button.
-2. **Hero** — h1 "iPhone apps from a one-person studio in Maine"; a hand-built HTML mock of DinnerPilot's home screen on a lit frame, with a grocery-list card that steps through its three results (the page's one timed loop).
-3. **#dinnerpilot** — three phone mocks (the week, the grocery list, a dinner swap) on one lit stage. All UI is live HTML, no screenshots; the data matches the real app screenshots in Brand Assets (the $230/$250 week).
-4. **#features** — four cards (budget stat, reminders, dietary toggles, traditions checklist) on painted panels; two screens.
-5. **#pantry** — Pantry Chef: text beside a phone mock of the three AI recipes; dusk ground.
-6. **#studio** — "Made by one person." set huge; it ripples under the pointer (the kit's liquid-type moment). Studio story + facts rows.
-7. **#questions** — FAQ, all answers open; band ground.
-8. **Footer** — close ("See DinnerPilot" XL button) + four link columns + legal row.
-
-**Checks:** the kit's gate passed (`GATE: PASS`) with 4 waivers for checker false positives (noted in
-`.taste-skill/waivers.json`, not committed). To re-check after edits, clone taste-skill and run its
-`scripts/consistency.mjs` / `scripts/gate.mjs` against this folder.
-
-**Still true:** when DinnerPilot launches, update the hero proof line, the FAQ launch answer and the
-close line ("in TestFlight now"), and consider an App Store badge. Pro pricing on this page says
-$5.99/month / $39.99/year, matching the app (build 55), `dinnerpilot/index.html` and the Terms.
-
----
-
-### `dinnerpilot/index.html` — DinnerPilot Product Page
-
-**URL:** `clubhouseapps.com/dinnerpilot/`
-
-**Sections:**
-
-1. **Nav** — back arrow to `/`, DinnerPilot wordmark with 🍽️ icon, "Get Notified" CTA button
-2. **Hero** — pulsing orange dot eyebrow, "Your family's meals. Planned in a minute." headline, email capture form (Formspree), CSS phone mockup showing a sample week plan
-3. **Features** — 6-column bento grid layout with 5 feature cards: Personalized Meal Plans, Smart Grocery Lists, Budget Tracking, One-Tap Swaps, Likes & Dislikes, Traditions Built In
-4. **How it works** — dark card section with 3 numbered steps and an orange connector line
-5. **Pro section** — 2-column: left lists Pro features, right is the gold-gradient pricing card ($5.99/mo, or $39.99/yr)
-6. **Bottom CTA** — second email capture form
-7. **Footer** — copyright, links to all legal pages and contact
-
-**Phone mockup** — the "phone" visible in the hero is pure CSS (no images). It's a `.phone-frame` div styled to look like an iPhone with a dynamic island, side buttons, and a mock weekly plan inside. The dates shown are hardcoded ("May 18–24") — update if they become obviously stale.
-
-**Email capture forms** — there are TWO forms on this page (hero and bottom CTA). Both currently have a placeholder:
-```html
-action="https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID"
-```
-**This must be replaced before the page is useful.** Sign up at formspree.io, create a form, and replace both instances of `REPLACE_WITH_FORMSPREE_ID` with the real form ID. Both forms must use the same ID (they go to the same inbox).
-
----
-
-### `dinnerpilot/privacy/index.html` — Privacy Policy
-
-**URL:** `clubhouseapps.com/dinnerpilot/privacy/`
-
-Standard privacy policy for the DinnerPilot iOS app. References:
-- `dave@clubhouseapps.com` as the contact email
-- Supabase as the backend/database provider
-- Google Sign-In and Apple Sign-In as auth providers
-- AdMob for advertising
-- Anthropic Claude API for AI features
-
-The stylesheet is referenced as `../../assets/shared.css` (two levels up from `dinnerpilot/privacy/`).
-
----
-
-### `dinnerpilot/terms/index.html` — Terms of Service
-
-**URL:** `clubhouseapps.com/dinnerpilot/terms/`
-
-Terms of Service for DinnerPilot. References $5.99/month / $39.99/year Pro subscription pricing with a 7-day free trial, App Store billing, and Clubhouse Apps as the legal entity.
-
----
-
-### `dinnerpilot/data-deletion/index.html` — Data Deletion Request
-
-**URL:** `clubhouseapps.com/dinnerpilot/data-deletion/`
-
-Required by Apple App Store guidelines for apps that collect user data. Provides instructions for how users can request deletion of their account and data. References `dave@clubhouseapps.com` for deletion requests.
-
----
-
-## Relative asset paths by folder depth
-
-Every page links to `shared.css`. The path changes by folder depth:
-
-| Page location | shared.css path |
-|--------------|-----------------|
-| `index.html` (root) | `assets/shared.css` |
-| `dinnerpilot/index.html` | `../assets/shared.css` |
-| `dinnerpilot/privacy/index.html` | `../../assets/shared.css` |
-| `dinnerpilot/terms/index.html` | `../../assets/shared.css` |
-| `dinnerpilot/data-deletion/index.html` | `../../assets/shared.css` |
-
-If you add a new page, adjust the path accordingly.
+### Checks
+The three main pages were checked with the kit's `consistency.mjs` at 1440, 1024, 820, 768 and 390 and
+`copy-lint.mjs` (0 FAIL). Known checker false positives: the phone action bar crossing text mid-scroll
+(contrast), its twin-hiding of pricing buttons (scroll-reveal), plan cards not lifting on hover (the kit's
+own motion.css excludes `.card--plan`), and the pricing titles' edge on phones (the plans are split into two
+phone screens, so the checker no longer sees them as one card row).
 
 ---
 
 ## Adding a new app
 
-When Clubhouse Apps ships a second app, the homepage needs two things:
-
-1. **Replace a placeholder card** in the `apps-grid` with a real app card. The placeholder cards use `.app-card-placeholder` class which grays them out. A live card uses just `.app-card` plus `.card`.
-
-2. **Create a new subfolder** at the root level (e.g. `newappname/`) with its own `index.html` landing page, and legal pages under `newappname/privacy/`, `newappname/terms/`, `newappname/data-deletion/`.
-
-3. **Update the footer** on `index.html` to link to the new app.
-
-The grid is `grid-template-columns: 1fr 1fr 1fr` so three cards fill the row evenly. At ≤860px it collapses to single column.
+1. Copy `dinnerpilot/` to `newapp/` and rewrite its product page; give it its own legal pages.
+2. In `.site/stamp.py`, add it to the **Apps** menu ("Our apps") and the footer's **Apps** column, add its pages to `PAGES`, then run the script.
+3. Add a section for it on the home page under **#apps**.
 
 ---
 
 ## What to update when DinnerPilot launches
 
-- [ ] `index.html` — change DinnerPilot badge text from "Coming Soon" → "Live"
-- [ ] `index.html` — stats row "1 App in the App Store" is already correct but verify
-- [ ] `dinnerpilot/index.html` — replace both `REPLACE_WITH_FORMSPREE_ID` with the real Formspree form ID
-- [ ] `dinnerpilot/index.html` — consider updating the hero eyebrow from "iOS App — Coming Soon" to a real App Store badge/link
-- [ ] `dinnerpilot/index.html` — the "Get Notified at Launch" Pro card CTA can become a real App Store link
-- [ ] Phone mockup dates — "May 18–24" hardcoded in the mockup; update if stale
+- [ ] `index.html` hero proof line and #apps line ("in TestFlight") → App Store
+- [ ] `dinnerpilot/index.html` hero proof, FAQ "When can I get DinnerPilot?", pricing buttons and the #notify close → App Store link/badge
+- [ ] Footer and menus need no change
 
 ---
 
@@ -336,8 +215,8 @@ The site goes live at clubhouseapps.com within about 60 seconds of the push.
 | Service | Purpose | Where referenced |
 |---------|---------|-----------------|
 | **GitHub Pages** | Hosting | CNAME file + GitHub repo settings |
-| **Formspree** | Email capture form submissions | `dinnerpilot/index.html` — two `<form action>` attributes |
-| **Google Fonts** | Inter typeface | `<link>` in `<head>` of every page |
+| **Formspree** | Launch sign-up and Studio quote forms | `dinnerpilot/index.html` (`maeezoew`), `studio/index.html` (`mlgvvbay`) |
+| **Google Fonts** | Mona Sans, Geist Mono | the `site:head` block on every page |
 | **Supabase** | App backend (mentioned in Privacy Policy only) | `dinnerpilot/privacy/index.html` |
 | **AdMob** | App advertising (mentioned in Privacy Policy only) | `dinnerpilot/privacy/index.html` |
 | **Anthropic Claude** | App AI features (mentioned in Privacy Policy only) | `dinnerpilot/privacy/index.html` |
@@ -347,9 +226,8 @@ The site goes live at clubhouseapps.com within about 60 seconds of the push.
 ## Notes for AI agents updating this site
 
 - **No build step.** Edit `.html` and `.css` files directly. What you write is what ships.
-- **shared.css is global.** A change there affects every page. Test changes against all pages before committing.
-- **Inline styles exist.** Some one-off styles are written inline in `<style>` blocks within each HTML file. This is intentional — they're page-specific. Only move something to `shared.css` if it's genuinely reused across pages.
-- **The phone mockup is CSS-only.** Don't try to replace it with an image unless explicitly asked. The CSS mock is intentional and renders consistently.
+- **site.css is global.** A change there affects every page. Check every page before committing.
+- **Page styles exist.** Each main page has a short `<style>` block for its hero pieces and panel heights. Only move something to `site.css` if it's reused across pages.
+- **The phone and browser mocks are HTML/CSS.** Don't replace them with images unless asked.
 - **Legal page content is deliberate.** Don't rewrite Privacy Policy or Terms content without being asked — those have specific legal obligations.
-- **The Formspree placeholder is broken.** Until `REPLACE_WITH_FORMSPREE_ID` is replaced, form submissions go nowhere. This is a known pending task.
 - **Copyright year is 2026.** Update annually.

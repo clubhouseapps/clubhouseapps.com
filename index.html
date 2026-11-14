@@ -3,18 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Clubhouse Apps: iPhone apps from a one-person studio in Maine</title>
-<meta name="description" content="An independent studio in Maine building DinnerPilot, the meal planner that fits a family's week of meals to its grocery budget.">
+<title>Clubhouse Apps: iPhone apps and websites for local businesses</title>
+<meta name="description" content="Clubhouse Apps makes DinnerPilot, the meal planner that fits a family's week to its grocery budget, and builds websites for local businesses through its Studio.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Clubhouse Apps: iPhone apps from a one-person studio in Maine">
-<meta property="og:description" content="An independent studio building DinnerPilot, the meal planner that fits a family's week of meals to its grocery budget.">
+<meta property="og:title" content="Clubhouse Apps: iPhone apps and websites for local businesses">
+<meta property="og:description" content="The company behind DinnerPilot, and a Studio that builds websites for trades, restaurants and small shops.">
 <meta property="og:image" content="https://clubhouseapps.com/share.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#efe9e0">
 <link rel="canonical" href="https://clubhouseapps.com/">
 <meta name="site-kind" content="software">
 <meta name="page-type" content="software">
+<!-- site:head -->
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#efe9e0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,400..600&family=Geist+Mono:wght@400..500&display=swap" rel="stylesheet">
@@ -41,202 +42,134 @@
 }
 </style>
 <link rel="stylesheet" href="assets/ui/base.css">
-<link rel="stylesheet" href="assets/ui/notify/fragment.css">
-<link rel="stylesheet" href="assets/ui/stat/fragment.css">
-<link rel="stylesheet" href="assets/ui/toggles/fragment.css">
-<link rel="stylesheet" href="assets/ui/checklist/fragment.css">
+<link rel="stylesheet" href="assets/site.css">
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script src="assets/backgrounds/backgrounds.js"></script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<!-- /site:head -->
+<link rel="stylesheet" href="assets/ui/checklist/fragment.css">
 <link rel="modulepreload" href="assets/moments/moments.js">
 <link rel="modulepreload" href="assets/moments/lib.js">
 <link rel="modulepreload" href="assets/moments/liquid-type/moment.js">
 <style>
-/* page CSS: only inside visuals (the DinnerPilot phone mock, the hero art, the stage) and the card groups' --p-h */
+/* page CSS: only the hero collage's two pieces */
 .hero__art { overflow: hidden; }
 .hero__art > .hero__fx { position: absolute; inset: 0; z-index: 0; }
-.hero__art > .ly-piece--main.ph { left: 50%; transform: translateX(-50%); top: 56px; width: 330px; z-index: 1; }
-.hero__art > .ly-piece--note { left: var(--s-6); bottom: var(--s-6); width: 300px; z-index: 2; }
-.hero__proof { font-size: var(--t-small); color: var(--muted); }
-/* the DinnerPilot phone, drawn as live HTML (no screenshots): its own warm surface and the app's own orange */
-.ph { background: #2a2d27; border-radius: 42px; padding: 9px; box-shadow: 0 32px 64px -32px rgb(34 38 31 / .5); }
-.ph__screen { background: #faf7f2; border-radius: 34px; overflow: hidden; padding: 18px 16px; display: grid; gap: 12px; align-content: start; min-height: 700px; }
-.ph__head { display: flex; align-items: center; gap: 10px; }
-.ph__head img { width: 28px; height: 28px; border-radius: 7px; }
-.ph__head b { display: block; font: 500 15px/1.2 var(--font-text); color: #1f2019; }
-.ph__head small { display: block; font-size: 12px; color: #77786e; }
-.ph__banner { background: #eef3ea; border: 1px solid rgb(61 122 95 / .25); border-radius: 14px; padding: 12px 14px; display: grid; gap: 6px; }
-.ph__banner b { font: 500 14px/1.3 var(--font-text); color: #27432f; }
-.ph__banner span { font-size: 12px; color: #51614f; }
-.ph__bar { display: block; height: 6px; border-radius: 3px; background: rgb(61 122 95 / .18); }
-.ph__bar u { display: block; height: 100%; width: 92%; border-radius: 3px; background: #3d7a5f; }
-.ph__cta { background: #d4713b; color: #fff; border-radius: 12px; padding: 10px 14px; text-align: center; font: 500 14px/1.2 var(--font-text); }
-.ph__label { font: 500 12px/1 var(--font-text); color: #77786e; margin-top: 4px; }
-.ph__meal { display: grid; grid-template-columns: 58px minmax(0, 1fr) auto; align-items: center; gap: 10px; background: #fff; border: 1px solid rgb(0 0 0 / .07); border-radius: 12px; padding: 10px 12px; }
-.ph__meal small { font-size: 11px; color: #8a8b80; }
-.ph__meal b { font: 500 13px/1.3 var(--font-text); color: #1f2019; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.ph__meal span { font-size: 12px; color: #77786e; font-variant-numeric: tabular-nums; }
-.ph__meal del { font-size: 12px; color: #a3a49a; }
-.ph__chip { justify-self: start; font-size: 11px; font-weight: 500; color: #27432f; background: #e3ecdf; border-radius: 999px; padding: 3px 8px; }
-.ph__row { display: grid; grid-template-columns: 18px minmax(0, 1fr) auto; align-items: center; gap: 10px; background: #fff; border: 1px solid rgb(0 0 0 / .07); border-radius: 12px; padding: 9px 12px; font-size: 13px; color: #1f2019; }
-.ph__row i { width: 18px; height: 18px; border-radius: 6px; border: 1.5px solid #c9c5ba; display: grid; place-items: center; font-style: normal; font-size: 11px; }
-.ph__row.is-done i { background: #3d7a5f; border-color: #3d7a5f; color: #fff; }
-.ph__row.is-done b, .ph__row.is-done span { color: #a3a49a; text-decoration: line-through; }
-.ph__row b { font-weight: 400; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.ph__row span { font-size: 12px; color: #77786e; font-variant-numeric: tabular-nums; }
-.ph__chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.ph__chips span { font-size: 12px; color: #1f2019; background: #fff; border: 1px solid rgb(0 0 0 / .1); border-radius: 999px; padding: 4px 10px; }
-.pc-panel { position: relative; overflow: hidden; }
-.pc-panel .stage { position: absolute; inset: 0; }
-.pc-panel .ph { position: absolute; left: 50%; transform: translateX(-50%); top: 28px; width: 330px; }
-.ph__total { display: grid; gap: 2px; background: #fff; border: 1px solid rgb(0 0 0 / .07); border-radius: 12px; padding: 12px 14px; }
-.ph__total b { font: 500 20px/1.2 var(--font-text); color: #1f2019; }
-.ph__total small { font-size: 12px; color: #77786e; }
-.ph__ai { display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: .02em; color: #6a4f86; background: #efe9f7; border-radius: 4px; padding: 2px 5px; }
-/* the grocery-list note card in the hero (layout.js steps it) */
-.dpn { background: #fff; border-radius: var(--r-md); border: 1px solid rgb(0 0 0 / .08); box-shadow: 0 18px 40px -20px rgb(34 38 31 / .45); padding: 14px 16px; }
-.dpn__row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
-.dpn__row h5 { margin: 0; font: 500 14px/1.2 var(--font-text); color: #1f2019; }
-.dpn__chip { font-size: 11px; font-weight: 500; color: #27432f; background: #e3ecdf; border-radius: 999px; padding: 3px 8px; }
-.dpn__line { display: flex; align-items: center; gap: 10px; padding: 7px 0; font-size: 13px; color: #3d4239; border-top: 1px solid rgb(0 0 0 / .06); }
-.dpn__line:first-of-type { border-top: 0; }
-.dpn__line i { width: 18px; height: 18px; border-radius: 50%; flex: none; display: grid; place-items: center; background: #e3ecdf; color: #27432f; font-style: normal; font-size: 12px; }
-.dpn__line b { font-weight: 500; color: #1f2019; }
-/* the three-screen stage in #dinnerpilot */
-.dp-stage { position: relative; height: 540px; margin-top: var(--s-7); overflow: hidden; }
-@media (min-width: 640px) and (max-width: 1023px) { .dp-stage { height: 600px; } }
-.dp-stage .stage { position: absolute; inset: 0; }
-.dp-stage .ph { position: absolute; top: 48px; width: 330px; }
-.dp-stage .ph:nth-of-type(1) { left: 56px; }
-.dp-stage .ph:nth-of-type(2) { left: 50%; transform: translateX(-50%); }
-.dp-stage .ph:nth-of-type(3) { right: 56px; }
-@media (max-width: 1279px) { .dp-stage .ph:nth-of-type(3) { display: none; } .dp-stage .ph:nth-of-type(1) { left: 48px; } .dp-stage .ph:nth-of-type(2) { left: auto; right: 48px; transform: none; } }
-@media (max-width: 1023px) { .dp-stage .ph:nth-of-type(2) { display: none; } .dp-stage .ph:nth-of-type(1) { left: 50%; transform: translateX(-50%); } }
-@media (max-width: 639px) {
-  .hero__art > .ly-piece--main.ph { top: 24px; width: 300px; }
-  .hero__art .ph__label, .hero__art .ph__meal { display: none; }
-  .dp-stage { height: 330px; }
-  .dp-stage .ph { top: 24px; width: min(310px, calc(100% - 32px)); }
-  .dp-stage .ph:nth-of-type(2) { display: none; }
-  .dp-stage .ph:nth-of-type(1) { left: 50%; transform: translateX(-50%); }
-  .ph__screen { min-height: 440px; }
-}
-/* the card groups' panel height */
-#features .panel { --p-h: 356px; }
-#pantry .panel { --p-h: 480px; margin-top: 0; }
-@media (min-width: 640px) and (max-width: 1023px) { #features .grid > .card { grid-column: 1 / -1; } #features .panel { --p-h: 234px; } #pantry .panel { --p-h: 560px; } }
-@media (max-width: 639px) { #features .panel { --p-h: 164px; } #pantry .panel { --p-h: 348px; } .pc-panel .ph { top: 20px; width: 300px; } .off-phone { display: none; } }
+.hero__art > .ly-piece--main.bw { z-index: 1; bottom: calc(-1 * var(--ly-cut)); }
+.hero__art > .ly-piece--phone { right: var(--s-9); bottom: var(--s-6); width: 260px; z-index: 2; }
+.hero__art > .ly-piece--phone .ph__screen { min-height: 0; padding-bottom: 20px; }
+.hero__proof { font-size: var(--t-small); }
+@media (max-width: 1279px) { .hero__art > .ly-piece--phone { width: 240px; right: var(--s-6); } }
+#studio .panel { --p-h: 520px; }
+@media (min-width: 640px) and (max-width: 1023px) { #studio .panel { --p-h: 405px; margin-top: var(--s-7); } #apps .dp-stage { height: 506px; } }
+@media (max-width: 639px) { #studio .panel { --p-h: 255px; margin-top: var(--s-6); } #apps .dp-stage { height: 249px; } }
 </style>
 </head>
 <body>
-<!-- type: software (an app studio selling its own software; site-kind software)
-     deal: hero collage · palette clay-pine (warm stone and pine green: the kitchen table the app plans for,
-     and the Maine pine where the LLC is registered) · type mona (Mona Sans + Geist Mono) · nav nav-centre
-     (re-dealt from nav-cards: no photographs on the page) · footer footer-columns · close close-type ·
-     rhythm surface-pairs (#features) · buttons tonal · mark ring · radius round (consumer app) ·
-     effect gradient-mesh, still, in the hero art · card grounds painterly-landscape (#features) ·
-     grounds: pantry bg-dusk, questions bg-band · ground sand
-     moments: liquid-type on the statement in #studio (the studio's one line ripples under the pointer)
-     motion, why it moves: hero entrance (the name arrives, then what to do); the hero's grocery-list card
-     steps in its three results (the page's one timed loop); liquid-type in #studio (the one-person line is
-     the studio's identity, worth a touch); hover layer everywhere (every link answers)
-     voice: founder's letter (copy-registers 3); plain, not folksy; "you" for the family, DinnerPilot the
-     subject of feature lines; sentences 8 to 16 words; no jokes in the hero or the FAQ; house words: week,
-     plan, grocery list, budget, swap, traditions, Pantry Chef; never virtue words or invented figures.
-     screens: hero 1 · dinnerpilot 1 · features 2 (g2) · pantry 1 · studio 1 · questions 1 · footer 1 -->
+<!-- type: software (a company page for an app maker with a web studio; site-kind software)
+     deal: hero collage · palette clay-pine · type mona (Mona Sans + Geist Mono) · nav nav-centre ·
+     footer footer-columns · close close-type · buttons tonal · mark ring · radius round ·
+     effect gradient-mesh, still, in the hero art · grounds: studio ground-surface ·
+     moment liquid-type on the about statement
+     motion, why it moves: hero entrance (the name arrives, then what to do); liquid-type in #about (the
+     company's one line, worth a touch); hover layer everywhere (every link answers)
+     voice: plain company voice, "we" for Clubhouse Apps, "you" for the reader; no virtue words, no invented figures
+     screens: hero 1 · apps 1 · studio 1 · about 1 · footer 1 -->
 
+<!-- site:header current=home -->
 <header class="nav nav--centre">
   <div class="wrap nav__bar">
     <a class="skip-link" href="#top">Skip to content</a>
-    <a class="nav__logo" href="#top"><span class="mark" data-mark="ring" aria-hidden="true"></span>Clubhouse Apps</a>
+    <a class="nav__logo" href="/" aria-current="page"><span class="mark" data-mark="ring" aria-hidden="true"></span>Clubhouse Apps</a>
     <nav class="nav__links" aria-label="Main">
       <div class="nav__item">
-        <a class="nav__link" href="#dinnerpilot">DinnerPilot <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="nav__link" href="/#apps">Apps <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="nav__menu">
           <div class="wrap grid">
             <div class="menu-col span-3">
-              <p class="t-label">On this page</p>
-              <a href="#dinnerpilot">The week<span>Every meal, priced before you shop</span></a>
-              <a href="#pantry">Pantry Chef<span>Dinner from what you already have</span></a>
+              <p class="t-label">Our apps</p>
+              <a href="/dinnerpilot/">DinnerPilot<span>Weekly meal plans and grocery lists for families</span></a>
             </div>
             <div class="menu-col span-3">
-              <p class="t-label">The app</p>
-              <a href="/dinnerpilot/privacy/">Privacy<span>What the app stores, and why</span></a>
-              <a href="/dinnerpilot/terms/">Terms<span>Pro, billing and the trial</span></a>
+              <p class="t-label">DinnerPilot help</p>
+              <a href="/dinnerpilot/account/">Account help<span>Password resets and email links</span></a>
+              <a href="/dinnerpilot/data-deletion/">Delete your data<span>How to remove your account</span></a>
             </div>
           </div>
         </div>
       </div>
-      <div class="nav__item"><a class="nav__link" href="#features">Features</a></div>
-      <div class="nav__item"><a class="nav__link" href="#studio">Studio</a></div>
-      <div class="nav__item"><a class="nav__link" href="#questions">Questions</a></div>
+      <div class="nav__item"><a class="nav__link" href="/studio/">Studio</a></div>
+      <div class="nav__item"><a class="nav__link" href="/#about">About</a></div>
     </nav>
     <div class="nav__actions">
-      <a class="btn btn--primary" href="/dinnerpilot/">See DinnerPilot</a>
+      <a class="btn btn--primary" href="/#contact">Get in touch</a>
     </div>
     <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
       <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
     </button>
   </div>
 </header>
+<!-- /site:header -->
 
 <main id="top">
   <section class="hero hero--collage" data-enter aria-labelledby="hero-h">
     <div class="wrap"><div class="hero-text grid hero__grid">
       <div class="hero__text span-5">
-        <h1 id="hero-h">iPhone apps from a one&#8209;person studio in Maine</h1>
-        <p class="hero__lead">The first is DinnerPilot: it plans your family&rsquo;s week of meals and writes the grocery list, inside a budget you set.</p>
+        <h1 id="hero-h">iPhone apps for families, websites for local businesses</h1>
+        <p class="hero__lead">Clubhouse Apps makes DinnerPilot, the meal planner that fits a family&rsquo;s week to its grocery budget. Our Studio builds fast, custom websites for trades, restaurants and small shops.</p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="/dinnerpilot/">See DinnerPilot<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
-          <a class="btn btn--secondary" href="#studio">Read the story</a>
+          <a class="btn btn--primary" href="#apps">See our apps<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+          <a class="btn btn--secondary" href="/studio/">Get a website</a>
         </div>
         <p class="hero__proof">DinnerPilot is in TestFlight now.</p>
       </div>
-      <div class="hero__art span-6 start-7" role="img" aria-label="DinnerPilot&rsquo;s home screen, with the week on track at $230 of a $250 budget, and a grocery-list summary card">
+      <div class="hero__art span-6 start-7" role="img" aria-label="A website the Studio built for a sample electrician, and DinnerPilot&rsquo;s home screen with the week on track at $230 of a $250 budget">
         <div class="hero__fx" data-fx="gradient-mesh" data-fx-seed="11" data-fx-palette='{"bg":"#d9ccb7","surface":"#e9e0d2","ink":"#2a2622","muted":"#6f675c","accent":"#a8794a"}' data-fx-params='{"speed":0,"calm":0.2,"calmX":0.5,"calmY":0.92,"tint":0.6,"relief":0.35}' style="--calm-k:0%" aria-hidden="true"></div>
-        <div class="ly-piece ly-piece--main ph ui" aria-hidden="true">
+        <div class="ly-piece ly-piece--main bw ui" aria-hidden="true">
+          <div class="bw__bar"><i></i><i></i><i></i><span class="bw__url">sparkys-electric</span></div>
+          <div class="sp__nav"><b>Sparky&rsquo;s</b><span><em>Services</em><em>Shop</em><em>Reviews</em><em>Contact</em></span></div>
+          <p class="sp__h">Panels.<br>Plugs.<br>Power.</p>
+          <p class="sp__lead">Licensed electricians for homes and small shops. Same-week visits, prices up front.</p>
+          <p class="sp__cta">Book a same-week visit</p>
+          <div class="sp__stripe"></div>
+        </div>
+        <div class="ly-piece ly-piece--phone ph ui" aria-hidden="true">
           <div class="ph__screen">
             <div class="ph__head"><img src="assets/dp-icon.png" alt="" width="28" height="28"><div><b>DinnerPilot</b><small>Week of Nov 10</small></div></div>
             <div class="ph__banner"><b>Your week is on track</b><span>$230 of $250 spent &middot; $20 left</span><i class="ph__bar"><u></u></i></div>
             <div class="ph__cta">Build Grocery List</div>
-            <div class="ph__label">Monday</div>
-            <div class="ph__meal"><small>Breakfast</small><b>Overnight oats, berries</b><span>$8 est</span></div>
-            <div class="ph__meal"><small>Lunch</small><b>Turkey cheddar wraps</b><span>$11 est</span></div>
-            <div class="ph__meal"><small>Dinner</small><b>Honey Garlic Salmon</b><span>$18 est</span></div>
+            <div class="ph__label">Tonight</div>
+            <div class="ph__meal"><small>Dinner</small><b>Garlic salmon</b><span>$18</span></div>
           </div>
-        </div>
-        <div class="ly-piece ly-piece--note dpn ui" aria-hidden="true" data-ly-steps="700">
-          <div class="dpn__row"><h5>Grocery list</h5><span class="dpn__chip" data-step data-step-at="4">Ready</span></div>
-          <div class="dpn__line" data-step><i>&#10003;</i><span><b>41 items</b> to buy</span></div>
-          <div class="dpn__line" data-step><i>&#10003;</i><span><b>15</b> already at home, crossed off</span></div>
-          <div class="dpn__line" data-step><i>&#10003;</i><span>Est. <b>$230.49</b>, $20 under budget</span></div>
         </div>
       </div>
     </div></div>
   </section>
 
-  <section class="section" id="dinnerpilot" aria-labelledby="dp-h">
+  <section class="section" id="apps" aria-labelledby="apps-h">
     <div class="wrap">
       <div class="grid grid--top">
-        <div class="section-head span-5" style="margin-bottom: 0"><h2 id="dp-h">A week of meals on one screen. <span class="muted">Priced before you shop.</span></h2></div>
+        <div class="section-head span-5" style="margin-bottom: 0">
+          <p class="app-name"><img src="assets/dp-icon.png" alt="" width="40" height="40" loading="lazy">DinnerPilot</p>
+          <h2 id="apps-h">Our first app plans the family&rsquo;s week of meals, inside a grocery budget</h2>
+        </div>
         <div class="span-6 start-7 stack-3">
-          <p>DinnerPilot plans breakfast, lunch and dinner from 2,532 recipes that fit a family of four, prices the week in estimated totals, and swaps any meal you don&rsquo;t like.</p>
+          <p>DinnerPilot builds breakfast, lunch and dinner from 2,532 recipes, writes the grocery list and swaps any meal you don&rsquo;t like. Pantry Chef, part of Pro, turns what is in your fridge into dinner.</p>
+          <p class="off-phone">In TestFlight for iPhone now. Free with ads; Pro is $5.99 a month.</p>
           <a class="link" href="/dinnerpilot/">See DinnerPilot</a>
         </div>
       </div>
-      <div class="frame frame--lit dp-stage" role="img" aria-label="Three DinnerPilot screens: the weekend&rsquo;s meals, the grocery list at an estimated $230.49, and a dinner swap with three replacements">
+      <div class="frame frame--lit dp-stage" role="img" aria-label="Three DinnerPilot screens: Friday and Saturday&rsquo;s meals, the grocery list at an estimated $230.49, and a dinner swap with three replacements">
         <div class="stage stage--fade-b" aria-hidden="true">
           <div class="ph ui">
             <div class="ph__screen">
               <div class="ph__head"><img src="assets/dp-icon.png" alt="" width="28" height="28" loading="lazy"><div><b>This week</b><small>Friday to Sunday</small></div></div>
               <div class="ph__label">Friday</div>
-              <div class="ph__meal"><small>Lunch</small><b>Grilled cheese and soup</b><span>$9 est</span></div>
-              <div class="ph__meal"><small>Dinner</small><b>Homemade pizza night</b><span>$13 est</span></div>
+              <div class="ph__meal"><small>Lunch</small><b>Grilled cheese, soup</b><span>$9 est</span></div>
+              <div class="ph__meal"><small>Dinner</small><b>Pizza night</b><span>$13 est</span></div>
               <div class="ph__label">Saturday</div>
               <div class="ph__meal"><small>Breakfast</small><b>Pancakes and fruit</b><span>$7 est</span></div>
               <div class="ph__meal"><small>Dinner</small><b>Slow cooker chili</b><span>$15 est</span></div>
-              <div class="ph__label">Sunday</div>
-              <div class="ph__meal"><small>Dinner</small><b>Sunday roast chicken</b><span>$17 est</span></div>
             </div>
           </div>
           <div class="ph ui">
@@ -247,7 +180,6 @@
               <div class="ph__row"><i></i><b>Broccoli crowns, 2</b><span>$3.49</span></div>
               <div class="ph__row"><i></i><b>Garlic, 1 head</b><span>$0.79</span></div>
               <div class="ph__row"><i></i><b>Lemons, 3</b><span>$2.37</span></div>
-              <div class="ph__label">Pantry staples</div>
               <div class="ph__row is-done"><i>&#10003;</i><b>Rice, 2 lb</b><span>at home</span></div>
             </div>
           </div>
@@ -267,173 +199,57 @@
     </div>
   </section>
 
-  <section class="section g2 ground-surface" id="features" aria-labelledby="f-h">
-    <div class="wrap">
-      <div class="group">
-        <div class="section-head">
-          <h2 id="f-h">Budget, diets and traditions, built in. <span class="muted">The plan works around them.</span></h2>
-        </div>
-        <div class="grid">
-          <article class="card card--row card--open span-6">
-            <h3>Prices the plan up front</h3>
-            <p>Set a weekly grocery budget, and every plan is priced against it in estimated totals.</p>
-            <div class="panel" data-fx="painterly-landscape" data-fx-seed="21" data-fx-palette='{"bg":"#d9ccb7","accent":"#a8794a"}' data-fx-params='{"blur":1,"brush":0.3,"slope":0,"hillY":0.28,"horizon":0.6,"calm":0.2,"calmX":0.5,"calmY":0.85,"drift":0,"side":1}' style="--calm-k:0%" role="img" aria-label="DinnerPilot&rsquo;s budget chart: $230.49 spent this week, $20 under a $250 budget">
-              <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max: 420px; --ax: max(24px, 50% - 210px); --ay: 48px; --ay-sm: 24px" data-ui-loop>
-                <div class="ui ui-panel ui-stat" data-ui="stat" data-values="196,212,188,224,205,231,214,238,221,243,226,247,233,230" data-prev="178,195,172,201,188,214,196,219,203,224,208,229,215,212">
-                  <div class="ui-stat__head">
-                    <div class="ui-stat__top">
-                      <span class="ui-stat__label">Spent this week</span>
-                      <span class="ui-stat__range">Week of Nov 10<svg class="ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 6.5 3.5 3.5 3.5-3.5"/></svg></span>
-                    </div>
-                    <div class="ui-stat__line">
-                      <span class="ui-stat__num" data-stat-num>$230.49</span>
-                      <span class="ui-chip ui-chip--plain ui-stat__delta">$20 under</span>
-                      <span class="ui-stat__sub">of a $250 budget</span>
-                    </div>
-                  </div>
-                  <div class="ui-stat__chart">
-                    <svg class="ui-stat__svg" viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true">
-                      <path class="ui-stat__grid" d="M0 30.5H400M0 60.5H400M0 90.5H400"/>
-                      <path class="ui-stat__cover" fill-rule="evenodd" d=""/>
-                      <g class="ui-stat__bars"></g>
-                    </svg>
-                    <div class="ui-stat__axis" aria-hidden="true"><span>Mon</span><span>Thu</span><span>Sun</span></div>
-                  </div>
-                </div>
-              </div></div>
-            </div>
-          </article>
-          <article class="card card--row card--open span-6">
-            <h3>Reminds you at 6:30</h3>
-            <p>A cooking reminder at the time you pick, and a note when the grocery list is ready.</p>
-            <div class="panel" data-fx="painterly-landscape" data-fx-seed="8" data-fx-palette='{"bg":"#a3b0b6","accent":"#c49a6c"}' data-fx-params='{"blur":1,"brush":0.35,"slope":0,"hillY":0.3,"horizon":0.62,"calm":0.2,"calmX":0.6,"calmY":0.85,"drift":0,"side":1}' style="--calm-k:0%" role="img" aria-label="Three DinnerPilot notifications: a 6:30 cooking reminder, the grocery list ready, the week planned">
-              <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max: 380px; --ax: max(24px, 50% - 190px); --ay: calc(100% - 196px); --ay-sm: 24px">
-                <div class="ui ui-notify" data-ui="notify">
-                  <ul class="ui-notify__list" data-notify-list>
-                    <li class="ui-note"><span class="ui-agent ui-note__av" aria-hidden="true"></span><span class="ui-note__text"><span class="ui-note__title">Time to start dinner<time>6:30 PM</time></span><span class="ui-note__body">Baked chicken thighs, 45 minutes</span></span><span class="ui-btn ui-btn--sm ui-note__btn">Open</span></li>
-                    <li class="ui-note"><span class="ui-note__ico"><svg class="ui-icon" viewBox="0 0 16 16"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg></span><span class="ui-note__text"><span class="ui-note__title">Grocery list ready<time>9:02</time></span><span class="ui-note__body">41 items, est. $230.49</span></span></li>
-                    <li class="ui-note"><span class="ui-note__ico"><svg class="ui-icon" viewBox="0 0 16 16"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg></span><span class="ui-note__text"><span class="ui-note__title">Week planned<time>Sun</time></span><span class="ui-note__body">21 meals, $230 of $250</span></span></li>
-                  </ul>
-                </div>
-              </div></div>
-            </div>
-          </article>
-        </div>
-      </div>
-      <div class="grid">
-        <article class="card card--row card--open span-6">
-          <h3>Filters the plan for diets</h3>
-          <p>Dietary needs and disliked ingredients filter every recipe before it reaches the plan.</p>
-          <div class="panel" data-fx="painterly-landscape" data-fx-seed="34" data-fx-palette='{"bg":"#cdd6c6","accent":"#6c8e63"}' data-fx-params='{"blur":1,"brush":0.3,"slope":0,"hillY":0.3,"horizon":0.64,"calm":0.2,"calmX":0.4,"calmY":0.85,"drift":0,"side":1}' style="--calm-k:0%" role="img" aria-label="DinnerPilot&rsquo;s dietary needs: gluten-free and nut-free on, dairy-free and keto off, mushrooms skipped">
-            <div class="stage stage--fade-b"><div class="at-right to-edge" style="--ax: 32px; --ay: 52px; --ay-sm: 24px">
-              <div class="ui ui-panel ui-toggles" data-ui="toggles">
-                <div class="ui-head">
-                  <svg class="ui-icon ui-toggles__ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.8 13 4v3.6c0 3-2.1 5.4-5 6.6-2.9-1.2-5-3.6-5-6.6V4z"/><path d="m5.8 8 1.6 1.6 3-3.2"/></svg>
-                  <div class="ui-title">Dietary needs</div>
-                  <span class="ui-spacer"></span>
-                  <div class="ui-meta" data-tg-count>3 of 5 on</div>
-                </div>
-                <ul class="ui-toggles__list">
-                  <li class="ui-tg"><span class="ui-tg__text"><span class="ui-tg__label">Gluten-free</span><span class="ui-tg__sub">Checked on every recipe</span></span><button class="ui-switch is-on" type="button" role="switch" aria-checked="true" aria-label="Gluten-free"><i></i></button></li>
-                  <li class="ui-tg"><span class="ui-tg__text"><span class="ui-tg__label">Nut-free</span><span class="ui-tg__sub">Dinners and snacks</span></span><button class="ui-switch is-on" type="button" role="switch" aria-checked="true" aria-label="Nut-free"><i></i></button></li>
-                  <li class="ui-tg"><span class="ui-tg__text"><span class="ui-tg__label">Dairy-free</span><span class="ui-tg__sub">Off for this family</span></span><button class="ui-switch" type="button" role="switch" aria-checked="false" aria-label="Dairy-free"><i></i></button></li>
-                  <li class="ui-tg"><span class="ui-tg__text"><span class="ui-tg__label">Keto</span><span class="ui-tg__sub">Off for this family</span></span><button class="ui-switch" type="button" role="switch" aria-checked="false" aria-label="Keto"><i></i></button></li>
-                  <li class="ui-tg"><span class="ui-tg__text"><span class="ui-tg__label">Skip mushrooms</span><span class="ui-tg__sub">From the avoid list</span></span><button class="ui-switch is-on" type="button" role="switch" aria-checked="true" aria-label="Skip mushrooms"><i></i></button></li>
-                </ul>
-              </div>
-            </div></div>
-          </div>
-        </article>
-        <article class="card card--row card--open span-6">
-          <h3>Plans around your traditions</h3>
-          <p>Taco Tuesday, pizza night and Sunday supper are planned around, not written over.</p>
-          <div class="panel" data-fx="painterly-landscape" data-fx-seed="47" data-fx-palette='{"bg":"#c6d3df","accent":"#3f6a92"}' data-fx-params='{"blur":1,"brush":0.3,"slope":0,"hillY":0.3,"horizon":0.6,"calm":0.2,"calmX":0.55,"calmY":0.85,"drift":0,"side":1}' style="--calm-k:0%" role="img" aria-label="DinnerPilot&rsquo;s family traditions: Taco Tuesday, pizza Friday, Sunday supper and breakfast for dinner, all planned">
-            <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max: 340px; --ax: max(24px, 50% - 170px); --ay: 44px; --ay-sm: 24px">
-              <div class="ui ui-panel ui-checks" data-ui="checklist">
-                <div class="ui-checks__head">
-                  <div class="ui-title">Family traditions</div>
-                  <span class="ui-spacer"></span>
-                  <div class="ui-meta" data-checks-count>4 of 4 planned</div>
-                </div>
-                <div class="ui-checks__bar"><i data-checks-bar style="--k:1"></i></div>
-                <ul class="ui-checks__list">
-                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Taco Tuesday, planned Tuesday</span></li>
-                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Pizza Friday, planned Friday</span></li>
-                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Sunday supper, planned Sunday</span></li>
-                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Breakfast for dinner, Thursday</span></li>
-                </ul>
-              </div>
-            </div></div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section bg-dusk" id="pantry" aria-labelledby="p-h" style="--g-screen: calc(var(--h, 1) * 100svh)">
+  <section class="section ground-surface" id="studio" aria-labelledby="studio-h">
     <div class="wrap">
       <div class="grid grid--top">
         <div class="span-5 stack-4">
-          <div class="section-head" style="margin-bottom: 0"><h2 id="p-h">Pantry Chef turns your fridge into dinner</h2></div>
-          <p>Type what you have, or photograph the shelf. Pantry Chef writes three dinner recipes in 5 to 10 seconds, each labeled AI and sized to your family.</p>
-          <p class="off-phone">Part of DinnerPilot Pro, after a 7&#8209;day free trial. Every recipe can drop straight into your week.</p>
-          <a class="link" href="/dinnerpilot/">See DinnerPilot</a>
+          <p class="t-label">Clubhouse Apps Studio</p>
+          <div class="section-head" style="margin-bottom: 0"><h2 id="studio-h">Websites for the local businesses the internet still forgets</h2></div>
+          <p>The Studio designs and builds custom websites for plumbers, electricians, contractors, restaurants and small shops. Fast to load, clear on a phone, and built around the call or booking that pays the bills.</p>
+          <ul class="rows off-phone">
+            <li><span class="rows__name">The Handoff</span><span class="rows__value">$2,000, you own everything</span></li>
+            <li><span class="rows__name">The Care Plan</span><span class="rows__value">$500, then $100 a month</span></li>
+          </ul>
+          <a class="link" href="/studio/">See the Studio</a>
         </div>
-        <div class="panel span-6 start-7 pc-panel" role="img" aria-label="Pantry Chef: six typed ingredients and the three AI recipes it wrote from them">
-          <div class="stage stage--fade-b" aria-hidden="true">
-            <div class="ph ui pc-ph">
-              <div class="ph__screen">
-                <div class="ph__head"><img src="assets/dp-icon.png" alt="" width="28" height="28" loading="lazy"><div><b>Pantry Chef</b><small>What do you have?</small></div></div>
-                <div class="ph__chips"><span>chicken thighs</span><span>rice</span><span>broccoli</span><span>garlic</span><span>lemon</span><span>soy sauce</span></div>
-                <div class="ph__label">Here are your recipes!</div>
-                <div class="ph__meal"><small class="ph__ai">AI</small><b>Garlic soy chicken, rice</b><span>30 min</span></div>
-                <div class="ph__meal"><small class="ph__ai">AI</small><b>Lemon roasted thighs</b><span>35 min</span></div>
-                <div class="ph__meal off-phone"><small class="ph__ai">AI</small><b>Garlic chicken rice bowl</b><span>25 min</span></div>
-                <div class="ph__cta off-phone">Add to My Week</div>
+        <div class="panel span-6 start-7" data-fx="painterly-landscape" data-fx-seed="34" data-fx-palette='{"bg":"#cdd6c6","accent":"#6c8e63"}' data-fx-params='{"blur":1,"brush":0.3,"slope":0,"hillY":0.3,"horizon":0.64,"calm":0.2,"calmX":0.5,"calmY":0.85,"drift":0,"side":1}' style="--calm-k:0%" role="img" aria-label="A Studio website project: the intro call, the quote and the preview done, the launch next">
+          <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max: 400px; --ax: max(24px, 50% - 200px); --ay: 64px; --ay-sm: 24px">
+            <div class="ui ui-panel ui-checks" data-ui="checklist">
+              <div class="ui-checks__head">
+                <div class="ui-title">Your website project</div>
+                <span class="ui-spacer"></span>
+                <div class="ui-meta" data-checks-count>3 of 4 done</div>
               </div>
+              <div class="ui-checks__bar"><i data-checks-bar style="--k:.75"></i></div>
+              <ul class="ui-checks__list">
+                <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Intro call, 20 minutes</span></li>
+                <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">One-page quote, approved</span></li>
+                <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Preview link, reviewed</span></li>
+                <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Live on your domain</span></li>
+              </ul>
             </div>
-          </div>
-        </div>
+          </div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section statement" id="studio" aria-label="The studio">
+  <section class="section statement" id="about" aria-label="About Clubhouse Apps">
     <div class="wrap stack-6">
-      <p class="t-label">The studio</p>
+      <p class="t-label">About Clubhouse Apps</p>
       <div data-moment="liquid-type">
-        <p class="mo-lt__type">Made by one person.</p>
+        <p class="mo-lt__type">Made with care, not by committee.</p>
       </div>
       <div class="grid">
-        <div class="span-5 stack-4">
-          <p>Clubhouse Apps is Dave Murray&rsquo;s app studio, formed in Maine in November 2026. One app gets full attention at a time; right now that is DinnerPilot. One person writes the code, draws the screens and answers the email. No outside funding, no dark patterns.</p>
-          <p>The studio also builds websites for local businesses: plumbers, electricians, restaurants and the small shops the internet still forgets. <a class="link" href="/studio/">See the web work</a></p>
-        </div>
-        <ul class="rows span-6 start-7 off-phone">
-          <li><span class="rows__name">Formed</span><span class="rows__value">Maine, November 2026</span></li>
-          <li><span class="rows__name">First app</span><span class="rows__value">DinnerPilot, in TestFlight</span></li>
-          <li><span class="rows__name">Contact</span><span class="rows__value"><a class="link" href="mailto:dave@clubhouseapps.com">Email the studio</a></span></li>
-        </ul>
+        <div class="span-4 stack-3"><h3>One job for each app</h3><p>Each app does one thing well instead of ten things poorly.</p></div>
+        <div class="span-4 stack-3"><h3>A privacy policy in plain words</h3><p>Your data is never sold, there are no analytics of our own, and each policy lists what the app stores.</p></div>
+        <div class="span-4 stack-3 off-phone"><h3>Built for the iPhone</h3><p>Fast, native apps that feel at home on iOS. No dark patterns and no bloat.</p></div>
       </div>
-    </div>
-  </section>
-
-  <section class="section bg-band" id="questions" aria-labelledby="q-h" style="--g-screen: calc(var(--h, 1) * 100svh)">
-    <div class="wrap">
-      <div class="grid grid--top">
-        <div class="span-5 stack-4">
-          <div class="section-head" style="margin-bottom: 0"><h2 id="q-h">Questions</h2></div>
-          <a class="link" href="mailto:dave@clubhouseapps.com">Email the studio</a>
-        </div>
-        <div class="faq span-6 start-7">
-          <div class="faq__item"><h3>When can I get DinnerPilot?</h3><p>It is in TestFlight for iPhone now; the App Store launch comes next. There is no Android version.</p></div>
-          <div class="faq__item"><h3>What is the price of Pro?</h3><p>$5.99 a month or $39.99 a year, with a 7&#8209;day free trial. Pantry Chef and photo scan are Pro features with daily limits.</p></div>
-          <div class="faq__item off-phone"><h3>Can I add my own recipes to the plan?</h3><p>Yes, by hand, or photograph a cookbook page and the app fills the recipe in. The photo scan is a Pro feature.</p></div>
-          <div class="faq__item"><h3>Are the grocery prices real?</h3><p>They are estimates from national averages, labeled that way in the app.</p></div>
-          <div class="faq__item"><h3>What about my family&rsquo;s privacy?</h3><p>It is never sold. The <a class="link" href="/dinnerpilot/privacy/">privacy policy</a> lists exactly what the app stores.</p></div>
-        </div>
-      </div>
+      <ul class="rows off-phone">
+        <li><span class="rows__name">Apps</span><span class="rows__value">DinnerPilot, for iPhone</span></li>
+        <li><span class="rows__name">Studio</span><span class="rows__value">Websites for local businesses</span></li>
+        <li><span class="rows__name">Company</span><span class="rows__value">Clubhouse Apps LLC</span></li>
+      </ul>
     </div>
   </section>
 </main>
@@ -442,36 +258,40 @@
   <div class="wrap">
     <div class="closing__cta close--type">
       <div class="section-head">
-        <h2 id="close-h">See what a planned week looks like</h2>
-        <p class="t-small muted">DinnerPilot is in TestFlight now; the product page has the screenshots and the sign&#8209;up.</p>
+        <h2 id="close-h">A question about an app, or a website?</h2>
+        <p class="t-small muted">Email dave@clubhouseapps.com. We reply within one business day.</p>
       </div>
-      <a class="btn btn--primary btn--xl btn--wide" href="/dinnerpilot/">See DinnerPilot<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+      <a class="btn btn--primary btn--xl btn--wide" href="mailto:dave@clubhouseapps.com">Get in touch<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
     </div>
     <div class="closing__links">
-      <div class="grid">
+      <!-- site:footer-links -->
+<div class="grid">
         <div class="span-4 stack-4">
-          <a class="nav__logo" href="#top"><span class="mark" data-mark="ring" aria-hidden="true"></span>Clubhouse Apps</a>
-          <p class="footer__lede">iPhone apps from one person in Maine.</p>
+          <a class="nav__logo" href="/"><span class="mark" data-mark="ring" aria-hidden="true"></span>Clubhouse Apps</a>
+          <p class="footer__lede">Apps for everyday life. Websites for local business.</p>
         </div>
-        <div class="span-2 footer__col"><h3>DinnerPilot</h3><ul><li><a href="/dinnerpilot/">See DinnerPilot</a></li><li><a href="/dinnerpilot/privacy/">Privacy</a></li><li><a href="/dinnerpilot/terms/">Terms</a></li><li><a href="/dinnerpilot/data-deletion/">Data deletion</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Features</h3><ul><li><a href="#dinnerpilot">The week</a></li><li><a href="#features">Budget and diets</a></li><li><a href="#pantry">Pantry Chef</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Studio</h3><ul><li><a href="#studio">The story</a></li><li><a href="/studio/">Websites</a></li><li><a href="/samples/">Samples</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Questions</h3><ul><li><a href="#questions">Questions</a></li><li><a href="mailto:dave@clubhouseapps.com">Contact</a></li></ul></div>
+        <div class="span-2 start-5 footer__col"><h3>Apps</h3><ul><li><a href="/dinnerpilot/">DinnerPilot</a></li><li><a href="/dinnerpilot/#pantry">Pantry Chef</a></li><li><a href="/dinnerpilot/account/">Account help</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Studio</h3><ul><li><a href="/studio/">Websites</a></li><li><a href="/studio/#pricing">Pricing</a></li><li><a href="/studio/#contact">Get a quote</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Company</h3><ul><li><a href="/#about">About</a></li><li><a href="/#contact">Contact</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Legal</h3><ul><li><a href="/dinnerpilot/privacy/">Privacy policy</a></li><li><a href="/dinnerpilot/terms/">Terms of service</a></li><li><a href="/dinnerpilot/data-deletion/">Delete your data</a></li></ul></div>
       </div>
       <div class="footer__legal">
         <span>&copy; 2026 Clubhouse Apps LLC</span>
         <div class="socials"></div>
       </div>
+<!-- /site:footer-links -->
     </div>
   </div>
 </footer>
 
 <nav class="actionbar" aria-label="Quick actions">
-  <a class="btn btn--primary" href="/dinnerpilot/">See DinnerPilot</a>
+  <a class="btn btn--primary" href="#contact">Get in touch</a>
 </nav>
 
+<!-- site:scripts -->
 <script type="module" src="assets/system.js"></script>
 <script type="module" src="assets/motion/motion.js"></script>
 <script type="module" src="assets/layout/layout.js"></script>
+<!-- /site:scripts -->
 </body>
 </html>

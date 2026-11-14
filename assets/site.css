@@ -1,0 +1,174 @@
+/* Clubhouse Apps: the site's own CSS, shared by every page (the kit's files stay untouched).
+   1. the hand-drawn product visuals: the DinnerPilot phone (.ph), the grocery note (.dpn), the browser window (.bw)
+   2. the reading layout for text pages: Privacy, Terms, Data deletion, Account, Samples (.doc) */
+
+/* ---------------------------------------------------------------- 1. visuals */
+/* the DinnerPilot phone, drawn as live HTML (no screenshots): its own warm surface and the app's own orange */
+.ph { background: #2a2d27; border-radius: 42px; padding: 9px; box-shadow: 0 32px 64px -32px rgb(34 38 31 / .5); }
+.ph__screen { background: #faf7f2; border-radius: 34px; overflow: hidden; padding: 18px 16px; display: grid; gap: 12px; align-content: start; min-height: 700px; }
+.ph__head { display: flex; align-items: center; gap: 10px; }
+.ph__head img { width: 28px; height: 28px; border-radius: 7px; }
+.ph__head b { display: block; font: 500 15px/1.2 var(--font-text); color: #1f2019; }
+.ph__head small { display: block; font-size: 12px; color: #77786e; }
+.ph__banner { background: #eef3ea; border: 1px solid rgb(61 122 95 / .25); border-radius: 14px; padding: 12px 14px; display: grid; gap: 6px; }
+.ph__banner b { font: 500 14px/1.3 var(--font-text); color: #27432f; }
+.ph__banner span { font-size: 12px; color: #51614f; }
+.ph__bar { display: block; height: 6px; border-radius: 3px; background: rgb(61 122 95 / .18); }
+.ph__bar u { display: block; height: 100%; width: 92%; border-radius: 3px; background: #3d7a5f; }
+.ph__cta { background: #d4713b; color: #fff; border-radius: 12px; padding: 10px 14px; text-align: center; font: 500 14px/1.2 var(--font-text); }
+.ph__label { font: 500 12px/1 var(--font-text); color: #77786e; margin-top: 4px; }
+.ph__meal { display: grid; grid-template-columns: 58px minmax(0, 1fr) auto; align-items: center; gap: 10px; background: #fff; border: 1px solid rgb(0 0 0 / .07); border-radius: 12px; padding: 10px 12px; }
+.ph__meal small { font-size: 11px; color: #8a8b80; }
+.ph__meal b { font: 500 13px/1.3 var(--font-text); color: #1f2019; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ph__meal span { font-size: 12px; color: #77786e; font-variant-numeric: tabular-nums; }
+.ph__chip { justify-self: start; font-size: 11px; font-weight: 500; color: #27432f; background: #e3ecdf; border-radius: 999px; padding: 3px 8px; }
+.ph__row { display: grid; grid-template-columns: 18px minmax(0, 1fr) auto; align-items: center; gap: 10px; background: #fff; border: 1px solid rgb(0 0 0 / .07); border-radius: 12px; padding: 9px 12px; font-size: 13px; color: #1f2019; }
+.ph__row i { width: 18px; height: 18px; border-radius: 6px; border: 1.5px solid #c9c5ba; display: grid; place-items: center; font-style: normal; font-size: 11px; }
+.ph__row.is-done i { background: #3d7a5f; border-color: #3d7a5f; color: #fff; }
+.ph__row.is-done b, .ph__row.is-done span { color: #a3a49a; text-decoration: line-through; }
+.ph__row b { font-weight: 400; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ph__row span { font-size: 12px; color: #77786e; font-variant-numeric: tabular-nums; }
+.ph__chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.ph__chips span { font-size: 12px; color: #1f2019; background: #fff; border: 1px solid rgb(0 0 0 / .1); border-radius: 999px; padding: 4px 10px; }
+.ph__total { display: grid; gap: 2px; background: #fff; border: 1px solid rgb(0 0 0 / .07); border-radius: 12px; padding: 12px 14px; }
+.ph__total b { font: 500 20px/1.2 var(--font-text); color: #1f2019; }
+.ph__total small { font-size: 12px; color: #77786e; }
+.ph__ai { display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: .02em; color: #6a4f86; background: #efe9f7; border-radius: 4px; padding: 2px 5px; }
+
+/* a small white card that sits over a collage (layout.js steps it with data-ly-steps) */
+.dpn { background: #fff; border-radius: var(--r-md); border: 1px solid rgb(0 0 0 / .08); box-shadow: 0 18px 40px -20px rgb(34 38 31 / .45); padding: 14px 16px; }
+.dpn__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
+.dpn__row h5 { margin: 0; font: 500 14px/1.2 var(--font-text); color: #1f2019; }
+.dpn__chip { font-size: 11px; font-weight: 500; color: #27432f; background: #e3ecdf; border-radius: 999px; padding: 3px 8px; white-space: nowrap; }
+.dpn__line { display: flex; align-items: center; gap: 10px; padding: 7px 0; font-size: 13px; color: #3d4239; border-top: 1px solid rgb(0 0 0 / .06); }
+.dpn__line:first-of-type { border-top: 0; }
+.dpn__line i { width: 18px; height: 18px; border-radius: 50%; flex: none; display: grid; place-items: center; background: #e3ecdf; color: #27432f; font-style: normal; font-size: 12px; }
+.dpn__line b { font-weight: 500; color: #1f2019; }
+
+/* a browser window holding a Studio sample site (Sparky's Electric, the Studio's fictional sample):
+   one box, the light tab bar on top and the dark page under it */
+.bw { background: #111110; color: #f4f1ea; border-radius: var(--r-md); overflow: hidden; border: 1px solid rgb(0 0 0 / .08);
+      box-shadow: 0 32px 64px -32px rgb(34 38 31 / .5); display: grid; gap: 16px; align-content: start; padding-bottom: 24px; }
+.bw > :not(.bw__bar) { margin-inline: 24px; }
+.bw__bar { display: flex; align-items: center; gap: 7px; height: 36px; padding: 0 14px; background: #ece7df; border-bottom: 1px solid rgb(0 0 0 / .08); margin-bottom: 2px; }
+.bw__bar i { width: 10px; height: 10px; border-radius: 50%; background: #cfc8bc; flex: none; }
+.bw__url { margin-left: 10px; width: min(260px, 60%); height: 22px; border-radius: 6px; background: #fff; font: 12px/22px var(--font-text); color: #77786e; padding: 0 10px; white-space: nowrap; overflow: hidden; }
+.sp__nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; font: 500 11px/1 var(--font-text); letter-spacing: .08em; text-transform: uppercase; color: #bdb8ab; }
+.sp__nav b { font: 600 17px/1 var(--font-display); font-stretch: 75%; letter-spacing: .02em; color: #ffd400; }
+.sp__nav span { display: flex; gap: 16px; }
+.sp__nav em { font-style: normal; }
+@media (max-width: 1279px) { .sp__nav em:nth-of-type(n+3) { display: none; } }
+.sp__h { margin-top: 8px; font: 600 62px/.9 var(--font-display); font-stretch: 75%; letter-spacing: 0; text-transform: uppercase; color: #ffd400; }
+.sp__lead { font-size: 14px; line-height: 1.5; color: #cfcabd; max-width: 36ch; }
+.sp__cta { background: #ffd400; color: #111110; font: 600 13px/1 var(--font-text); letter-spacing: .04em; text-transform: uppercase; padding: 12px 16px; text-align: center; }
+.bw > .sp__stripe { height: 12px; margin-inline: 0; background: repeating-linear-gradient(-45deg, #ffd400 0 12px, #111110 12px 24px); }
+.sp__cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.sp__cards p { background: #1f1f1c; padding: 12px; font-size: 12px; line-height: 1.4; color: #bdb8ab; }
+.sp__cards b { display: block; margin-bottom: 4px; font: 600 14px/1.2 var(--font-display); font-stretch: 75%; letter-spacing: .02em; text-transform: uppercase; color: #f4f1ea; }
+
+/* the lit stage of DinnerPilot screens: three phones at 1280 and up, two at 1024, one below */
+.dp-stage { position: relative; height: 540px; margin-top: var(--s-7); overflow: hidden; }
+@media (min-width: 640px) and (max-width: 1023px) { .dp-stage { height: 600px; } }
+.dp-stage .stage { position: absolute; inset: 0; }
+.dp-stage .ph { position: absolute; top: 48px; width: 330px; }
+.dp-stage .ph:nth-of-type(1) { left: 56px; }
+.dp-stage .ph:nth-of-type(2) { left: 50%; transform: translateX(-50%); }
+.dp-stage .ph:nth-of-type(3) { right: 56px; }
+@media (max-width: 1279px) { .dp-stage .ph:nth-of-type(3) { display: none; } .dp-stage .ph:nth-of-type(1) { left: 48px; } .dp-stage .ph:nth-of-type(2) { left: auto; right: 48px; transform: none; } }
+@media (max-width: 1023px) { .dp-stage .ph:nth-of-type(2) { display: none; } .dp-stage .ph:nth-of-type(1) { left: 50%; transform: translateX(-50%); } }
+@media (max-width: 639px) {
+  .dp-stage { height: 330px; }
+  .dp-stage .ph { top: 24px; width: min(310px, calc(100% - 32px)); }
+  .dp-stage .ph:nth-of-type(1) { left: 50%; transform: translateX(-50%); }
+  .ph__screen { min-height: 440px; }
+  .dp-stage .ph__screen > :nth-child(n+5) { display: none; }
+  .bw { gap: 12px; padding-bottom: 16px; }
+  .bw > :not(.bw__bar) { margin-inline: 16px; }
+  .bw > .sp__stripe { margin-inline: 0; }
+  .sp__h { font-size: 38px; }
+  .sp__nav span, .bw > :is(.sp__lead, .sp__cta, .sp__stripe) { display: none; }
+}
+
+/* a phone that stands on its own panel (Pantry Chef, the Studio's phone view) */
+.pc-panel { position: relative; overflow: hidden; }
+.pc-panel .stage { position: absolute; inset: 0; }
+.pc-panel .ph { position: absolute; left: 50%; transform: translateX(-50%); top: 28px; width: 330px; }
+@media (max-width: 639px) { .pc-panel .ph { top: 20px; width: 300px; } .off-phone { display: none !important; } }
+
+/* pricing: the head and two plans. On a phone the section is two screens (g2m): the head with the
+   first plan, then the second plan; from 640 up the halves dissolve and the plans sit side by side */
+.pricing__a, .pricing__b { display: grid; gap: var(--s-5); align-content: start; }
+.pricing__a > *, .pricing__b > * { grid-column: 1 / -1; }
+@media (min-width: 640px) {
+  main > section#pricing > .wrap.pricing { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: var(--s-5); align-content: start; }
+  .pricing__a, .pricing__b { display: contents; }
+  .pricing .section-head { grid-column: 1 / -1; grid-row: 1; margin-bottom: var(--s-3); }
+  .pricing__a > .card--plan { grid-column: 1; grid-row: 2; }
+  .pricing__b > .card--plan { grid-column: 2; grid-row: 2; }
+  .pricing__note { grid-column: 1 / -1; grid-row: 3; }
+}
+
+/* the product line used in a section head: the app icon beside its name */
+.app-name { display: inline-flex; align-items: center; gap: var(--s-3); font: 500 var(--t-lead)/1.2 var(--font-text); }
+.app-name img { width: 40px; height: 40px; border-radius: 10px; }
+
+/* ---------------------------------------------------------------- 2. text pages */
+/* Privacy, Terms, Data deletion, Account and Samples: the same nav, type and footer as the rest of the site,
+   with a reading column instead of screen-sized sections. The page head names the app the page belongs to,
+   the side list shows its sibling pages. */
+.doc { padding-block: calc(var(--nav) + var(--s-9)) var(--s-10); }
+.doc__grid { align-items: start; }
+.doc__side { position: sticky; top: calc(var(--nav) + var(--s-6)); display: grid; gap: var(--s-3); }
+.doc__side .t-label { color: var(--muted); }
+.doc__side ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-1); }
+.doc__side a { display: block; padding: var(--s-2) var(--s-3); margin-inline: calc(-1 * var(--s-3)); border-radius: var(--r-sm); color: var(--ink); text-decoration: none; transition: background-color var(--dur) var(--ease); }
+.doc__side a:hover { background: color-mix(in oklab, var(--ink) 6%, transparent); }
+.doc__side a[aria-current="page"] { background: color-mix(in oklab, var(--ink) 9%, transparent); font-weight: 500; }
+.doc__head { display: grid; gap: var(--s-3); margin-bottom: var(--s-8); padding-bottom: var(--s-6); border-bottom: 1px solid var(--line); }
+.doc__head .t-label { color: var(--muted); }
+.doc__head h1 { font-size: var(--t-h1); }
+.doc__head .doc__updated { color: var(--muted); font-size: var(--t-small); }
+.prose { max-width: 68ch; }
+.prose > * + * { margin-top: var(--s-4); }
+.prose h2 { margin-top: var(--s-8); font: 500 var(--t-h3)/1.25 var(--font-display); letter-spacing: var(--display-tracking); }
+.prose h3 { margin-top: var(--s-6); font: 500 var(--t-lead)/1.4 var(--font-text); }
+.prose h2 + *, .prose h3 + * { margin-top: var(--s-3); }
+.prose p, .prose li { line-height: 1.7; }
+.prose ul, .prose ol { padding-left: 1.25em; display: grid; gap: var(--s-2); }
+.prose ul { list-style: disc; }
+.prose ol:not(.steps) { list-style: decimal; }
+.prose li::marker { color: var(--muted); }
+.prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: color-mix(in oklab, var(--accent) 40%, transparent); }
+.prose a:hover { text-decoration-color: currentColor; }
+.prose hr { border: 0; border-top: 1px solid var(--line); margin-block: var(--s-8); }
+.prose .callout { padding: var(--s-5); border-radius: var(--r-md); background: color-mix(in oklab, #b8662a 10%, var(--bg)); border: 1px solid color-mix(in oklab, #b8662a 30%, transparent); }
+.prose .box { padding: var(--s-6); border-radius: var(--r-md); background: var(--surface); display: grid; gap: var(--s-3); }
+.prose .box > h3 { margin: 0; }
+.prose .box > p { margin: 0; }
+.prose .box .muted { font-size: var(--t-small); }
+.prose .steps { list-style: none; padding: 0; counter-reset: step; display: grid; gap: var(--s-3); }
+.prose .steps > li { counter-increment: step; position: relative; padding-left: 36px; }
+.prose .steps > li::before { content: counter(step); position: absolute; left: 0; top: 2px; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 999px; background: var(--accent); color: var(--accent-ink, #fff); font: 500 12px/1 var(--font-text); }
+@media (max-width: 1023px) {
+  .doc { padding-block: calc(var(--nav) + var(--s-7)) var(--s-9); }
+  .doc__grid > * { grid-column: 1 / -1; }
+  .doc__side { position: static; grid-row: 2; margin-top: var(--s-8); padding-top: var(--s-6); border-top: 1px solid var(--line); }
+}
+
+/* the Account page (password reset): the kit's field look on a short column; its own script runs the form */
+.doc--narrow .prose { max-width: 440px; }
+.doc__crumb { display: inline-block; margin-bottom: var(--s-4); color: var(--muted); }
+.acct h1 { font-size: var(--t-h2); margin-bottom: var(--s-3); }
+.acct-form { display: grid; gap: var(--s-4); margin-top: var(--s-6); }
+.acct-form .btn { width: 100%; margin-top: var(--s-2); }
+.acct-form__msg { min-height: 1.4em; color: var(--error, #a3271b); font-size: var(--t-small); }
+[hidden] { display: none !important; }
+
+/* the Samples page's entries */
+.samples { display: grid; gap: var(--s-6); }
+.sample { display: grid; gap: var(--s-3); padding: var(--s-6); border-radius: var(--r-lg); background: var(--surface); }
+.sample__meta { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.sample__meta span { font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 999px; background: color-mix(in oklab, var(--ink) 8%, transparent); }
+.sample h2 { margin: 0; font: 500 var(--t-h3)/1.2 var(--font-display); letter-spacing: var(--display-tracking); }
+.sample .where { color: var(--muted); font-size: var(--t-small); }
+.sample .btn-row { margin-top: var(--s-2); }

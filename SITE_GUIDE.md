@@ -81,6 +81,7 @@ URL structure mirrors folder structure exactly. `index.html` files serve as the 
 | 2026-05-17 | `34288cf` | Add Privacy Policy, Terms of Service, Data Deletion pages; update footers |
 | 2026-05-17 | `3403e0d` | Move legal pages under /dinnerpilot/ to reflect org structure |
 | 2026-05-17 | `9599ff0` | Full visual redesign — modern, premium look |
+| 2026-11-13 | — | Homepage rebuilt with the Taste Skill kit (see the index.html section) |
 
 The major work happened on **2026-05-17**: legal pages were added, then immediately reorganized under `/dinnerpilot/` (they had initially been at the root), then the entire site got a full visual redesign in one large commit that touched all three primary files.
 
@@ -184,16 +185,32 @@ The DinnerPilot page adds `.btn-sm` (locally) for compact nav buttons and `.btn-
 
 **URL:** `clubhouseapps.com/`
 
-**Sections:**
+**Rebuilt 2026-11-13** with the Taste Skill design kit (`github.com/Leonxlnx/taste-skill`). The page no
+longer uses `assets/shared.css` (that stylesheet still serves every DinnerPilot page); it loads the kit
+stylesheets and scripts from `assets/` (system.css, ui/, motion/, backgrounds/, layout/, moments/,
+effects/ — only the files the page requests are committed). The look was "dealt" by the kit's scripts:
+clay-pine palette (warm stone ground `#efe9e0`, pine green accent `#2e5b44`), Mona Sans + Geist Mono,
+collage hero, tonal buttons, ring mark.
 
-1. **Nav** — "ClubhouseApps" wordmark (orange `<span>` on the s), links to #apps and #about
-2. **Hero** — "CA" monogram watermark, warm radial gradient + dot-grid background, headline "Apps built for real life."
-3. **Apps section** — 3-column grid with one live app card (DinnerPilot) and two placeholder cards ("Something New", "In the Works")
-4. **About section** — 2-column layout: left is company description, right is 3 value cards (Focused, Private, Polished)
-5. **Stats row** — 4 stats: 1 App, $0 VC funding, ∞ Passion, 1 Person
-6. **Footer** — copyright, links to DinnerPilot and contact email
+**Sections (one per screen, enforced by the kit's checker):**
 
-**Known issue:** The DinnerPilot card has `class="badge badge-live"` but displays text "Coming Soon". When the app launches on the App Store, change the badge text to "Live" (the styling already uses the green dot).
+1. **Nav** — fixed bar, ring mark + "Clubhouse Apps", centred words (DinnerPilot, Features, Studio, Questions), "See DinnerPilot" button. A small hover menu under "DinnerPilot". On phones a bottom action bar carries the button.
+2. **Hero** — h1 "iPhone apps from a one-person studio in Maine"; a hand-built HTML mock of DinnerPilot's home screen on a lit frame, with a grocery-list card that steps through its three results (the page's one timed loop).
+3. **#dinnerpilot** — three phone mocks (the week, the grocery list, a dinner swap) on one lit stage. All UI is live HTML, no screenshots; the data matches the real app screenshots in Brand Assets (the $230/$250 week).
+4. **#features** — four cards (budget stat, reminders, dietary toggles, traditions checklist) on painted panels; two screens.
+5. **#pantry** — Pantry Chef: text beside a phone mock of the three AI recipes; dusk ground.
+6. **#studio** — "Made by one person." set huge; it ripples under the pointer (the kit's liquid-type moment). Studio story + facts rows.
+7. **#questions** — FAQ, all answers open; band ground.
+8. **Footer** — close ("See DinnerPilot" XL button) + four link columns + legal row.
+
+**Checks:** the kit's gate passed (`GATE: PASS`) with 4 waivers for checker false positives (noted in
+`.taste-skill/waivers.json`, not committed). To re-check after edits, clone taste-skill and run its
+`scripts/consistency.mjs` / `scripts/gate.mjs` against this folder.
+
+**Still true:** when DinnerPilot launches, update the hero proof line, the FAQ launch answer and the
+close line ("in TestFlight now"), and consider an App Store badge. Pro pricing on this page says
+$5.99/month / $39.99/year (what app build 55 shows); `dinnerpilot/index.html` still says $6.99 —
+reconcile when pricing is final.
 
 ---
 

@@ -56,8 +56,7 @@
 .hero__art { overflow: hidden; }
 .hero__art > .hero__fx { position: absolute; inset: 0; z-index: 0; }
 .hero__art > .ly-piece--main.bw { z-index: 1; bottom: calc(-1 * var(--ly-cut)); }
-.hero__art > .ly-piece--phone { right: var(--s-9); bottom: var(--s-6); width: 260px; z-index: 2; }
-.hero__art > .ly-piece--phone .ph__screen { min-height: 0; padding-bottom: 20px; }
+.hero__art > .ly-piece--phone { right: var(--s-9); top: 30%; bottom: auto; width: 260px; z-index: 2; }
 .hero__proof { font-size: var(--t-small); }
 @media (max-width: 1279px) { .hero__art > .ly-piece--phone { width: 240px; right: var(--s-6); } }
 #studio .panel { --p-h: 520px; }
@@ -123,7 +122,7 @@
         </div>
         <p class="hero__proof">DinnerPilot is in TestFlight now.</p>
       </div>
-      <div class="hero__art span-6 start-7" role="img" aria-label="A website the Studio built for a sample electrician, and DinnerPilot&rsquo;s home screen with the week on track at $230 of a $250 budget">
+      <div class="hero__art span-6 start-7" role="img" aria-label="A website the Studio built for a sample electrician, and DinnerPilot&rsquo;s home screen with the week on track at $224 of a $250 budget">
         <div class="hero__fx" data-fx="gradient-mesh" data-fx-seed="11" data-fx-palette='{"bg":"#d9ccb7","surface":"#e9e0d2","ink":"#2a2622","muted":"#6f675c","accent":"#a8794a"}' data-fx-params='{"speed":0,"calm":0.2,"calmX":0.5,"calmY":0.92,"tint":0.6,"relief":0.35}' style="--calm-k:0%" aria-hidden="true"></div>
         <div class="ly-piece ly-piece--main bw ui" aria-hidden="true">
           <div class="bw__bar"><i></i><i></i><i></i><span class="bw__url">sparkys-electric</span></div>
@@ -133,15 +132,7 @@
           <p class="sp__cta">Book a same-week visit</p>
           <div class="sp__stripe"></div>
         </div>
-        <div class="ly-piece ly-piece--phone ph ui" aria-hidden="true">
-          <div class="ph__screen">
-            <div class="ph__head"><img src="assets/dp-icon.png" alt="" width="28" height="28"><div><b>DinnerPilot</b><small>Week of Nov 10</small></div></div>
-            <div class="ph__banner"><b>Your week is on track</b><span>$230 of $250 spent &middot; $20 left</span><i class="ph__bar"><u></u></i></div>
-            <div class="ph__cta">Build Grocery List</div>
-            <div class="ph__label">Tonight</div>
-            <div class="ph__meal"><small>Dinner</small><b>Garlic salmon</b><span>$18</span></div>
-          </div>
-        </div>
+        <div class="ly-piece ly-piece--phone ph ph--shot" aria-hidden="true"><img src="assets/dp/home-week.webp" alt="" width="660" height="1434" fetchpriority="high"></div>
       </div>
     </div></div>
   </section>
@@ -159,41 +150,11 @@
           <a class="link" href="/dinnerpilot/">See DinnerPilot</a>
         </div>
       </div>
-      <div class="frame frame--lit dp-stage" role="img" aria-label="Three DinnerPilot screens: Friday and Saturday&rsquo;s meals, the grocery list at an estimated $230.49, and a dinner swap with three replacements">
-        <div class="stage stage--fade-b" aria-hidden="true">
-          <div class="ph ui">
-            <div class="ph__screen">
-              <div class="ph__head"><img src="assets/dp-icon.png" alt="" width="28" height="28" loading="lazy"><div><b>This week</b><small>Friday to Sunday</small></div></div>
-              <div class="ph__label">Friday</div>
-              <div class="ph__meal"><small>Lunch</small><b>Grilled cheese, soup</b><span>$9 est</span></div>
-              <div class="ph__meal"><small>Dinner</small><b>Pizza night</b><span>$13 est</span></div>
-              <div class="ph__label">Saturday</div>
-              <div class="ph__meal"><small>Breakfast</small><b>Pancakes and fruit</b><span>$7 est</span></div>
-              <div class="ph__meal"><small>Dinner</small><b>Slow cooker chili</b><span>$15 est</span></div>
-            </div>
-          </div>
-          <div class="ph ui">
-            <div class="ph__screen">
-              <div class="ph__head"><img src="assets/dp-icon.png" alt="" width="28" height="28" loading="lazy"><div><b>Grocery list</b><small>41 to buy &middot; 15 at home</small></div></div>
-              <div class="ph__total"><b>$230.49 est. total</b><small>$20 under this week&rsquo;s budget</small></div>
-              <div class="ph__label">Produce</div>
-              <div class="ph__row"><i></i><b>Broccoli crowns, 2</b><span>$3.49</span></div>
-              <div class="ph__row"><i></i><b>Garlic, 1 head</b><span>$0.79</span></div>
-              <div class="ph__row"><i></i><b>Lemons, 3</b><span>$2.37</span></div>
-              <div class="ph__row is-done"><i>&#10003;</i><b>Rice, 2 lb</b><span>at home</span></div>
-            </div>
-          </div>
-          <div class="ph ui">
-            <div class="ph__screen">
-              <div class="ph__head"><img src="assets/dp-icon.png" alt="" width="28" height="28" loading="lazy"><div><b>Swap dinner</b><small>Salmon and Broccoli Skillet</small></div></div>
-              <div class="ph__label">Replacements</div>
-              <div class="ph__meal"><small>Option</small><b>Baked chicken thighs</b><span>45 min</span></div>
-              <div class="ph__meal"><small>Option</small><b>Trout, same sides</b><span>30 min</span></div>
-              <div class="ph__meal"><small>Option</small><b>Garlic chicken bowl</b><span>25 min</span></div>
-              <div class="ph__label">Swap an ingredient</div>
-              <div class="ph__meal"><small>Salmon</small><b>Trout, char, mackerel</b><span class="ph__chip">3 fits</span></div>
-            </div>
-          </div>
+      <div class="frame frame--lit dp-stage">
+        <div class="stage stage--fade-b">
+          <div class="ph ph--shot"><img src="assets/dp/week-fri-sun.webp" alt="DinnerPilot&rsquo;s week from Friday to Sunday: breakfast, lunch and dinner each day" width="660" height="1434" loading="lazy" decoding="async"></div>
+          <div class="ph ph--shot"><img src="assets/dp/grocery-list.webp" alt="DinnerPilot&rsquo;s grocery list: 40 items to buy, 12 already at home, an estimated $223.65, $26 under budget" width="660" height="1434" loading="lazy" decoding="async"></div>
+          <div class="ph ph--shot"><img src="assets/dp/pantry-chef.webp" alt="Pantry Chef&rsquo;s three dinners: Beef Fried Rice, Cheesy Beef and Pepper Burritos, and Stuffed Bell Peppers with Beef and Rice" width="660" height="1434" loading="lazy" decoding="async"></div>
         </div>
       </div>
     </div>

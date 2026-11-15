@@ -47,10 +47,6 @@
 <script src="../assets/backgrounds/backgrounds.js"></script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
 <!-- /site:head -->
-<link rel="stylesheet" href="../assets/ui/notify/fragment.css">
-<link rel="stylesheet" href="../assets/ui/stat/fragment.css">
-<link rel="stylesheet" href="../assets/ui/toggles/fragment.css">
-<link rel="stylesheet" href="../assets/ui/checklist/fragment.css">
 <style>
 /* page CSS: only the hero collage's pieces and the card groups' --p-h */
 .hero__art { overflow: hidden; }
@@ -59,13 +55,12 @@
 .hero__art > .ly-piece--note { left: var(--s-6); bottom: var(--s-6); width: 300px; z-index: 2; }
 .hero__proof { font-size: var(--t-small); }
 @media (max-width: 639px) {
-  .hero__art > .ly-piece--main.ph { top: 24px; width: 300px; }
-  .hero__art .ph__label, .hero__art .ph__meal { display: none; }
+  .hero__art > .ly-piece--main.ph { top: 24px; width: 280px; }
 }
 #features .panel { --p-h: 356px; }
 #pantry .panel { --p-h: 480px; margin-top: 0; }
 @media (min-width: 640px) and (max-width: 1023px) { #features .grid > .card { grid-column: 1 / -1; } #features .panel { --p-h: 234px; } #pantry .panel { --p-h: 560px; } }
-@media (max-width: 639px) { #features .panel { --p-h: 164px; } #pantry .panel { --p-h: 348px; } }
+@media (max-width: 639px) { #features .panel { --p-h: 160px; } #pantry .panel { --p-h: 348px; } }
 #notify .form { grid-template-columns: minmax(0, 1fr); }
 @media (min-width: 640px) and (max-width: 1023px) { #week .dp-stage { height: 586px; } }
 @media (max-width: 639px) { #week .dp-stage { height: 307px; } #pricing .section-head--row > .link { display: none; } }
@@ -73,8 +68,8 @@
 </head>
 <body>
 <!-- type: software (DinnerPilot's product page, under the Clubhouse Apps site; same deal as the home page)
-     motion, why it moves: hero entrance; the hero's grocery-list card steps in its three results (the page's
-     one timed loop); the budget chart in #features draws once; hover layer everywhere
+     motion, why it moves: hero entrance; hover layer everywhere. Every picture of the app is a real screenshot
+     (assets/dp/, made from Brand Assets by .site/shots.py), so nothing on this page animates the app itself
      voice: plain, "you" for the family, DinnerPilot the subject of feature lines; no invented figures
      screens: hero 1 · week 1 · features 2 (g2) · pantry 1 · pricing 1 · questions 1 · footer 1 -->
 
@@ -126,25 +121,10 @@
         </div>
         <p class="hero__proof">In TestFlight for iPhone now. Free with ads; Pro is $5.99 a month.</p>
       </div>
-      <div class="hero__art span-6 start-7" role="img" aria-label="DinnerPilot&rsquo;s home screen, with the week on track at $230 of a $250 budget, and a grocery-list summary card">
+      <div class="hero__art span-6 start-7" role="img" aria-label="DinnerPilot&rsquo;s home screen, with the week on track at $224 of a $250 budget, and the grocery list: 40 items, an estimated $223.65">
         <div class="hero__fx" data-fx="gradient-mesh" data-fx-seed="11" data-fx-palette='{"bg":"#d9ccb7","surface":"#e9e0d2","ink":"#2a2622","muted":"#6f675c","accent":"#a8794a"}' data-fx-params='{"speed":0,"calm":0.2,"calmX":0.5,"calmY":0.92,"tint":0.6,"relief":0.35}' style="--calm-k:0%" aria-hidden="true"></div>
-        <div class="ly-piece ly-piece--main ph ui" aria-hidden="true">
-          <div class="ph__screen">
-            <div class="ph__head"><img src="../assets/dp-icon.png" alt="" width="28" height="28"><div><b>DinnerPilot</b><small>Week of Nov 10</small></div></div>
-            <div class="ph__banner"><b>Your week is on track</b><span>$230 of $250 spent &middot; $20 left</span><i class="ph__bar"><u></u></i></div>
-            <div class="ph__cta">Build Grocery List</div>
-            <div class="ph__label">Monday</div>
-            <div class="ph__meal"><small>Breakfast</small><b>Overnight oats, berries</b><span>$8 est</span></div>
-            <div class="ph__meal"><small>Lunch</small><b>Turkey cheddar wraps</b><span>$11 est</span></div>
-            <div class="ph__meal"><small>Dinner</small><b>Honey Garlic Salmon</b><span>$18 est</span></div>
-          </div>
-        </div>
-        <div class="ly-piece ly-piece--note dpn ui" aria-hidden="true" data-ly-steps="700">
-          <div class="dpn__row"><h5>Grocery list</h5><span class="dpn__chip" data-step data-step-at="4">Ready</span></div>
-          <div class="dpn__line" data-step><i>&#10003;</i><span><b>41 items</b> to buy</span></div>
-          <div class="dpn__line" data-step><i>&#10003;</i><span><b>15</b> already at home, crossed off</span></div>
-          <div class="dpn__line" data-step><i>&#10003;</i><span>Est. <b>$230.49</b>, $20 under budget</span></div>
-        </div>
+        <div class="ly-piece ly-piece--main ph ph--shot" aria-hidden="true"><img src="../assets/dp/home-week.webp" alt="" width="660" height="1434" fetchpriority="high"></div>
+        <img class="ly-piece ly-piece--note shot off-phone" src="../assets/dp/grocery-total.webp" alt="" width="820" height="485" aria-hidden="true">
       </div>
     </div></div>
   </section>
@@ -158,41 +138,11 @@
           <a class="link" href="#features">See the features</a>
         </div>
       </div>
-      <div class="frame frame--lit dp-stage" role="img" aria-label="Three DinnerPilot screens: Friday and Saturday&rsquo;s meals, the grocery list at an estimated $230.49, and a dinner swap with three replacements">
-        <div class="stage stage--fade-b" aria-hidden="true">
-          <div class="ph ui">
-            <div class="ph__screen">
-              <div class="ph__head"><img src="../assets/dp-icon.png" alt="" width="28" height="28" loading="lazy"><div><b>This week</b><small>Friday to Sunday</small></div></div>
-              <div class="ph__label">Friday</div>
-              <div class="ph__meal"><small>Lunch</small><b>Grilled cheese, soup</b><span>$9 est</span></div>
-              <div class="ph__meal"><small>Dinner</small><b>Pizza night</b><span>$13 est</span></div>
-              <div class="ph__label">Saturday</div>
-              <div class="ph__meal"><small>Breakfast</small><b>Pancakes and fruit</b><span>$7 est</span></div>
-              <div class="ph__meal"><small>Dinner</small><b>Slow cooker chili</b><span>$15 est</span></div>
-            </div>
-          </div>
-          <div class="ph ui">
-            <div class="ph__screen">
-              <div class="ph__head"><img src="../assets/dp-icon.png" alt="" width="28" height="28" loading="lazy"><div><b>Grocery list</b><small>41 to buy &middot; 15 at home</small></div></div>
-              <div class="ph__total"><b>$230.49 est. total</b><small>$20 under this week&rsquo;s budget</small></div>
-              <div class="ph__label">Produce</div>
-              <div class="ph__row"><i></i><b>Broccoli crowns, 2</b><span>$3.49</span></div>
-              <div class="ph__row"><i></i><b>Garlic, 1 head</b><span>$0.79</span></div>
-              <div class="ph__row"><i></i><b>Lemons, 3</b><span>$2.37</span></div>
-              <div class="ph__row is-done"><i>&#10003;</i><b>Rice, 2 lb</b><span>at home</span></div>
-            </div>
-          </div>
-          <div class="ph ui">
-            <div class="ph__screen">
-              <div class="ph__head"><img src="../assets/dp-icon.png" alt="" width="28" height="28" loading="lazy"><div><b>Swap dinner</b><small>Salmon and Broccoli Skillet</small></div></div>
-              <div class="ph__label">Replacements</div>
-              <div class="ph__meal"><small>Option</small><b>Baked chicken thighs</b><span>45 min</span></div>
-              <div class="ph__meal"><small>Option</small><b>Trout, same sides</b><span>30 min</span></div>
-              <div class="ph__meal"><small>Option</small><b>Garlic chicken bowl</b><span>25 min</span></div>
-              <div class="ph__label">Swap an ingredient</div>
-              <div class="ph__meal"><small>Salmon</small><b>Trout, char, mackerel</b><span class="ph__chip">3 fits</span></div>
-            </div>
-          </div>
+      <div class="frame frame--lit dp-stage">
+        <div class="stage stage--fade-b">
+          <div class="ph ph--shot"><img src="../assets/dp/week-mon-wed.webp" alt="DinnerPilot&rsquo;s week from Monday to Wednesday: breakfast, lunch and dinner each day" width="660" height="1434" loading="lazy" decoding="async"></div>
+          <div class="ph ph--shot"><img src="../assets/dp/grocery-list.webp" alt="DinnerPilot&rsquo;s grocery list: 40 items to buy, 12 already at home, an estimated $223.65, $26 under budget" width="660" height="1434" loading="lazy" decoding="async"></div>
+          <div class="ph ph--shot"><img src="../assets/dp/swap-dinner.webp" alt="Swap Dinner in DinnerPilot: 2,532 recipes to pick a replacement from, with search and filters" width="660" height="1434" loading="lazy" decoding="async"></div>
         </div>
       </div>
     </div>
@@ -208,44 +158,18 @@
           <article class="card card--row card--open span-6">
             <h3>Prices the plan up front</h3>
             <p>Set a weekly grocery budget, and every plan is priced against it in estimated totals.</p>
-            <div class="panel" data-fx="painterly-landscape" data-fx-seed="21" data-fx-palette='{"bg":"#d9ccb7","accent":"#a8794a"}' data-fx-params='{"blur":1,"brush":0.3,"slope":0,"hillY":0.28,"horizon":0.6,"calm":0.2,"calmX":0.5,"calmY":0.85,"drift":0,"side":1}' style="--calm-k:0%" role="img" aria-label="DinnerPilot&rsquo;s budget chart: $230.49 spent this week, $20 under a $250 budget">
-              <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max: 420px; --ax: max(24px, 50% - 210px); --ay: 48px; --ay-sm: 24px" data-ui-loop>
-                <div class="ui ui-panel ui-stat" data-ui="stat" data-values="196,212,188,224,205,231,214,238,221,243,226,247,233,230" data-prev="178,195,172,201,188,214,196,219,203,224,208,229,215,212">
-                  <div class="ui-stat__head">
-                    <div class="ui-stat__top">
-                      <span class="ui-stat__label">Spent this week</span>
-                      <span class="ui-stat__range">Week of Nov 10<svg class="ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 6.5 3.5 3.5 3.5-3.5"/></svg></span>
-                    </div>
-                    <div class="ui-stat__line">
-                      <span class="ui-stat__num" data-stat-num>$230.49</span>
-                      <span class="ui-chip ui-chip--plain ui-stat__delta">$20 under</span>
-                      <span class="ui-stat__sub">of a $250 budget</span>
-                    </div>
-                  </div>
-                  <div class="ui-stat__chart">
-                    <svg class="ui-stat__svg" viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true">
-                      <path class="ui-stat__grid" d="M0 30.5H400M0 60.5H400M0 90.5H400"/>
-                      <path class="ui-stat__cover" fill-rule="evenodd" d=""/>
-                      <g class="ui-stat__bars"></g>
-                    </svg>
-                    <div class="ui-stat__axis" aria-hidden="true"><span>Mon</span><span>Thu</span><span>Sun</span></div>
-                  </div>
-                </div>
+            <div class="panel" data-fx="painterly-landscape" data-fx-seed="21" data-fx-palette='{"bg":"#d9ccb7","accent":"#a8794a"}' data-fx-params='{"blur":1,"brush":0.3,"slope":0,"hillY":0.28,"horizon":0.6,"calm":0.2,"calmX":0.5,"calmY":0.85,"drift":0,"side":1}' style="--calm-k:0%">
+              <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max: 380px; --ax: max(24px, 50% - 190px); --ay: 44px; --ay-sm: 24px">
+                <img class="shot" src="../assets/dp/budget.webp" alt="DinnerPilot&rsquo;s budget card: your week is on track, $224 of $250, $26 left" width="820" height="683" loading="lazy" decoding="async">
               </div></div>
             </div>
           </article>
           <article class="card card--row card--open span-6">
             <h3>Reminds you at 6:30</h3>
-            <p>A cooking reminder at the time you pick, and a note when the grocery list is ready.</p>
-            <div class="panel" data-fx="painterly-landscape" data-fx-seed="8" data-fx-palette='{"bg":"#a3b0b6","accent":"#c49a6c"}' data-fx-params='{"blur":1,"brush":0.35,"slope":0,"hillY":0.3,"horizon":0.62,"calm":0.2,"calmX":0.6,"calmY":0.85,"drift":0,"side":1}' style="--calm-k:0%" role="img" aria-label="Three DinnerPilot notifications: a 6:30 cooking reminder, the grocery list ready, the week planned">
-              <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max: 380px; --ax: max(24px, 50% - 190px); --ay: calc(100% - 196px); --ay-sm: 24px">
-                <div class="ui ui-notify" data-ui="notify">
-                  <ul class="ui-notify__list" data-notify-list>
-                    <li class="ui-note"><span class="ui-agent ui-note__av" aria-hidden="true"></span><span class="ui-note__text"><span class="ui-note__title">Time to start dinner<time>6:30 PM</time></span><span class="ui-note__body">Baked chicken thighs, 45 minutes</span></span><span class="ui-btn ui-btn--sm ui-note__btn">Open</span></li>
-                    <li class="ui-note"><span class="ui-note__ico"><svg class="ui-icon" viewBox="0 0 16 16"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg></span><span class="ui-note__text"><span class="ui-note__title">Grocery list ready<time>9:02</time></span><span class="ui-note__body">41 items, est. $230.49</span></span></li>
-                    <li class="ui-note"><span class="ui-note__ico"><svg class="ui-icon" viewBox="0 0 16 16"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg></span><span class="ui-note__text"><span class="ui-note__title">Week planned<time>Sun</time></span><span class="ui-note__body">21 meals, $230 of $250</span></span></li>
-                  </ul>
-                </div>
+            <p>Set when you eat, and it alerts you when to start cooking.</p>
+            <div class="panel" data-fx="painterly-landscape" data-fx-seed="8" data-fx-palette='{"bg":"#a3b0b6","accent":"#c49a6c"}' data-fx-params='{"blur":1,"brush":0.35,"slope":0,"hillY":0.3,"horizon":0.62,"calm":0.2,"calmX":0.6,"calmY":0.85,"drift":0,"side":1}' style="--calm-k:0%">
+              <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max: 400px; --ax: max(24px, 50% - 200px); --ay: 44px; --ay-sm: 24px">
+                <img class="shot" src="../assets/dp/dinner-time.webp" alt="DinnerPilot&rsquo;s dinner time setting: we eat at 6:30 PM, with an alert when it&rsquo;s time to start cooking" width="820" height="426" loading="lazy" decoding="async">
               </div></div>
             </div>
           </article>
@@ -255,46 +179,19 @@
         <article class="card card--row card--open span-6">
           <h3>Filters the plan for diets</h3>
           <p>Dietary needs and disliked ingredients filter every recipe before it reaches the plan.</p>
-          <div class="panel" data-fx="painterly-landscape" data-fx-seed="34" data-fx-palette='{"bg":"#cdd6c6","accent":"#6c8e63"}' data-fx-params='{"blur":1,"brush":0.3,"slope":0,"hillY":0.3,"horizon":0.64,"calm":0.2,"calmX":0.4,"calmY":0.85,"drift":0,"side":1}' style="--calm-k:0%" role="img" aria-label="DinnerPilot&rsquo;s dietary needs: gluten-free and nut-free on, dairy-free and keto off, mushrooms skipped">
-            <div class="stage stage--fade-b"><div class="at-right to-edge" style="--ax: 32px; --ay: 52px; --ay-sm: 24px">
-              <div class="ui ui-panel ui-toggles" data-ui="toggles">
-                <div class="ui-head">
-                  <svg class="ui-icon ui-toggles__ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.8 13 4v3.6c0 3-2.1 5.4-5 6.6-2.9-1.2-5-3.6-5-6.6V4z"/><path d="m5.8 8 1.6 1.6 3-3.2"/></svg>
-                  <div class="ui-title">Dietary needs</div>
-                  <span class="ui-spacer"></span>
-                  <div class="ui-meta" data-tg-count>3 of 5 on</div>
-                </div>
-                <ul class="ui-toggles__list">
-                  <li class="ui-tg"><span class="ui-tg__text"><span class="ui-tg__label">Gluten-free</span><span class="ui-tg__sub">Checked on every recipe</span></span><button class="ui-switch is-on" type="button" role="switch" aria-checked="true" aria-label="Gluten-free"><i></i></button></li>
-                  <li class="ui-tg"><span class="ui-tg__text"><span class="ui-tg__label">Nut-free</span><span class="ui-tg__sub">Dinners and snacks</span></span><button class="ui-switch is-on" type="button" role="switch" aria-checked="true" aria-label="Nut-free"><i></i></button></li>
-                  <li class="ui-tg"><span class="ui-tg__text"><span class="ui-tg__label">Dairy-free</span><span class="ui-tg__sub">Off for this family</span></span><button class="ui-switch" type="button" role="switch" aria-checked="false" aria-label="Dairy-free"><i></i></button></li>
-                  <li class="ui-tg"><span class="ui-tg__text"><span class="ui-tg__label">Keto</span><span class="ui-tg__sub">Off for this family</span></span><button class="ui-switch" type="button" role="switch" aria-checked="false" aria-label="Keto"><i></i></button></li>
-                  <li class="ui-tg"><span class="ui-tg__text"><span class="ui-tg__label">Skip mushrooms</span><span class="ui-tg__sub">From the avoid list</span></span><button class="ui-switch is-on" type="button" role="switch" aria-checked="true" aria-label="Skip mushrooms"><i></i></button></li>
-                </ul>
-              </div>
-            </div></div>
+          <div class="panel" data-fx="painterly-landscape" data-fx-seed="34" data-fx-palette='{"bg":"#cdd6c6","accent":"#6c8e63"}' data-fx-params='{"blur":1,"brush":0.3,"slope":0,"hillY":0.3,"horizon":0.64,"calm":0.2,"calmX":0.4,"calmY":0.85,"drift":0,"side":1}' style="--calm-k:0%">
+            <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max: 400px; --ax: max(24px, 50% - 200px); --ay: 44px; --ay-sm: 24px">
+                <img class="shot" src="../assets/dp/dietary.webp" alt="DinnerPilot&rsquo;s dietary needs (vegetarian, vegan, gluten-free, dairy-free, nut-free, keto) and ingredients to avoid" width="820" height="634" loading="lazy" decoding="async">
+              </div></div>
           </div>
         </article>
         <article class="card card--row card--open span-6">
           <h3>Plans around your traditions</h3>
-          <p>Taco Tuesday, pizza night and Sunday supper are planned around, not written over.</p>
-          <div class="panel" data-fx="painterly-landscape" data-fx-seed="47" data-fx-palette='{"bg":"#c6d3df","accent":"#3f6a92"}' data-fx-params='{"blur":1,"brush":0.3,"slope":0,"hillY":0.3,"horizon":0.6,"calm":0.2,"calmX":0.55,"calmY":0.85,"drift":0,"side":1}' style="--calm-k:0%" role="img" aria-label="DinnerPilot&rsquo;s family traditions: Taco Tuesday, pizza Friday, Sunday supper and breakfast for dinner, all planned">
-            <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max: 340px; --ax: max(24px, 50% - 170px); --ay: 44px; --ay-sm: 24px">
-              <div class="ui ui-panel ui-checks" data-ui="checklist">
-                <div class="ui-checks__head">
-                  <div class="ui-title">Family traditions</div>
-                  <span class="ui-spacer"></span>
-                  <div class="ui-meta" data-checks-count>4 of 4 planned</div>
-                </div>
-                <div class="ui-checks__bar"><i data-checks-bar style="--k:1"></i></div>
-                <ul class="ui-checks__list">
-                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Taco Tuesday, planned Tuesday</span></li>
-                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Pizza Friday, planned Friday</span></li>
-                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Sunday supper, planned Sunday</span></li>
-                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Breakfast for dinner, Thursday</span></li>
-                </ul>
-              </div>
-            </div></div>
+          <p>Switch on Taco Tuesday or Pizza Friday, and the plan fills those nights to match.</p>
+          <div class="panel" data-fx="painterly-landscape" data-fx-seed="47" data-fx-palette='{"bg":"#c6d3df","accent":"#3f6a92"}' data-fx-params='{"blur":1,"brush":0.3,"slope":0,"hillY":0.3,"horizon":0.6,"calm":0.2,"calmX":0.55,"calmY":0.85,"drift":0,"side":1}' style="--calm-k:0%">
+            <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max: 400px; --ax: max(24px, 50% - 200px); --ay: 44px; --ay-sm: 24px">
+                <img class="shot" src="../assets/dp/traditions.webp" alt="DinnerPilot&rsquo;s family traditions: Taco Tuesday and Pizza Friday on, Sunday Supper and Breakfast for Dinner off" width="820" height="581" loading="lazy" decoding="async">
+              </div></div>
           </div>
         </article>
       </div>
@@ -306,23 +203,13 @@
       <div class="grid grid--top">
         <div class="span-5 stack-4">
           <div class="section-head" style="margin-bottom: 0"><h2 id="p-h">Pantry Chef turns your fridge into dinner</h2></div>
-          <p>Type what you have, or photograph the shelf. Pantry Chef writes three dinner recipes in 5 to 10 seconds, each labeled AI and sized to your family.</p>
-          <p class="off-phone">Part of DinnerPilot Pro, after a 7&#8209;day free trial. Every recipe can drop straight into your week.</p>
+          <p>Type what you have, or photograph the shelf. Pantry Chef suggests three dinners in 5 to 10 seconds, sized to your family.</p>
+          <p class="off-phone">Part of DinnerPilot Pro. Every recipe can drop straight into your week.</p>
           <a class="link" href="#pricing">See Pro pricing</a>
         </div>
-        <div class="panel span-6 start-7 pc-panel" role="img" aria-label="Pantry Chef: six typed ingredients and the three AI recipes it wrote from them">
-          <div class="stage stage--fade-b" aria-hidden="true">
-            <div class="ph ui pc-ph">
-              <div class="ph__screen">
-                <div class="ph__head"><img src="../assets/dp-icon.png" alt="" width="28" height="28" loading="lazy"><div><b>Pantry Chef</b><small>What do you have?</small></div></div>
-                <div class="ph__chips"><span>chicken thighs</span><span>rice</span><span>broccoli</span><span>garlic</span><span>lemon</span><span>soy sauce</span></div>
-                <div class="ph__label">Here are your recipes!</div>
-                <div class="ph__meal"><small class="ph__ai">AI</small><b>Garlic soy chicken, rice</b><span>30 min</span></div>
-                <div class="ph__meal"><small class="ph__ai">AI</small><b>Lemon roasted thighs</b><span>35 min</span></div>
-                <div class="ph__meal off-phone"><small class="ph__ai">AI</small><b>Garlic chicken rice bowl</b><span>25 min</span></div>
-                <div class="ph__cta off-phone">Add to My Week</div>
-              </div>
-            </div>
+        <div class="panel span-6 start-7 pc-panel">
+          <div class="stage stage--fade-b">
+            <div class="ph ph--shot"><img src="../assets/dp/pantry-chef.webp" alt="Pantry Chef&rsquo;s three dinners: Beef Fried Rice, Cheesy Beef and Pepper Burritos, and Stuffed Bell Peppers with Beef and Rice" width="660" height="1434" loading="lazy" decoding="async"></div>
           </div>
         </div>
       </div>

@@ -77,8 +77,10 @@ clubhouseapps.com/          ← repo root
 ├── CNAME                   ← custom domain declaration
 ├── index.html              ← Clubhouse Apps home (/)
 ├── .site/stamp.py          ← stamps the shared head, header, footer and scripts into every page
+├── .site/shots.py          ← makes assets/dp/ from the real screenshots in ../Brand Assets/
 ├── assets/
-│   ├── site.css            ← the site's own CSS: product mocks + the text-page layout
+│   ├── site.css            ← the site's own CSS: phone frame, Studio mocks, pricing, text-page layout
+│   ├── dp/                 ← DinnerPilot screenshots, web-sized (made by .site/shots.py; don't edit by hand)
 │   ├── system.css/js, ui/, motion/, layout/, backgrounds/, moments/, effects/, icons/
 │   │                       ← the Taste Skill kit (never edit these; only requested files are committed)
 │   ├── dp-icon.png, favicon.svg
@@ -104,7 +106,8 @@ URL structure mirrors folder structure exactly. `index.html` files serve as the 
 | 2026-05-17 | `3403e0d` | Move legal pages under /dinnerpilot/ to reflect org structure |
 | 2026-05-17 | `9599ff0` | Full visual redesign — modern, premium look |
 | 2026-11-13 | `ab5e7e6` | Homepage rebuilt with the Taste Skill kit |
-| 2026-11-14 | — | Whole site rebuilt as one: parent-company home, every page on the same kit, shared header and footer |
+| 2026-11-14 | `4d9ebbf` | Whole site rebuilt as one: parent-company home, every page on the same kit, shared header and footer |
+| 2026-11-14 | — | Every DinnerPilot picture is now a real app screenshot (build 58) instead of a drawn mock |
 
 The major work happened on **2026-05-17**: legal pages were added, then immediately reorganized under `/dinnerpilot/` (they had initially been at the root), then the entire site got a full visual redesign in one large commit that touched all three primary files.
 
@@ -118,10 +121,16 @@ tonal pill buttons, ring mark, round corners. The tokens live in the `site:head`
 writes into every page; change them there, then re-stamp.
 
 - **Kit files** (`assets/system.css`, `assets/ui/…`, etc.) are never edited. Override in `assets/site.css` or a page's own `<style>`.
-- **`assets/site.css`** holds what the kit doesn't: the hand-drawn DinnerPilot phone (`.ph`), the small step card (`.dpn`), the browser window with the Sparky's Electric sample (`.bw`, `.sp__*`), the pricing halves (`.pricing`), and the text-page layout (`.doc`, `.prose`, `.doc__side`).
+- **`assets/site.css`** holds what the kit doesn't: the phone frame (`.ph`; `.ph--shot` holds a real screenshot), the screenshot strip card (`.shot`), the Studio's step card (`.dpn`), the browser window with the Sparky's Electric sample (`.bw`, `.sp__*`), the pricing halves (`.pricing`), and the text-page layout (`.doc`, `.prose`, `.doc__side`).
 - **Page `<style>` blocks** only position each hero's pieces and set panel heights per breakpoint (the kit sizes every section to whole screens).
-- **No screenshots**: every app screen on the site is live HTML drawn from real app data (build 55).
-- **Motion** follows design-motion-principles: one entrance per hero, one timed loop per page at most, hover answers on every link; all of it stops under reduced motion.
+- **Real screenshots only** for DinnerPilot. Every app screen on the site comes from
+  `../Brand Assets/DinnerPilot Screenshots/` (TestFlight build 58). Never draw the app in HTML: drawn mocks
+  don't look like the real app. `.site/shots.py` picks the shots, crops the strips used in #features, paints
+  over Pantry Chef's small "AI" tags (marketing doesn't say "AI"), and writes `assets/dp/*.webp` at 2x. After
+  the app's look changes and the screenshots are retaken, run `python3 .site/shots.py`. Follow the
+  screenshot guide's rules: prices are "estimated", Pantry Chef is "with Pro" (not in the free trial), no fish
+  dishes. The Studio's Sparky's Electric sample is still drawn in HTML; it's a website, not the app.
+- **Motion** follows design-motion-principles: one entrance per hero, one timed loop per page at most (DinnerPilot's page has none now), hover answers on every link; all of it stops under reduced motion.
 
 ### Shared header and footer: `.site/stamp.py`
 
@@ -142,12 +151,12 @@ Asset paths are relative (`../` per folder level); page links are root-absolute 
 
 ### `/` Home (parent company)
 Hero (iPhone apps for families, websites for local businesses; a Studio sample site and DinnerPilot's
-home screen) · **#apps** DinnerPilot with three phone screens · **#studio** the Studio with both plans and a
+home screen) · **#apps** DinnerPilot with three real screens (Friday to Sunday, grocery list, Pantry Chef) · **#studio** the Studio with both plans and a
 project checklist · **#about** "Made with care, not by committee." (ripples under the pointer) with three
 principles · **#contact** close: "Get in touch" emails dave@.
 
 ### `/dinnerpilot/`
-Hero with the grocery-list card that ticks off · **#week** three screens · **#features** budget, reminders,
+Hero: the real home screen plus the grocery-total strip (hidden on phones) · **#week** three screens · **#features** budget, reminders,
 diets, traditions · **#pantry** Pantry Chef · **#pricing** Free plan and Pro plan ($5.99/mo or $39.99/yr,
 7-day trial) · **#questions** · **#notify** the launch sign-up (Formspree `maeezoew`, sends with fetch and
 shows its confirmation only after Formspree answers).

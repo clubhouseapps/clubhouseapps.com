@@ -42,7 +42,7 @@
 }
 </style>
 <link rel="stylesheet" href="assets/ui/base.css">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/site.css?v=cb8d3a76">
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script src="assets/backgrounds/backgrounds.js"></script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
@@ -52,13 +52,18 @@
 <link rel="modulepreload" href="assets/moments/lib.js">
 <link rel="modulepreload" href="assets/moments/liquid-type/moment.js">
 <style>
-/* page CSS: only the hero collage's two pieces */
+/* page CSS: the hero's pair of phones, and panel heights per breakpoint */
 .hero__art { overflow: hidden; }
 .hero__art > .hero__fx { position: absolute; inset: 0; z-index: 0; }
-.hero__art > .ly-piece--main.bw { z-index: 1; bottom: calc(-1 * var(--ly-cut)); }
-.hero__art > .ly-piece--phone { right: var(--s-9); top: 30%; bottom: auto; width: 260px; z-index: 2; }
+.hero__pair { position: absolute; inset: 0; z-index: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+              grid-template-rows: minmax(0, 1fr); gap: var(--s-5); padding: var(--s-8) var(--s-7) 0; }
+.pair__item { display: flex; flex-direction: column; align-items: center; gap: var(--s-4); min-width: 0; }
+.pair__label { display: grid; gap: 2px; margin: 0; text-align: center; }
+.pair__label b { font: 500 var(--t-body)/1.2 var(--font-text); }
+.pair__item .ph { width: min(250px, 100%); }
 .hero__proof { font-size: var(--t-small); }
-@media (max-width: 1279px) { .hero__art > .ly-piece--phone { width: 240px; right: var(--s-6); } }
+@media (max-width: 1279px) { .hero__pair { padding-inline: var(--s-5); gap: var(--s-4); } }
+@media (max-width: 639px) { .hero__pair { padding: var(--s-5) 0 0; gap: var(--s-3); } .pair__item { gap: var(--s-3); overflow: hidden; } .pair__item .ph { width: 86%; flex: none; } .pair__item .ph { padding: 5px; border-radius: 30px; } .pair__item .ph > img { border-radius: 25px; } }
 #studio .panel { --p-h: 520px; }
 @media (min-width: 640px) and (max-width: 1023px) { #studio .panel { --p-h: 405px; margin-top: var(--s-7); } #apps .dp-stage { height: 506px; } }
 @media (max-width: 639px) { #studio .panel { --p-h: 255px; margin-top: var(--s-6); } #apps .dp-stage { height: 249px; } }
@@ -66,7 +71,7 @@
 </head>
 <body>
 <!-- type: software (a company page for an app maker with a web studio; site-kind software)
-     deal: hero collage · palette clay-pine · type mona (Mona Sans + Geist Mono) · nav nav-centre ·
+     deal: hero collage (two real screens: our app, a Studio site) · palette clay-pine · type mona (Mona Sans + Geist Mono) · nav nav-centre ·
      footer footer-columns · close close-type · buttons tonal · mark ring · radius round ·
      effect gradient-mesh, still, in the hero art · grounds: studio ground-surface ·
      moment liquid-type on the about statement
@@ -122,17 +127,18 @@
         </div>
         <p class="hero__proof">DinnerPilot is in TestFlight now.</p>
       </div>
-      <div class="hero__art span-6 start-7" role="img" aria-label="A website the Studio built for a sample electrician, and DinnerPilot&rsquo;s home screen with the week on track at $224 of a $250 budget">
+      <div class="hero__art span-6 start-7">
         <div class="hero__fx" data-fx="gradient-mesh" data-fx-seed="11" data-fx-palette='{"bg":"#d9ccb7","surface":"#e9e0d2","ink":"#2a2622","muted":"#6f675c","accent":"#a8794a"}' data-fx-params='{"speed":0,"calm":0.2,"calmX":0.5,"calmY":0.92,"tint":0.6,"relief":0.35}' style="--calm-k:0%" aria-hidden="true"></div>
-        <div class="ly-piece ly-piece--main bw ui" aria-hidden="true">
-          <div class="bw__bar"><i></i><i></i><i></i><span class="bw__url">sparkys-electric</span></div>
-          <div class="sp__nav"><b>Sparky&rsquo;s</b><span><em>Services</em><em>Shop</em><em>Reviews</em><em>Contact</em></span></div>
-          <p class="sp__h">Panels.<br>Plugs.<br>Power.</p>
-          <p class="sp__lead">Licensed electricians for homes and small shops. Same-week visits, prices up front.</p>
-          <p class="sp__cta">Book a same-week visit</p>
-          <div class="sp__stripe"></div>
-        </div>
-        <div class="ly-piece ly-piece--phone ph ph--shot" aria-hidden="true"><img src="assets/dp/home-week.webp" alt="" width="660" height="1434" fetchpriority="high"></div>
+        <div class="stage stage--fade-b"><div class="hero__pair">
+          <div class="pair__item">
+            <p class="pair__label"><span class="t-label">Our app</span><b>DinnerPilot</b></p>
+            <div class="ph ph--shot"><img src="assets/dp/home-week.webp" alt="DinnerPilot&rsquo;s home screen: your week is on track, $224 of a $250 budget" width="660" height="1434" fetchpriority="high"></div>
+          </div>
+          <div class="pair__item">
+            <p class="pair__label"><span class="t-label">A Studio website</span><b>Sparky&rsquo;s Electric</b></p>
+            <div class="ph ph--shot"><img src="assets/studio/sparkys-phone.webp" alt="Sparky&rsquo;s Electric, a sample website the Studio built, on a phone" width="660" height="1434" fetchpriority="high"></div>
+          </div>
+        </div></div>
       </div>
     </div></div>
   </section>

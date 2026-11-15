@@ -8,9 +8,13 @@ stay identical. Edit the blocks below, then run from the Website folder:
 
     python3 .site/stamp.py
 
+Run it after every change to assets/site.css too: it stamps the file's fingerprint into the link (?v=...),
+so browsers fetch the new version instead of a cached one.
+
 The site has no build step: the stamped HTML is what gets committed and served.
 Asset paths are relative (../ per folder level); page links are root-absolute (/studio/).
 """
+import hashlib
 import pathlib
 import re
 
@@ -25,6 +29,13 @@ PAGES = [
     "studio/index.html",
     "samples/index.html",
 ]
+
+def ver(rel):
+    """A short fingerprint of a file, added to its link as ?v=... The host lets browsers cache CSS for
+    4 hours, so without it a returning visitor gets new pages with the old stylesheet. Re-stamp after
+    every change to site.css."""
+    return hashlib.md5((ROOT / rel).read_bytes()).hexdigest()[:8]
+
 
 CHEV = ('<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" '
         'stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>')
@@ -59,7 +70,7 @@ def head(p, **_):
 }}
 </style>
 <link rel="stylesheet" href="{p}assets/ui/base.css">
-<link rel="stylesheet" href="{p}assets/site.css">
+<link rel="stylesheet" href="{p}assets/site.css?v={ver("assets/site.css")}">
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script src="{p}assets/backgrounds/backgrounds.js"></script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>"""

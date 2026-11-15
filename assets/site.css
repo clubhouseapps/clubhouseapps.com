@@ -1,12 +1,11 @@
 /* Clubhouse Apps: the site's own CSS, shared by every page (the kit's files stay untouched).
-   1. the product visuals: DinnerPilot's real screens (.ph--shot, .shot), the Studio's drawn note (.dpn) and browser window (.bw)
+   1. the product visuals: DinnerPilot's real screens (.ph--shot, .shot), the Studio's note (.dpn) and browser window (.bw)
    2. the reading layout for text pages: Privacy, Terms, Data deletion, Account, Samples (.doc) */
 
 /* ---------------------------------------------------------------- 1. visuals */
-/* a phone bezel. DinnerPilot's screens are the real app (.ph--shot: screenshots from Brand Assets, made web-sized
-   by .site/shots.py); the Studio's Sparky's sample is drawn in HTML inside .ph__screen */
+/* a phone bezel holding a real screen (.ph--shot): DinnerPilot from Brand Assets, Sparky's Electric captured from its
+   live preview; both made web-sized by .site/shots.py */
 .ph { background: #2a2d27; border-radius: 42px; padding: 9px; box-shadow: 0 32px 64px -32px rgb(34 38 31 / .5); }
-.ph__screen { background: #faf7f2; border-radius: 34px; overflow: hidden; padding: 18px 16px; display: grid; gap: 12px; align-content: start; min-height: 700px; }
 .ph--shot { background: #1c1e1a; border-radius: 44px; padding: 7px; }
 .ph--shot > img { display: block; width: 100%; height: auto; border-radius: 37px; }
 
@@ -24,25 +23,16 @@
 .dpn__line b { font-weight: 500; color: #1f2019; }
 
 /* a browser window holding a Studio sample site (Sparky's Electric, the Studio's fictional sample):
-   one box, the light tab bar on top and the dark page under it */
+   one box, the light tab bar on top and a real capture of the page under it */
 .bw { background: #111110; color: #f4f1ea; border-radius: var(--r-md); overflow: hidden; border: 1px solid rgb(0 0 0 / .08);
       box-shadow: 0 32px 64px -32px rgb(34 38 31 / .5); display: grid; gap: 16px; align-content: start; padding-bottom: 24px; }
 .bw > :not(.bw__bar) { margin-inline: 24px; }
 .bw__bar { display: flex; align-items: center; gap: 7px; height: 36px; padding: 0 14px; background: #ece7df; border-bottom: 1px solid rgb(0 0 0 / .08); margin-bottom: 2px; }
 .bw__bar i { width: 10px; height: 10px; border-radius: 50%; background: #cfc8bc; flex: none; }
 .bw__url { margin-left: 10px; width: min(260px, 60%); height: 22px; border-radius: 6px; background: #fff; font: 12px/22px var(--font-text); color: #77786e; padding: 0 10px; white-space: nowrap; overflow: hidden; }
-.sp__nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; font: 500 11px/1 var(--font-text); letter-spacing: .08em; text-transform: uppercase; color: #bdb8ab; }
-.sp__nav b { font: 600 17px/1 var(--font-display); font-stretch: 75%; letter-spacing: .02em; color: #ffd400; }
-.sp__nav span { display: flex; gap: 16px; }
-.sp__nav em { font-style: normal; }
-@media (max-width: 1279px) { .sp__nav em:nth-of-type(n+3) { display: none; } }
-.sp__h { margin-top: 8px; font: 600 62px/.9 var(--font-display); font-stretch: 75%; letter-spacing: 0; text-transform: uppercase; color: #ffd400; }
-.sp__lead { font-size: 14px; line-height: 1.5; color: #cfcabd; max-width: 36ch; }
-.sp__cta { background: #ffd400; color: #111110; font: 600 13px/1 var(--font-text); letter-spacing: .04em; text-transform: uppercase; padding: 12px 16px; text-align: center; }
-.bw > .sp__stripe { height: 12px; margin-inline: 0; background: repeating-linear-gradient(-45deg, #ffd400 0 12px, #111110 12px 24px); }
-.sp__cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-.sp__cards p { background: #1f1f1c; padding: 12px; font-size: 12px; line-height: 1.4; color: #bdb8ab; }
-.sp__cards b { display: block; margin-bottom: 4px; font: 600 14px/1.2 var(--font-display); font-stretch: 75%; letter-spacing: .02em; text-transform: uppercase; color: #f4f1ea; }
+/* the window holding a real capture of the sample site (.site/captures/, made web-sized by .site/shots.py) */
+.bw.bw--shot { gap: 0; padding-bottom: 0; grid-template-rows: auto minmax(0, 1fr); }
+.bw.bw--shot > img { display: block; width: 100%; height: 100%; margin-inline: 0; object-fit: cover; object-position: left top; }
 
 /* the lit stage of DinnerPilot screens: three phones at 1280 and up, two at 1024, one below */
 .dp-stage { position: relative; height: 540px; margin-top: var(--s-7); overflow: hidden; }
@@ -58,12 +48,6 @@
   .dp-stage { height: 330px; }
   .dp-stage .ph { top: 24px; width: min(310px, calc(100% - 32px)); }
   .dp-stage .ph:nth-of-type(1) { left: 50%; transform: translateX(-50%); }
-  .ph__screen { min-height: 440px; }
-  .bw { gap: 12px; padding-bottom: 16px; }
-  .bw > :not(.bw__bar) { margin-inline: 16px; }
-  .bw > .sp__stripe { margin-inline: 0; }
-  .sp__h { font-size: 38px; }
-  .sp__nav span, .bw > :is(.sp__lead, .sp__cta, .sp__stripe) { display: none; }
 }
 
 /* a phone that stands on its own panel (Pantry Chef, the Studio's phone view) */

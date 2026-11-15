@@ -42,7 +42,7 @@
 }
 </style>
 <link rel="stylesheet" href="../assets/ui/base.css">
-<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/site.css?v=cb8d3a76">
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script src="../assets/backgrounds/backgrounds.js"></script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
@@ -55,13 +55,6 @@
 .hero__art > .ly-piece--main.bw { z-index: 1; bottom: calc(-1 * var(--ly-cut)); }
 .hero__art > .ly-piece--note { left: var(--s-6); bottom: var(--s-6); width: 300px; z-index: 2; }
 .hero__proof { font-size: var(--t-small); }
-/* Sparky's Electric as it shows on a phone */
-.ph__screen.sp-m { background: #111110; color: #f4f1ea; gap: 14px; }
-.sp-m .sp__nav b { font-size: 15px; }
-.sp-m .sp__h { font-size: 46px; }
-.sp-m .sp__stripe { height: 12px; margin-inline: -16px; background: repeating-linear-gradient(-45deg, #ffd400 0 12px, #111110 12px 24px); }
-.sp-m .sp__row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid #34332f; font-size: 13px; color: #cfcabd; }
-.sp-m .sp__row b { font: 600 15px/1.2 var(--font-display); font-stretch: 75%; letter-spacing: .02em; text-transform: uppercase; color: #f4f1ea; }
 #sample .panel { --p-h: 560px; margin-top: 0; }
 @media (min-width: 640px) and (max-width: 1023px) {
   #sample .panel { --p-h: 366px; margin-top: var(--s-7); }
@@ -72,7 +65,6 @@
   #services .rows .off-phone, #contact .field--phone, #contact .field--plan, #contact .closing__cta .section-head > p { display: none; }
   #contact .form textarea { min-height: 72px; }
 }
-@media (max-width: 1023px) { .sp-m .sp__row:nth-of-type(n+2) { display: none; } }
 @media (max-width: 639px) {
   #sample .panel { --p-h: 340px; margin-top: var(--s-6); }
   #services .panel { --p-h: 290px; }
@@ -82,7 +74,6 @@
 }
 #contact .form .btn { width: 100%; }
 #contact .form textarea { min-height: 96px; }
-.ph:has(> .sp-m) { background: #111110; }
 #services .panel { --p-h: 560px; margin-top: 0; }
 @media (min-width: 640px) and (max-width: 1023px) { #services .panel { --p-h: 449px; margin-top: var(--s-7); } }
 @media (max-width: 639px) { #services .panel { --p-h: 330px; margin-top: var(--s-6); } }
@@ -146,13 +137,9 @@
       </div>
       <div class="hero__art span-6 start-7" role="img" aria-label="Sparky&rsquo;s Electric, a sample website the Studio built, and a project card with the intro call, the quote and the preview done">
         <div class="hero__fx" data-fx="gradient-mesh" data-fx-seed="11" data-fx-palette='{"bg":"#d9ccb7","surface":"#e9e0d2","ink":"#2a2622","muted":"#6f675c","accent":"#a8794a"}' data-fx-params='{"speed":0,"calm":0.2,"calmX":0.5,"calmY":0.92,"tint":0.6,"relief":0.35}' style="--calm-k:0%" aria-hidden="true"></div>
-        <div class="ly-piece ly-piece--main bw ui" aria-hidden="true">
+        <div class="ly-piece ly-piece--main bw bw--shot" aria-hidden="true">
           <div class="bw__bar"><i></i><i></i><i></i><span class="bw__url">sparkys-electric</span></div>
-          <div class="sp__nav"><b>Sparky&rsquo;s</b><span><em>Services</em><em>Shop</em><em>Reviews</em><em>Contact</em></span></div>
-          <p class="sp__h">Panels.<br>Plugs.<br>Power.</p>
-          <p class="sp__lead">Licensed electricians for homes and small shops. Same-week visits, prices up front.</p>
-          <p class="sp__cta">Book a same-week visit</p>
-          <div class="sp__stripe"></div>
+          <img src="../assets/studio/sparkys-desktop.webp" alt="" width="1280" height="800" fetchpriority="high">
         </div>
         <div class="ly-piece ly-piece--note dpn ui" aria-hidden="true" data-ly-steps="700">
           <div class="dpn__row"><h5>Your website project</h5><span class="dpn__chip" data-step data-step-at="4">Live in 2&ndash;3 weeks</span></div>
@@ -254,20 +241,9 @@
           </ul>
           <a class="link" href="https://ybmedwm-stack.github.io/sparkys-electric/">View the live preview</a>
         </div>
-        <div class="panel span-6 start-7 pc-panel" role="img" aria-label="Sparky&rsquo;s Electric on a phone: the headline, the booking button and the services list">
-          <div class="stage stage--fade-b" aria-hidden="true">
-            <div class="ph ui">
-              <div class="ph__screen sp-m">
-                <div class="sp__nav"><b>Sparky&rsquo;s</b><span>Menu</span></div>
-                <p class="sp__h">Panels.<br>Plugs.<br>Power.</p>
-                <p class="sp__lead">Licensed electricians for homes and small shops.</p>
-                <p class="sp__cta">Book a same-week visit</p>
-                <div class="sp__stripe"></div>
-                <div class="sp__row"><b>Panels</b><span>Upgrades, repairs</span></div>
-                <div class="sp__row"><b>Wiring</b><span>Old homes, new rooms</span></div>
-                <div class="sp__row"><b>EV chargers</b><span>Installed in a day</span></div>
-              </div>
-            </div>
+        <div class="panel span-6 start-7 pc-panel">
+          <div class="stage stage--fade-b">
+            <div class="ph ph--shot"><img src="../assets/studio/sparkys-phone.webp" alt="Sparky&rsquo;s Electric on a phone: the headline, the call button and the opening lines" width="660" height="1434" loading="lazy" decoding="async"></div>
           </div>
         </div>
       </div>

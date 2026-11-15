@@ -77,10 +77,13 @@ clubhouseapps.com/          ← repo root
 ├── CNAME                   ← custom domain declaration
 ├── index.html              ← Clubhouse Apps home (/)
 ├── .site/stamp.py          ← stamps the shared head, header, footer and scripts into every page
-├── .site/shots.py          ← makes assets/dp/ from the real screenshots in ../Brand Assets/
+├── .site/shots.py          ← makes assets/dp/ and assets/studio/ from the real screenshots and captures
+├── .site/capture.mjs       ← captures a live web page as a phone or desktop browser shows it
+├── .site/captures/         ← the raw Sparky's Electric captures shots.py frames
 ├── assets/
 │   ├── site.css            ← the site's own CSS: phone frame, Studio mocks, pricing, text-page layout
 │   ├── dp/                 ← DinnerPilot screenshots, web-sized (made by .site/shots.py; don't edit by hand)
+│   ├── studio/             ← Sparky's Electric captures, web-sized (made by .site/shots.py)
 │   ├── system.css/js, ui/, motion/, layout/, backgrounds/, moments/, effects/, icons/
 │   │                       ← the Taste Skill kit (never edit these; only requested files are committed)
 │   ├── dp-icon.png, favicon.svg
@@ -107,7 +110,9 @@ URL structure mirrors folder structure exactly. `index.html` files serve as the 
 | 2026-05-17 | `9599ff0` | Full visual redesign — modern, premium look |
 | 2026-11-13 | `ab5e7e6` | Homepage rebuilt with the Taste Skill kit |
 | 2026-11-14 | `4d9ebbf` | Whole site rebuilt as one: parent-company home, every page on the same kit, shared header and footer |
-| 2026-11-14 | — | Every DinnerPilot picture is now a real app screenshot (build 58) instead of a drawn mock |
+| 2026-11-14 | `f9d8015` | Every DinnerPilot picture is now a real app screenshot (build 58) instead of a drawn mock |
+| 2026-11-14 | `a1482ae` | DinnerPilot hero: grocery card hidden below 1024px |
+| 2026-11-14 | — | Home hero: two labelled real phones; Sparky's captured from the live preview; stylesheet fingerprint |
 
 The major work happened on **2026-05-17**: legal pages were added, then immediately reorganized under `/dinnerpilot/` (they had initially been at the root), then the entire site got a full visual redesign in one large commit that touched all three primary files.
 
@@ -129,7 +134,12 @@ writes into every page; change them there, then re-stamp.
   over Pantry Chef's small "AI" tags (marketing doesn't say "AI"), and writes `assets/dp/*.webp` at 2x. After
   the app's look changes and the screenshots are retaken, run `python3 .site/shots.py`. Follow the
   screenshot guide's rules: prices are "estimated", Pantry Chef is "with Pro" (not in the free trial), no fish
-  dishes. The Studio's Sparky's Electric sample is still drawn in HTML; it's a website, not the app.
+  dishes.
+- **Sparky's Electric is real too**: the Studio sample is captured from its live preview
+  (`node .site/capture.mjs <url> .site/captures/sparkys-mobile.png 440 902 3`, and `... sparkys-desktop.png 1280 800 2`),
+  then `python3 .site/shots.py` frames it. Recapture after the sample site changes.
+- **The home hero** is two labelled phones side by side: "Our app: DinnerPilot" and "A Studio website: Sparky's
+  Electric". No website-with-a-phone-on-top collage: the two businesses are shown apart.
 - **Motion** follows design-motion-principles: one entrance per hero, one timed loop per page at most (DinnerPilot's page has none now), hover answers on every link; all of it stops under reduced motion.
 
 ### Shared header and footer: `.site/stamp.py`
@@ -142,6 +152,11 @@ blocks in `.site/stamp.py` and run:
 python3 .site/stamp.py
 ```
 
+**Run it after every change to `assets/site.css` too.** The host lets browsers keep CSS for 4 hours, so
+`stamp.py` adds a fingerprint of the file to its link (`site.css?v=…`). Without a re-stamp, returning visitors
+get the new pages with the old stylesheet (this happened on 2026-11-14: screenshot corners poked out of
+their phone frames until the cache ran out).
+
 It rewrites all eight pages. `current=` sets which nav item is underlined (home, apps, studio, about).
 Asset paths are relative (`../` per folder level); page links are root-absolute (`/studio/`).
 
@@ -150,8 +165,8 @@ Asset paths are relative (`../` per folder level); page links are root-absolute 
 ## Pages
 
 ### `/` Home (parent company)
-Hero (iPhone apps for families, websites for local businesses; a Studio sample site and DinnerPilot's
-home screen) · **#apps** DinnerPilot with three real screens (Friday to Sunday, grocery list, Pantry Chef) · **#studio** the Studio with both plans and a
+Hero (iPhone apps for families, websites for local businesses; two labelled phones: DinnerPilot's real home
+screen and the real Sparky's Electric site) · **#apps** DinnerPilot with three real screens (Friday to Sunday, grocery list, Pantry Chef) · **#studio** the Studio with both plans and a
 project checklist · **#about** "Made with care, not by committee." (ripples under the pointer) with three
 principles · **#contact** close: "Get in touch" emails dave@.
 
@@ -162,7 +177,7 @@ diets, traditions · **#pantry** Pantry Chef · **#pricing** Free plan and Pro p
 shows its confirmation only after Formspree answers).
 
 ### `/studio/`
-Hero (sample site + project card) · **#services** six kinds of work beside "Your website includes" ·
+Hero (the real Sparky's site in a browser window + project card) · **#services** six kinds of work beside "Your website includes" ·
 **#pricing** The Handoff ($2,000) and The Care Plan ($500 + $100/mo) · **#sample** Sparky's Electric on a
 phone · **#questions** · **#contact** the quote form (Formspree `mlgvvbay`, honeypot `_gotcha`).
 
@@ -173,6 +188,7 @@ Account page keeps its Supabase password-reset script exactly as it was (Supabas
 point to `/dinnerpilot/account/`).
 
 ### Checks
+The kit's checkers live in `~/Desktop/ClubhouseApps/Claude Tools/taste-skill/skills/taste-skill/scripts/`.
 The three main pages were checked with the kit's `consistency.mjs` at 1440, 1024, 820, 768 and 390 and
 `copy-lint.mjs` (0 FAIL). Known checker false positives: the phone action bar crossing text mid-scroll
 (contrast), its twin-hiding of pricing buttons (scroll-reveal), plan cards not lifting on hover (the kit's

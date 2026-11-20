@@ -114,7 +114,8 @@ URL structure mirrors folder structure exactly. `index.html` files serve as the 
 | 2026-11-14 | `a1482ae` | DinnerPilot hero: grocery card hidden below 1024px |
 | 2026-11-14 | `607b0d4` | Home hero: two labelled real phones; Sparky's captured from the live preview; stylesheet fingerprint |
 | 2026-11-19 | `1f81d4a` | Impeccable's three real findings fixed |
-| 2026-11-19 | — | Five animations from the web-animations gallery |
+| 2026-11-19 | `c64ef8e` | Five animations from the web-animations gallery (three didn't run live: their files weren't committed) |
+| 2026-11-19 | — | The three missing animation files committed; DinnerPilot gradient sped up so the drift shows |
 
 The major work happened on **2026-05-17**: legal pages were added, then immediately reorganized under `/dinnerpilot/` (they had initially been at the root), then the entire site got a full visual redesign in one large commit that touched all three primary files.
 
@@ -148,13 +149,18 @@ writes into every page; change them there, then re-stamp.
   | Where | What | How |
   |---|---|---|
   | Home hero | A soft light with a fine dot grid follows the pointer behind the two phones | kit moment `cursor-spotlight` on `.hero__art` |
-  | DinnerPilot hero | The gradient background drifts slowly (pause button bottom right) | gradient-mesh `speed` 0.05 |
+  | DinnerPilot hero | The gradient background drifts slowly (pause button bottom right) | gradient-mesh `speed` 0.14 (about a 13 s cycle; 0.05 looked still) |
   | DinnerPilot `#promise` | One statement lights up word by word as it scrolls past | kit moment `word-highlight` |
   | Pricing on DinnerPilot and Studio | One soft glow follows the pointer across both plans, lighting their borders | `[data-spot]` + `assets/site.js` + `site.css` |
   | Studio `#services` | A slow row of the trades we build for (pause button beside its label; hidden on phones) | kit moment `marquee-row` |
   Left out on purpose: liquid glass cursor, particle headline, ASCII 3D, fluid cursor and the globe (they fight the
   site's calm look or don't fit a family app and local websites), and 3D tilt (the kit's motion rules forbid tilting).
   No client logos in the marquee until real clients approve them.
+- **Most of the kit is not committed.** `assets/moments/`, `assets/effects/` and `assets/components/` sit in this folder
+  in full, but only the pieces a page uses are in git. When a page starts using a moment or effect, `git add` its
+  `moment.js` + `moment.css` (or `effect.js`) too, or it works on this computer and is missing on the live site.
+  Before a push, test from a copy of exactly what git holds (`git checkout-index -a --prefix=<empty folder>/`, then
+  serve that folder); after a push, open each changed live page and confirm nothing it loads comes back 404.
 
 ### Shared header and footer: `.site/stamp.py`
 

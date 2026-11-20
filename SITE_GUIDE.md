@@ -115,7 +115,8 @@ URL structure mirrors folder structure exactly. `index.html` files serve as the 
 | 2026-11-14 | `607b0d4` | Home hero: two labelled real phones; Sparky's captured from the live preview; stylesheet fingerprint |
 | 2026-11-19 | `1f81d4a` | Impeccable's three real findings fixed |
 | 2026-11-19 | `c64ef8e` | Five animations from the web-animations gallery (three didn't run live: their files weren't committed) |
-| 2026-11-19 | — | The three missing animation files committed; DinnerPilot gradient sped up so the drift shows |
+| 2026-11-19 | `2c6f335` | The three missing animation files committed; DinnerPilot gradient sped up |
+| 2026-11-19 | — | DinnerPilot gradient made faster and deeper so the drift shows beside the phone |
 
 The major work happened on **2026-05-17**: legal pages were added, then immediately reorganized under `/dinnerpilot/` (they had initially been at the root), then the entire site got a full visual redesign in one large commit that touched all three primary files.
 
@@ -149,7 +150,7 @@ writes into every page; change them there, then re-stamp.
   | Where | What | How |
   |---|---|---|
   | Home hero | A soft light with a fine dot grid follows the pointer behind the two phones | kit moment `cursor-spotlight` on `.hero__art` |
-  | DinnerPilot hero | The gradient background drifts slowly (pause button bottom right) | gradient-mesh `speed` 0.14 (about a 13 s cycle; 0.05 looked still) |
+  | DinnerPilot hero | The gradient background drifts slowly (pause button bottom right) | gradient-mesh `speed` 0.28, `warp` 0.85, `relief` 0.8, `tint` 0.75: the phone covers most of the panel, so the drift has to read in the strips beside it (0.05 and 0.14 looked still) |
   | DinnerPilot `#promise` | One statement lights up word by word as it scrolls past | kit moment `word-highlight` |
   | Pricing on DinnerPilot and Studio | One soft glow follows the pointer across both plans, lighting their borders | `[data-spot]` + `assets/site.js` + `site.css` |
   | Studio `#services` | A slow row of the trades we build for (pause button beside its label; hidden on phones) | kit moment `marquee-row` |

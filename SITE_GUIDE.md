@@ -189,6 +189,12 @@ point to `/dinnerpilot/account/`).
 
 ### Checks
 The kit's checkers live in `~/Desktop/ClubhouseApps/Claude Tools/taste-skill/skills/taste-skill/scripts/`.
+**Impeccable** (a second design skill) is installed for this folder only, in `.claude/` (git-ignored). When Claude
+Code is opened in `Website/`, it runs a design check after every file edit and again at the end of each turn.
+Run it by hand with `.claude/skills/impeccable/scripts/impeccable detect index.html dinnerpilot/index.html studio/index.html`.
+First run (2026-11-19): 29 findings, mostly false alarms ("cramped padding" on the kit's ruled list rows, the
+heroes' soft background read as a "radial halo"). The real ones: the Studio hero card's `h5` skips heading levels,
+the kit's small pulsing dot, and one grey text colour (#77786e on white) at 4.47:1, just under 4.5:1.
 The three main pages were checked with the kit's `consistency.mjs` at 1440, 1024, 820, 768 and 390 and
 `copy-lint.mjs` (0 FAIL). Known checker false positives: the phone action bar crossing text mid-scroll
 (contrast), its twin-hiding of pricing buttons (scroll-reveal), plan cards not lifting on hover (the kit's

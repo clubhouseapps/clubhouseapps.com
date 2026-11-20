@@ -1,35 +1,36 @@
 /* Clubhouse Apps: the site's own CSS, shared by every page (the kit's files stay untouched).
+   Night shift look (2026-11-20): a blue-black page, cornflower accent; the colours below are set for the dark ground.
    1. the product visuals: DinnerPilot's real screens (.ph--shot, .shot), the Studio's note (.dpn) and browser window (.bw)
    2. the reading layout for text pages: Privacy, Terms, Data deletion, Account, Samples (.doc) */
 
 /* ---------------------------------------------------------------- 1. visuals */
 /* a phone bezel holding a real screen (.ph--shot): DinnerPilot from Brand Assets, Sparky's Electric captured from its
    live preview; both made web-sized by .site/shots.py */
-.ph { background: #2a2d27; border-radius: 42px; padding: 9px; box-shadow: 0 32px 64px -32px rgb(34 38 31 / .5); }
-.ph--shot { background: #1c1e1a; border-radius: 44px; padding: 7px; }
+.ph { background: #05070b; border-radius: 42px; padding: 9px; box-shadow: 0 1px 0 rgb(255 255 255 / .06) inset, 0 32px 64px -28px rgb(0 0 0 / .7); }
+.ph--shot { background: #05070b; border-radius: 44px; padding: 7px; }
 .ph--shot > img { display: block; width: 100%; height: auto; border-radius: 37px; }
 
 /* a strip of one real DinnerPilot screen, floating as a card (assets/dp/*.webp) */
-.shot { display: block; width: 100%; height: auto; border-radius: 22px; box-shadow: 0 24px 48px -24px rgb(34 38 31 / .55); }
+.shot { display: block; width: 100%; height: auto; border-radius: 22px; box-shadow: 0 24px 48px -24px rgb(0 0 0 / .65); }
 
-/* a small white card that sits over a collage (layout.js steps it with data-ly-steps) */
-.dpn { background: #fff; border-radius: var(--r-md); border: 1px solid rgb(0 0 0 / .08); box-shadow: 0 18px 40px -20px rgb(34 38 31 / .45); padding: 14px 16px; }
+/* a small dark card that sits over a collage (layout.js steps it with data-ly-steps) */
+.dpn { background: #131824; color: #e9edf3; border-radius: var(--r-md); border: 1px solid rgb(255 255 255 / .1); box-shadow: 0 24px 48px -20px rgb(0 0 0 / .7); padding: 14px 16px; }
 .dpn__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
-.dpn__title { margin: 0; font: 500 14px/1.2 var(--font-text); color: #1f2019; }
-.dpn__chip { font-size: 11px; font-weight: 500; color: #27432f; background: #e3ecdf; border-radius: 999px; padding: 3px 8px; white-space: nowrap; }
-.dpn__line { display: flex; align-items: center; gap: 10px; padding: 7px 0; font-size: 13px; color: #3d4239; border-top: 1px solid rgb(0 0 0 / .06); }
+.dpn__title { margin: 0; font: 500 14px/1.2 var(--font-text); color: #e9edf3; }
+.dpn__chip { font-size: 11px; font-weight: 500; color: #0a0d14; background: #5ab9fc; border-radius: 999px; padding: 3px 8px; white-space: nowrap; }
+.dpn__line { display: flex; align-items: center; gap: 10px; padding: 7px 0; font-size: 13px; color: #b8c0cc; border-top: 1px solid rgb(255 255 255 / .08); }
 .dpn__line:first-of-type { border-top: 0; }
-.dpn__line i { width: 18px; height: 18px; border-radius: 50%; flex: none; display: grid; place-items: center; background: #e3ecdf; color: #27432f; font-style: normal; font-size: 12px; }
-.dpn__line b { font-weight: 500; color: #1f2019; }
+.dpn__line i { width: 18px; height: 18px; border-radius: 50%; flex: none; display: grid; place-items: center; background: rgb(90 185 252 / .16); color: #5ab9fc; font-style: normal; font-size: 12px; }
+.dpn__line b { font-weight: 500; color: #e9edf3; }
 
 /* a browser window holding a Studio sample site (Sparky's Electric, the Studio's fictional sample):
    one box, the light tab bar on top and a real capture of the page under it */
-.bw { background: #111110; color: #f4f1ea; border-radius: var(--r-md); overflow: hidden; border: 1px solid rgb(0 0 0 / .08);
-      box-shadow: 0 32px 64px -32px rgb(34 38 31 / .5); display: grid; gap: 16px; align-content: start; padding-bottom: 24px; }
+.bw { background: #111110; color: #f4f1ea; border-radius: var(--r-md); overflow: hidden; border: 1px solid rgb(255 255 255 / .12);
+      box-shadow: 0 40px 80px -40px rgb(0 0 0 / .75); display: grid; gap: 16px; align-content: start; padding-bottom: 24px; }
 .bw > :not(.bw__bar) { margin-inline: 24px; }
-.bw__bar { display: flex; align-items: center; gap: 7px; height: 36px; padding: 0 14px; background: #ece7df; border-bottom: 1px solid rgb(0 0 0 / .08); margin-bottom: 2px; }
-.bw__bar i { width: 10px; height: 10px; border-radius: 50%; background: #cfc8bc; flex: none; }
-.bw__url { margin-left: 10px; width: min(260px, 60%); height: 22px; border-radius: 6px; background: #fff; font: 12px/22px var(--font-text); color: #6b6c62; padding: 0 10px; white-space: nowrap; overflow: hidden; }
+.bw__bar { display: flex; align-items: center; gap: 7px; height: 36px; padding: 0 14px; background: #1b1f29; border-bottom: 1px solid rgb(255 255 255 / .08); margin-bottom: 2px; }
+.bw__bar i { width: 10px; height: 10px; border-radius: 50%; background: #3a4150; flex: none; }
+.bw__url { margin-left: 10px; width: min(260px, 60%); height: 22px; border-radius: 6px; background: #0e1219; font: 12px/22px var(--font-mono); color: #8891a1; padding: 0 10px; white-space: nowrap; overflow: hidden; }
 /* the window holding a real capture of the sample site (.site/captures/, made web-sized by .site/shots.py) */
 .bw.bw--shot { gap: 0; padding-bottom: 0; grid-template-rows: auto minmax(0, 1fr); }
 .bw.bw--shot > img { display: block; width: 100%; height: 100%; margin-inline: 0; object-fit: cover; object-position: left top; }
@@ -122,7 +123,7 @@
 .acct h1 { font-size: var(--t-h2); margin-bottom: var(--s-3); }
 .acct-form { display: grid; gap: var(--s-4); margin-top: var(--s-6); }
 .acct-form .btn { width: 100%; margin-top: var(--s-2); }
-.acct-form__msg { min-height: 1.4em; color: var(--error, #a3271b); font-size: var(--t-small); }
+.acct-form__msg { min-height: 1.4em; color: var(--error, #ff8f87); font-size: var(--t-small); }
 [hidden] { display: none !important; }
 
 /* the Samples page's entries */
@@ -146,6 +147,24 @@
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
   mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
 [data-spot] .card::after { inset: 0; z-index: -1;
-  background: radial-gradient(var(--spot-r) circle at var(--spot-x, -999px) var(--spot-y, -999px), color-mix(in oklab, #fff 55%, transparent), transparent 65%); }
+  background: radial-gradient(var(--spot-r) circle at var(--spot-x, -999px) var(--spot-y, -999px), color-mix(in oklab, var(--accent) 16%, transparent), transparent 65%); }
 [data-spot].is-lit .card::before, [data-spot].is-lit .card::after { opacity: 1; }
 @media (prefers-reduced-motion: reduce), (hover: none) { [data-spot] .card::before, [data-spot] .card::after { display: none; } }
+
+/* ---------------------------------------------------------------- 3. Night shift shared pieces */
+/* numbered steps (the Studio's four steps): mono numbers in the accent, hairlines between */
+.steps-list { list-style: none; margin: 0; padding: 0; display: grid; }
+.steps-list > li { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: var(--s-4); align-items: baseline; padding-block: var(--s-4); border-bottom: 1px solid var(--line); }
+.steps-list > li:first-child { border-top: 1px solid var(--line); }
+.steps-list .num { font: 500 var(--t-label)/1 var(--font-mono); color: var(--accent); }
+/* the browser window's tab bar and the phone's glow on the dark page */
+.glow { box-shadow: 0 1px 0 rgb(255 255 255 / .06) inset, 0 32px 64px -28px rgb(0 0 0 / .85), 0 0 90px -34px rgb(90 185 252 / .45); }
+/* the close's company name across the page, sized per width */
+.close--word .close__word { font-size: clamp(40px, 12.4vw, 178px); line-height: 1; overflow: visible; white-space: nowrap; color: var(--ink); }
+@media (max-width: 639px) { .close--word .close__word { white-space: normal; font-size: 18vw; line-height: .92; } }
+.footer .nav__logo .mark--initial { width: 26px; height: 26px; font-size: 15px; }
+/* the text pages' "About DinnerPilot" link sits at its own width, not as a side-list row */
+.doc__side > a.link { display: inline-flex; justify-self: start; padding: 0; margin: var(--s-3) 0 0; border-radius: 0; }
+.doc__side > a.link:hover { background: none; }
+/* the secondary button: the kit's tonal fill nearly vanishes on the blue-black page, so it gets a hairline outline */
+.btn--secondary { box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--ink) 34%, transparent); }

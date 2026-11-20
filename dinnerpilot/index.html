@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-type="software" data-radius="round" data-ground="sand" data-buttons="tonal" data-motion>
+<html lang="en" data-type="software" data-radius="soft" data-ground="sky" data-buttons="tonal" data-motion>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -13,12 +13,12 @@
 <link rel="canonical" href="https://clubhouseapps.com/dinnerpilot/">
 <meta name="site-kind" content="software">
 <meta name="page-type" content="software">
-<!-- site:head -->
+<!-- site:head scene=letter-physics -->
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#efe9e0">
+<meta name="theme-color" content="#0a0d14">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,400..600&family=Geist+Mono:wght@400..500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Reddit+Sans:wght@400..700&family=JetBrains+Mono:wght@400..500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/system.css">
 <link rel="stylesheet" href="../assets/ui/cards.css">
 <link rel="stylesheet" href="../assets/motion/motion.css">
@@ -27,74 +27,99 @@
 <link rel="stylesheet" href="../assets/icons/icon.css">
 <style>
 :root {
-  --p-bg: #efe9e0; --p-surface: #e2d9cb; --p-ink: #22261f; --p-muted: #5a5c53;
-  --p-accent: #2e5b44; --p-accent-ink: #ffffff; --p-action: #2e5b44; --p-action-ink: #ffffff;
-  --p-inv-bg: #22261f; --p-inv-surface: #2e322a; --p-inv-ink: #efe9e0; --p-inv-muted: #a19e96;
-  --p-inv-accent: #efe9e0; --p-inv-accent-ink: #22261f; --p-inv-action: #efe9e0; --p-inv-action-ink: #22261f;
-  --font-display: "Mona Sans", system-ui, sans-serif;
-  --font-text: "Mona Sans", system-ui, sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --p-bg: #0a0d14; --p-surface: #131824; --p-ink: #e9edf3; --p-muted: #8891a1;
+  --p-accent: #5ab9fc; --p-accent-ink: #0a0d14; --p-action: #5ab9fc; --p-action-ink: #0a0d14;
+  --p-inv-bg: #e9edf3; --p-inv-surface: #d7dbe1; --p-inv-ink: #0a0d14; --p-inv-muted: #54575f;
+  --p-inv-accent: #0a0d14; --p-inv-accent-ink: #e9edf3; --p-inv-action: #0a0d14; --p-inv-action-ink: #e9edf3;
+  --font-display: "Reddit Sans", system-ui, sans-serif;
+  --font-text: "Reddit Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   --display-weight: 500;
   --display-tracking: -0.03em;
   --display-tracking-xl: -0.04em;
-  --display-stretch: 104%;
-  --ly-scale: 0.96;
 }
 </style>
 <link rel="stylesheet" href="../assets/ui/base.css">
-<link rel="stylesheet" href="../assets/site.css?v=775a5782">
+<link rel="stylesheet" href="../assets/site.css?v=642d0cec">
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script src="../assets/backgrounds/backgrounds.js"></script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<script>document.documentElement.classList.add('sc-js');setTimeout(()=>document.documentElement.classList.add('sc-safe'),2500)</script>
+<link rel="stylesheet" href="../assets/scenes/scenes.css">
+<link rel="stylesheet" href="../assets/scenes/letter-physics/scene.css">
 <!-- /site:head -->
 <style>
-/* page CSS: only the hero collage's pieces and the card groups' --p-h */
-.hero__art { overflow: hidden; }
-.hero__art > .hero__fx { position: absolute; inset: 0; z-index: 0; }
-.hero__art > .ly-piece--main.ph { left: 50%; transform: translateX(-50%); top: 56px; width: 330px; z-index: 1; }
-.hero__art > .ly-piece--note { left: var(--s-6); bottom: var(--s-6); width: 300px; z-index: 2; }
+/* page CSS: only the hero's pieces on their lit frame, the phone stages and the card groups' --p-h */
+
+/* the hero: the home screen on the lit ground, a glow of the accent around the frame; the grocery total
+   floats over its foot from 1024 up, the budget card beside the phone from 1280 up */
+.hero__art { box-shadow: 0 0 0 1px rgb(90 185 252 / .16), 0 40px 120px -40px rgb(90 185 252 / .4); }
+.hero__art > .ly-piece--main.ph { left: var(--s-7); top: 56px; width: 300px; z-index: 1;
+  box-shadow: 0 1px 0 rgb(255 255 255 / .06) inset, 0 40px 80px -30px rgb(10 13 20 / .8); }
+.hero__art > .ly-piece--side { right: var(--s-6); top: 96px; width: 236px; z-index: 2; }
+.hero__art > .ly-piece--note { right: var(--s-6); top: 336px; width: 236px; z-index: 2; }
 .hero__proof { font-size: var(--t-small); }
+/* a narrower frame: the phone in the middle alone, the grocery total over its foot */
+@media (max-width: 1279px) {
+  .hero__art > .ly-piece--main.ph { left: 50%; transform: translateX(-50%); }
+  .hero__art > .ly-piece--side { display: none; }
+  .hero__art > .ly-piece--note { top: auto; right: auto; left: var(--s-6); bottom: var(--s-6); width: 280px; }
+}
 @media (max-width: 1023px) { .hero__art > .ly-piece--note { display: none; } }
 @media (max-width: 639px) {
   .hero__art > .ly-piece--main.ph { top: 24px; width: 280px; }
 }
+
+/* the cards' strips stand on the lit ground; Pantry Chef's phone stands on its own frame */
 #features .panel { --p-h: 356px; }
-#pantry .panel { --p-h: 480px; margin-top: 0; }
-@media (min-width: 640px) and (max-width: 1023px) { #features .grid > .card { grid-column: 1 / -1; } #features .panel { --p-h: 234px; } #pantry .panel { --p-h: 560px; } }
+#pantry .panel { --p-h: 620px; margin-top: 0; }
+@media (min-width: 1024px) { #pantry .pc-panel .ph { top: 48px; width: 340px; } }
+@media (min-width: 640px) and (max-width: 1023px) { #features .grid > .card { grid-column: 1 / -1; } #features .panel { --p-h: 234px; } #pantry .panel { --p-h: 680px; } }
 @media (max-width: 639px) { #features .panel { --p-h: 160px; } #pantry .panel { --p-h: 348px; } }
 #notify .form { grid-template-columns: minmax(0, 1fr); }
+#questions .q-panel { --p-h: 300px; margin-top: var(--s-5); }
+@media (max-width: 1023px) { #questions .q-panel { --p-h: 180px; } }
+@media (max-width: 639px) { #questions .q-panel { --p-h: 128px; margin-top: var(--s-3); } .hero .app-name { display: none; } }
 @media (min-width: 640px) and (max-width: 1023px) { #week .dp-stage { height: 586px; } }
 @media (max-width: 639px) { #week .dp-stage { height: 307px; } #pricing .section-head--row > .link { display: none; } }
 </style>
 </head>
 <body>
-<!-- type: software (DinnerPilot's product page, under the Clubhouse Apps site; same deal as the home page)
-     motion, why it moves: hero entrance; the hero's gradient drifts slowly (about a 40 s cycle, with a pause
-     button); #promise lights up word by word as it is scrolled through (word-highlight, the page's moment);
-     the pricing plans share one soft glow under the pointer; hover layer everywhere. Every picture of the app is a real screenshot
-     (assets/dp/, made from Brand Assets by .site/shots.py), so nothing on this page animates the app itself
+<!-- type: software (DinnerPilot's product page, under the Clubhouse Apps site; same Night shift look as the home page)
+     beats: hero entrance; #claim, the letter-physics scene (the page's one effect: "One app, one job." bursts apart
+     and the answer lands; on phones and under reduced motion the claim and answer stand still); the pricing plans
+     share one soft glow under the pointer; hover layer everywhere. With a big scene there is no data-fx on the
+     page: the card panels take the lit ground. Every picture of the app is a real screenshot (assets/dp/)
      voice: plain, "you" for the family, DinnerPilot the subject of feature lines; no invented figures
-     screens: hero 1 · promise 1 · week 1 · features 2 (g2) · pantry 1 · pricing 1 · questions 1 · footer 1 -->
+     screens: hero 1 · claim 1 (2 live) · week 1 · features 2 (g2) · pantry 1 · pricing 1 · questions 1 · footer 1 -->
 
 <!-- site:header current=apps -->
-<header class="nav nav--centre">
+<header class="nav">
   <div class="wrap nav__bar">
     <a class="skip-link" href="#top">Skip to content</a>
-    <a class="nav__logo" href="/"><span class="mark" data-mark="ring" aria-hidden="true"></span>Clubhouse Apps</a>
+    <a class="nav__logo" href="/"><span class="mark mark--initial" aria-hidden="true">C</span>Clubhouse Apps</a>
     <nav class="nav__links" aria-label="Main">
       <div class="nav__item">
         <a class="nav__link" href="/#apps" aria-current="page">Apps <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="nav__menu">
           <div class="wrap grid">
             <div class="menu-col span-3">
-              <p class="t-label">Our apps</p>
-              <a href="/dinnerpilot/">DinnerPilot<span>Weekly meal plans and grocery lists for families</span></a>
+              <p class="t-label">DinnerPilot</p>
+              <a href="/dinnerpilot/">Meal plans<span>A family&rsquo;s week inside its budget</span></a>
+              <a href="/dinnerpilot/#features">Grocery list<span>Every item, an estimated total</span></a>
+              <a href="/dinnerpilot/#pantry">Pantry Chef<span>Dinner from your fridge</span></a>
             </div>
             <div class="menu-col span-3">
               <p class="t-label">DinnerPilot help</p>
               <a href="/dinnerpilot/account/">Account help<span>Password resets and email links</span></a>
               <a href="/dinnerpilot/data-deletion/">Delete your data<span>How to remove your account</span></a>
+              <a href="/dinnerpilot/privacy/">Privacy policy<span>What the app stores</span></a>
             </div>
+            <a class="menu-card span-3 start-10" href="/dinnerpilot/">
+              <div class="panel"><img class="frame__img" src="../assets/dp/budget.webp" alt="DinnerPilot showing a week on track at $224 of a $250 budget" loading="lazy"></div>
+              <span class="t-card">DinnerPilot</span>
+              <span class="t-small muted">In TestFlight for iPhone now</span>
+            </a>
           </div>
         </div>
       </div>
@@ -116,7 +141,7 @@
     <div class="wrap"><div class="hero-text grid hero__grid">
       <div class="hero__text span-5">
         <p class="app-name"><img src="../assets/dp-icon.png" alt="" width="40" height="40">DinnerPilot</p>
-        <h1 id="hero-h">Your family&rsquo;s meals, planned in a minute</h1>
+        <h1 id="hero-h">The iPhone meal planner that fits your family&rsquo;s budget</h1>
         <p class="hero__lead">DinnerPilot plans the week&rsquo;s breakfasts, lunches and dinners, writes the grocery list, and keeps it all inside a budget you set.</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#notify">Get notified<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
@@ -125,17 +150,18 @@
         <p class="hero__proof">In TestFlight for iPhone now. Free with ads; Pro is $5.99 a month.</p>
       </div>
       <div class="hero__art span-6 start-7" role="img" aria-label="DinnerPilot&rsquo;s home screen, with the week on track at $224 of a $250 budget, and the grocery list: 40 items, an estimated $223.65">
-        <div class="hero__fx" data-fx="gradient-mesh" data-fx-seed="11" data-fx-palette='{"bg":"#d9ccb7","surface":"#e9e0d2","ink":"#2a2622","muted":"#6f675c","accent":"#a8794a"}' data-fx-params='{"speed":0.28,"warp":0.85,"calm":0.2,"calmX":0.5,"calmY":0.92,"tint":0.75,"relief":0.8}' style="--calm-k:0%" aria-hidden="true"></div>
         <div class="ly-piece ly-piece--main ph ph--shot" aria-hidden="true"><img src="../assets/dp/home-week.webp" alt="" width="660" height="1434" fetchpriority="high"></div>
+        <img class="ly-piece ly-piece--side shot off-phone" src="../assets/dp/budget.webp" alt="" width="820" height="683" aria-hidden="true">
         <img class="ly-piece ly-piece--note shot off-phone" src="../assets/dp/grocery-total.webp" alt="" width="820" height="485" aria-hidden="true">
       </div>
     </div></div>
   </section>
 
-  <section class="section statement" id="promise" data-moment="word-highlight" aria-label="What DinnerPilot does">
-    <div class="wrap stack-4">
-      <p class="t-label">What DinnerPilot does</p>
-      <p class="mo-wh__text">Tell it who&rsquo;s eating and what the week can cost. DinnerPilot plans every breakfast, lunch and dinner, writes the grocery list, and keeps the estimated total <strong>inside your budget</strong>.</p>
+  <section class="sc ground-inverse" id="claim" data-big-scene="letter-physics" data-big-scene-opts='{"hold": 1}' style="--h: 1" aria-labelledby="lp-h">
+    <div class="sc__stage">
+      <p class="lp__label">What DinnerPilot does</p>
+      <h2 class="lp__a" id="lp-h">One app, one job.</h2>
+      <p class="lp__b">DinnerPilot fits a week of meals to your grocery budget.</p>
     </div>
   </section>
 
@@ -168,7 +194,7 @@
           <article class="card card--row card--open span-6">
             <h3>Prices the plan up front</h3>
             <p>Set a weekly grocery budget, and every plan is priced against it in estimated totals.</p>
-            <div class="panel" data-fx="painterly-landscape" data-fx-seed="21" data-fx-palette='{"bg":"#d9ccb7","accent":"#a8794a"}' data-fx-params='{"blur":1,"brush":0.3,"slope":0,"hillY":0.28,"horizon":0.6,"calm":0.2,"calmX":0.5,"calmY":0.85,"drift":0,"side":1}' style="--calm-k:0%">
+            <div class="panel">
               <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max: 380px; --ax: max(24px, 50% - 190px); --ay: 44px; --ay-sm: 24px">
                 <img class="shot" src="../assets/dp/budget.webp" alt="DinnerPilot&rsquo;s budget card: your week is on track, $224 of $250, $26 left" width="820" height="683" loading="lazy" decoding="async">
               </div></div>
@@ -177,7 +203,7 @@
           <article class="card card--row card--open span-6">
             <h3>Reminds you at 6:30</h3>
             <p>Set when you eat, and it alerts you when to start cooking.</p>
-            <div class="panel" data-fx="painterly-landscape" data-fx-seed="8" data-fx-palette='{"bg":"#a3b0b6","accent":"#c49a6c"}' data-fx-params='{"blur":1,"brush":0.35,"slope":0,"hillY":0.3,"horizon":0.62,"calm":0.2,"calmX":0.6,"calmY":0.85,"drift":0,"side":1}' style="--calm-k:0%">
+            <div class="panel">
               <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max: 400px; --ax: max(24px, 50% - 200px); --ay: 44px; --ay-sm: 24px">
                 <img class="shot" src="../assets/dp/dinner-time.webp" alt="DinnerPilot&rsquo;s dinner time setting: we eat at 6:30 PM, with an alert when it&rsquo;s time to start cooking" width="820" height="426" loading="lazy" decoding="async">
               </div></div>
@@ -189,7 +215,7 @@
         <article class="card card--row card--open span-6">
           <h3>Filters the plan for diets</h3>
           <p>Dietary needs and disliked ingredients filter every recipe before it reaches the plan.</p>
-          <div class="panel" data-fx="painterly-landscape" data-fx-seed="34" data-fx-palette='{"bg":"#cdd6c6","accent":"#6c8e63"}' data-fx-params='{"blur":1,"brush":0.3,"slope":0,"hillY":0.3,"horizon":0.64,"calm":0.2,"calmX":0.4,"calmY":0.85,"drift":0,"side":1}' style="--calm-k:0%">
+          <div class="panel">
             <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max: 400px; --ax: max(24px, 50% - 200px); --ay: 44px; --ay-sm: 24px">
                 <img class="shot" src="../assets/dp/dietary.webp" alt="DinnerPilot&rsquo;s dietary needs (vegetarian, vegan, gluten-free, dairy-free, nut-free, keto) and ingredients to avoid" width="820" height="634" loading="lazy" decoding="async">
               </div></div>
@@ -198,7 +224,7 @@
         <article class="card card--row card--open span-6">
           <h3>Plans around your traditions</h3>
           <p>Switch on Taco Tuesday or Pizza Friday, and the plan fills those nights to match.</p>
-          <div class="panel" data-fx="painterly-landscape" data-fx-seed="47" data-fx-palette='{"bg":"#c6d3df","accent":"#3f6a92"}' data-fx-params='{"blur":1,"brush":0.3,"slope":0,"hillY":0.3,"horizon":0.6,"calm":0.2,"calmX":0.55,"calmY":0.85,"drift":0,"side":1}' style="--calm-k:0%">
+          <div class="panel">
             <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max: 400px; --ax: max(24px, 50% - 200px); --ay: 44px; --ay-sm: 24px">
                 <img class="shot" src="../assets/dp/traditions.webp" alt="DinnerPilot&rsquo;s family traditions: Taco Tuesday and Pizza Friday on, Sunday Supper and Breakfast for Dinner off" width="820" height="581" loading="lazy" decoding="async">
               </div></div>
@@ -208,7 +234,7 @@
     </div>
   </section>
 
-  <section class="section bg-dusk" id="pantry" aria-labelledby="p-h" style="--g-screen: calc(var(--h, 1) * 100svh)">
+  <section class="section" id="pantry" aria-labelledby="p-h">
     <div class="wrap">
       <div class="grid grid--top">
         <div class="span-5 stack-4">
@@ -237,7 +263,7 @@
           <h3>Free plan</h3>
           <p>For planning the family&rsquo;s week</p>
           <p class="price"><span class="t-stat">$0</span><span>with ads</span></p>
-          <a class="btn btn--secondary" href="#notify">Get notified</a>
+          <a class="btn btn--primary" href="#notify">Get notified</a>
           <ul class="checks">
             <li>Weekly meal plans for the family</li>
             <li>Grocery list by store section</li>
@@ -265,16 +291,21 @@
     </div>
   </section>
 
-  <section class="section bg-band" id="questions" aria-labelledby="q-h" style="--g-screen: calc(var(--h, 1) * 100svh)">
+  <section class="section" id="questions" aria-labelledby="q-h">
     <div class="wrap">
       <div class="grid grid--top">
         <div class="span-5 stack-4">
           <div class="section-head" style="margin-bottom: 0"><h2 id="q-h">Questions</h2></div>
           <a class="link" href="mailto:dave@clubhouseapps.com">Email DinnerPilot support</a>
+          <div class="panel q-panel" role="img" aria-label="DinnerPilot&rsquo;s grocery total: 40 items, an estimated $223.65, $26 under budget">
+            <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max: 340px; --ax: max(24px, 50% - 170px); --ay: 40px; --ay-sm: 24px">
+              <img class="shot" src="../assets/dp/grocery-total.webp" alt="" width="820" height="485" loading="lazy" decoding="async">
+            </div></div>
+          </div>
         </div>
         <div class="faq span-6 start-7">
           <div class="faq__item"><h3>When can I get DinnerPilot?</h3><p>It is in TestFlight for iPhone now; the App Store launch comes next. There is no Android version.</p></div>
-          <div class="faq__item"><h3>What is the price of Pro?</h3><p>$5.99 a month or $39.99 a year, after a 7&#8209;day free trial. Cancel anytime in your iPhone&rsquo;s Settings.</p></div>
+          <div class="faq__item off-phone"><h3>What is the price of Pro?</h3><p>$5.99 a month or $39.99 a year, after a 7&#8209;day free trial. Cancel anytime in your iPhone&rsquo;s Settings.</p></div>
           <div class="faq__item off-phone"><h3>Can I add my own recipes to the plan?</h3><p>Yes. The free plan saves 5 custom recipes; Pro saves as many as you like.</p></div>
           <div class="faq__item"><h3>Are the grocery prices real?</h3><p>They are estimates from national averages, labeled that way in the app.</p></div>
           <div class="faq__item"><h3>What about my family&rsquo;s privacy?</h3><p>Your data is never sold. The <a class="link" href="/dinnerpilot/privacy/">privacy policy</a> lists exactly what the app stores.</p></div>
@@ -285,7 +316,7 @@
   </section>
 </main>
 
-<footer class="footer closing g2m" id="notify" aria-labelledby="close-h">
+<footer class="footer closing footer--dark ground-inverse g2m" id="notify" aria-labelledby="close-h">
   <div class="wrap">
     <div class="closing__cta close--type">
       <div class="grid grid--top">
@@ -307,8 +338,8 @@
       <!-- site:footer-links -->
 <div class="grid">
         <div class="span-4 stack-4">
-          <a class="nav__logo" href="/"><span class="mark" data-mark="ring" aria-hidden="true"></span>Clubhouse Apps</a>
-          <p class="footer__lede">Apps for everyday life. Websites for local business.</p>
+          <a class="nav__logo" href="/"><span class="mark mark--initial" aria-hidden="true">C</span>Clubhouse Apps</a>
+          <p class="footer__lede">iPhone apps for families. Websites for local business.</p>
         </div>
         <div class="span-2 start-5 footer__col"><h3>Apps</h3><ul><li><a href="/dinnerpilot/">DinnerPilot</a></li><li><a href="/dinnerpilot/#pantry">Pantry Chef</a></li><li><a href="/dinnerpilot/account/">Account help</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Studio</h3><ul><li><a href="/studio/">Websites</a></li><li><a href="/studio/#pricing">Pricing</a></li><li><a href="/studio/#contact">Get a quote</a></li></ul></div>
@@ -328,10 +359,11 @@
   <a class="btn btn--primary" href="#notify">Get notified</a>
 </nav>
 
-<!-- site:scripts -->
+<!-- site:scripts scene=1 -->
 <script type="module" src="../assets/system.js"></script>
 <script type="module" src="../assets/motion/motion.js"></script>
 <script type="module" src="../assets/layout/layout.js"></script>
+<script type="module" src="../assets/scenes/scenes.js"></script>
 <script type="module" src="../assets/site.js?v=b3141f4f"></script>
 <!-- /site:scripts -->
 </body>

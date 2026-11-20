@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en" data-type="software" data-radius="round" data-ground="sand" data-buttons="tonal" data-motion>
+<html lang="en" data-type="software" data-radius="soft" data-ground="sky" data-buttons="tonal" data-motion>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Clubhouse Apps: iPhone apps and websites for local businesses</title>
+<title>Clubhouse Apps: iPhone apps for families, websites for local businesses</title>
 <meta name="description" content="Clubhouse Apps makes DinnerPilot, the meal planner that fits a family's week to its grocery budget, and builds websites for local businesses through its Studio.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Clubhouse Apps: iPhone apps and websites for local businesses">
-<meta property="og:description" content="The company behind DinnerPilot, and a Studio that builds websites for trades, restaurants and small shops.">
+<meta property="og:title" content="Clubhouse Apps: iPhone apps for families, websites for local businesses">
+<meta property="og:description" content="DinnerPilot plans a family's week of meals inside its grocery budget. The Studio builds websites for trades, restaurants and small shops.">
 <meta property="og:image" content="https://clubhouseapps.com/share.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://clubhouseapps.com/">
@@ -15,10 +15,10 @@
 <meta name="page-type" content="software">
 <!-- site:head -->
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#efe9e0">
+<meta name="theme-color" content="#0a0d14">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,400..600&family=Geist+Mono:wght@400..500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Reddit+Sans:wght@400..700&family=JetBrains+Mono:wght@400..500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/system.css">
 <link rel="stylesheet" href="assets/ui/cards.css">
 <link rel="stylesheet" href="assets/motion/motion.css">
@@ -27,83 +27,157 @@
 <link rel="stylesheet" href="assets/icons/icon.css">
 <style>
 :root {
-  --p-bg: #efe9e0; --p-surface: #e2d9cb; --p-ink: #22261f; --p-muted: #5a5c53;
-  --p-accent: #2e5b44; --p-accent-ink: #ffffff; --p-action: #2e5b44; --p-action-ink: #ffffff;
-  --p-inv-bg: #22261f; --p-inv-surface: #2e322a; --p-inv-ink: #efe9e0; --p-inv-muted: #a19e96;
-  --p-inv-accent: #efe9e0; --p-inv-accent-ink: #22261f; --p-inv-action: #efe9e0; --p-inv-action-ink: #22261f;
-  --font-display: "Mona Sans", system-ui, sans-serif;
-  --font-text: "Mona Sans", system-ui, sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --p-bg: #0a0d14; --p-surface: #131824; --p-ink: #e9edf3; --p-muted: #8891a1;
+  --p-accent: #5ab9fc; --p-accent-ink: #0a0d14; --p-action: #5ab9fc; --p-action-ink: #0a0d14;
+  --p-inv-bg: #e9edf3; --p-inv-surface: #d7dbe1; --p-inv-ink: #0a0d14; --p-inv-muted: #54575f;
+  --p-inv-accent: #0a0d14; --p-inv-accent-ink: #e9edf3; --p-inv-action: #0a0d14; --p-inv-action-ink: #e9edf3;
+  --font-display: "Reddit Sans", system-ui, sans-serif;
+  --font-text: "Reddit Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   --display-weight: 500;
   --display-tracking: -0.03em;
   --display-tracking-xl: -0.04em;
-  --display-stretch: 104%;
-  --ly-scale: 0.96;
 }
 </style>
 <link rel="stylesheet" href="assets/ui/base.css">
-<link rel="stylesheet" href="assets/site.css?v=775a5782">
+<link rel="stylesheet" href="assets/site.css?v=642d0cec">
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script src="assets/backgrounds/backgrounds.js"></script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
 <!-- /site:head -->
-<link rel="stylesheet" href="assets/ui/checklist/fragment.css">
 <link rel="modulepreload" href="assets/moments/moments.js">
 <link rel="modulepreload" href="assets/moments/lib.js">
-<link rel="modulepreload" href="assets/moments/liquid-type/moment.js">
-<link rel="modulepreload" href="assets/moments/cursor-spotlight/moment.js">
+<link rel="modulepreload" href="assets/moments/pinned-chapters/moment.js">
 <style>
-/* page CSS: the hero's pair of phones, and panel heights per breakpoint */
-.hero__art { overflow: hidden; }
-.hero__art > .hero__fx { position: absolute; inset: 0; z-index: 0; }
-.hero__pair { position: absolute; inset: 0; z-index: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
-              grid-template-rows: minmax(0, 1fr); gap: var(--s-5); padding: var(--s-8) var(--s-7) 0; }
-.pair__item { display: flex; flex-direction: column; align-items: center; gap: var(--s-4); min-width: 0; }
-.pair__label { display: grid; gap: 2px; margin: 0; text-align: center; }
-.pair__label b { font: 500 var(--t-body)/1.2 var(--font-text); }
-.pair__item .ph { width: min(250px, 100%); }
-.hero__proof { font-size: var(--t-small); }
-/* the cursor spotlight (moment) lays its light between the hero's gradient and the two phones */
-.hero__art.mo-cs > .hero__fx { position: absolute; z-index: 0; }
-.hero__art.mo-cs > .mo-cs__light { z-index: 1; }
-.hero__art.mo-cs > .stage { position: absolute; z-index: 2; }
-@media (max-width: 1279px) { .hero__pair { padding-inline: var(--s-5); gap: var(--s-4); } }
-@media (max-width: 639px) { .hero__pair { padding: var(--s-5) 0 0; gap: var(--s-3); } .pair__item { gap: var(--s-3); overflow: hidden; } .pair__item .ph { width: 86%; flex: none; } .pair__item .ph { padding: 5px; border-radius: 30px; } .pair__item .ph > img { border-radius: 25px; } }
-#studio .panel { --p-h: 520px; }
-@media (min-width: 640px) and (max-width: 1023px) { #studio .panel { --p-h: 405px; margin-top: var(--s-7); } #apps .dp-stage { height: 506px; } }
-@media (max-width: 639px) { #studio .panel { --p-h: 255px; margin-top: var(--s-6); } #apps .dp-stage { height: 249px; } }
+/* page CSS: only inside the visuals (the hero's collage on its aurora, the phone stages, the Studio window) */
+
+/* the hero: the aurora is the collage's own ground, the real screens over it */
+.ly-collage[data-fx] { border-radius: var(--r-lg); overflow: clip; box-shadow: 0 0 0 1px rgb(90 185 252 / .14), 0 40px 120px -40px rgb(90 185 252 / .35); }
+
+/* the collage: real screens only, sized in the collage's own units so every width shows the same picture */
+.ly-collage { container-type: size; }
+.ly-collage .ly-piece { box-shadow: 0 1px 0 rgb(255 255 255 / .06) inset, 0 32px 64px -28px rgb(0 0 0 / .85), 0 0 90px -34px rgb(90 185 252 / .45); }
+.ly-collage .ly-piece.ph { width: auto; aspect-ratio: 674 / 1448; height: min(var(--ph-h, 88cqh), var(--ph-w, 46cqw) * 2.148); padding: 2.4%; border-radius: 14% / 6.5%; background: #05070b; overflow: hidden; }
+.ly-collage .ly-piece.ph > img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 12% / 5.6%; }
+.ly-collage .ly-piece.cp-strip { background: #0f3a3f; border-radius: 2.6cqw; }
+.ly-collage .ly-piece.cp-strip > img { height: auto; display: block; }
+.ly-collage .ly-piece.bw { display: grid; grid-template-rows: auto minmax(0, 1fr); border-radius: 1.8cqw; padding: 0; gap: 0; }
+.ly-collage .ly-piece.bw .bw__bar { height: 5.2cqw; min-height: 22px; }
+.ly-collage .ly-piece.bw .bw__url { font-size: 13px; height: 3.4cqw; min-height: 16px; line-height: 1.4; }
+.ly-collage .ly-piece.bw > img { width: 100%; height: 100%; object-fit: cover; object-position: left top; margin: 0; }
+.ly-collage .ly-piece.cp-crop { background: #111110; border-radius: 2.6cqw; border: 1px solid rgb(255 255 255 / .1); }
+.ly-collage .ly-piece.cp-crop > img { object-fit: cover; }
+
+/* DinnerPilot: two whole weeks on the lit ground, cut by the frame's foot */
+#apps .frame--split { --ratio: 100%; }
+.dp-pair { inset: 0; display: flex; justify-content: center; gap: var(--s-5); padding-top: var(--s-7); }
+.stage > .dp-pair { position: absolute; }
+.dp-pair .ph { width: min(276px, calc(50% - 40px)); flex: none; align-self: flex-start; box-shadow: 0 40px 70px -30px rgb(10 13 20 / .7); }
+
+/* the three chapters: each step's phone on the lit ground, cut at the frame's foot */
+#how .mo-pc__visual--lit { align-items: flex-start; overflow: hidden; padding: clamp(20px, 3.4vw, 48px) 0 0; }
+#how .mo-pc__visual--lit > .ph { width: min(300px, 52%); flex: none; box-shadow: 0 40px 80px -36px rgb(10 13 20 / .75); }
+#how .mo-pc__visual--lit > .ph > img { aspect-ratio: auto; height: auto; }
+#how .mo-pc__text > .link { justify-self: start; }
+
+/* the Studio: the sample site in a browser window across the frame; its phone view in the frame beside the plans */
+#studio .frame--studio { --ratio: 37%; }
+.studio-win { left: var(--s-8); top: var(--s-8); right: var(--s-8); }
+.studio-win > img { height: auto; }
+.studio-row { align-items: stretch; }
+.studio-col { display: flex; flex-direction: column; justify-content: space-between; gap: var(--s-6); min-height: 0; }
+.studio-plans > .card { flex: 1 1 0; justify-content: flex-start; }
+.studio-plans > .card > .link { margin-top: auto; align-self: flex-start; }
+.studio-phone { min-height: 420px; }
+.studio-ph { left: 50%; top: var(--s-8); width: min(300px, calc(100% - 64px)); transform: translateX(-50%); box-shadow: 0 40px 80px -40px rgb(10 13 20 / .8); }
+.plan-price { font: var(--display-weight) var(--t-stat)/1 var(--font-display); letter-spacing: var(--display-tracking); }
+
+/* About: three rules beside the app icon on the lit ground */
+.about-row { align-items: stretch; }
+.about-col { display: flex; flex-direction: column; gap: var(--s-6); }
+.about-col > .section-head { margin-bottom: 0; }
+.about-list { list-style: none; margin: 0; padding: 0; display: grid; }
+.about-list > li { display: grid; gap: var(--s-2); padding-block: var(--s-6); border-bottom: 1px solid var(--line); }
+.about-list > li:first-child { padding-top: 0; }
+.about-list h3, .studio-col h3 { font: 500 var(--t-card)/1.3 var(--font-text); letter-spacing: -0.01em; }
+.about-list p { margin: 0; max-width: 52ch; }
+.about-visual { display: grid; place-items: center; min-height: 360px; }
+.about-icon { width: clamp(140px, 16vw, 232px); height: auto; border-radius: 22.5%; box-shadow: 0 40px 80px -30px rgb(10 13 20 / .55), 0 0 0 1px rgb(10 13 20 / .06); }
+
+/* the close's button matches the hero's: one action, one look */
+.close--word .section-head--split > .btn { height: 64px; padding-inline: var(--s-6); font-size: var(--t-lead); }
+@media (max-width: 1279px) { .close--word .section-head--split > .btn { height: 56px; font-size: var(--t-body); } }
+
+/* a small laptop: the Studio's three columns stay in one row, as at 1440 */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .studio-plans > .card { padding: var(--s-5); gap: var(--s-3); }
+  #studio .frame--studio { --ratio: 31%; }
+  .steps-list > li { padding-block: var(--s-3); }
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  #studio { --h: 2; }
+  .studio-win { left: var(--s-6); top: var(--s-6); right: var(--s-6); }
+  #how .mo-pc__visual--lit { aspect-ratio: auto; height: min(30svh, 300px); }
+  #how .mo-pc__visual--lit > .ph { width: min(170px, 46%); }
+  .ly-collage .hero-dinner { display: none; }
+}
+@media (max-width: 1023px) {
+  .about-list > li { grid-template-columns: minmax(0, 1fr); row-gap: var(--s-3); }
+}
+@media (max-width: 639px) {
+  #apps .frame--split { --ratio: 84%; }
+  .dp-pair { gap: var(--s-3); padding-top: var(--s-5); }
+  .dp-pair .ph { width: calc(50% - 22px); padding: 5px; border-radius: 26px; }
+  .dp-pair .ph > img { border-radius: 21px; }
+  #how .mo-pc__visual--lit { aspect-ratio: 16 / 9; max-height: 26svh; padding-top: var(--s-4); }
+  #how .mo-pc__visual--lit > .ph { width: 40%; padding: 5px; border-radius: 26px; }
+  #how .mo-pc__visual--lit > .ph > img { border-radius: 21px; }
+  .about-visual { min-height: 240px; }
+  #studio .frame--studio { --ratio: 66%; }
+  .studio-win { left: var(--s-4); top: var(--s-5); right: var(--s-4); }
+  .about-list > li { padding-block: var(--s-5); }
+}
+@media (prefers-reduced-motion: reduce) { .ly-collage .ly-piece { transition: none; } }
 </style>
 </head>
 <body>
-<!-- type: software (a company page for an app maker with a web studio; site-kind software)
-     deal: hero collage (two real screens: our app, a Studio site) · palette clay-pine · type mona (Mona Sans + Geist Mono) · nav nav-centre ·
-     footer footer-columns · close close-type · buttons tonal · mark ring · radius round ·
-     effect gradient-mesh, still, in the hero art · grounds: studio ground-surface ·
-     moments: cursor-spotlight in the hero art (a soft light follows the pointer); liquid-type on the about statement
-     motion, why it moves: hero entrance (the name arrives, then what to do); liquid-type in #about (the
-     company's one line, worth a touch); hover layer everywhere (every link answers)
-     voice: plain company voice, "we" for Clubhouse Apps, "you" for the reader; no virtue words, no invented figures
-     screens: hero 1 · apps 1 · studio 1 · about 1 · footer 1 -->
+<!-- type: software (an app maker with a web Studio; site-kind software)
+     look "Night shift" (chosen by Dave 2026-11-20 from three previews): palette blue-black-cornflower · type reddit
+     (Reddit Sans + JetBrains Mono) · radius soft · nav nav-mega · footer footer-dark · close close-word · buttons tonal ·
+     mark initial · lit ground sky · hero triptych
+     beats: the aurora behind the hero's collage (the page's one effect; the collage turns through DinnerPilot and
+     Sparky's Electric every few seconds) · #how, pinned-chapters (dealt): the section holds while its three steps
+     change the phone · #apps between them stays calm; the back third (Studio, About) calm
+     voice: plain company voice, "we" for Clubhouse Apps, "you" for the reader; facts only
+     screens: hero 1 · apps 1 · how 1 (2 live) · studio 2 · about 1 · footer 1 -->
 
 <!-- site:header current=home -->
-<header class="nav nav--centre">
+<header class="nav">
   <div class="wrap nav__bar">
     <a class="skip-link" href="#top">Skip to content</a>
-    <a class="nav__logo" href="/" aria-current="page"><span class="mark" data-mark="ring" aria-hidden="true"></span>Clubhouse Apps</a>
+    <a class="nav__logo" href="/" aria-current="page"><span class="mark mark--initial" aria-hidden="true">C</span>Clubhouse Apps</a>
     <nav class="nav__links" aria-label="Main">
       <div class="nav__item">
         <a class="nav__link" href="/#apps">Apps <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="nav__menu">
           <div class="wrap grid">
             <div class="menu-col span-3">
-              <p class="t-label">Our apps</p>
-              <a href="/dinnerpilot/">DinnerPilot<span>Weekly meal plans and grocery lists for families</span></a>
+              <p class="t-label">DinnerPilot</p>
+              <a href="/dinnerpilot/">Meal plans<span>A family&rsquo;s week inside its budget</span></a>
+              <a href="/dinnerpilot/#features">Grocery list<span>Every item, an estimated total</span></a>
+              <a href="/dinnerpilot/#pantry">Pantry Chef<span>Dinner from your fridge</span></a>
             </div>
             <div class="menu-col span-3">
               <p class="t-label">DinnerPilot help</p>
               <a href="/dinnerpilot/account/">Account help<span>Password resets and email links</span></a>
               <a href="/dinnerpilot/data-deletion/">Delete your data<span>How to remove your account</span></a>
+              <a href="/dinnerpilot/privacy/">Privacy policy<span>What the app stores</span></a>
             </div>
+            <a class="menu-card span-3 start-10" href="/dinnerpilot/">
+              <div class="panel"><img class="frame__img" src="assets/dp/budget.webp" alt="DinnerPilot showing a week on track at $224 of a $250 budget" loading="lazy"></div>
+              <span class="t-card">DinnerPilot</span>
+              <span class="t-small muted">In TestFlight for iPhone now</span>
+            </a>
           </div>
         </div>
       </div>
@@ -121,126 +195,175 @@
 <!-- /site:header -->
 
 <main id="top">
-  <section class="hero hero--collage" data-enter aria-labelledby="hero-h">
+  <section class="hero hero--triptych" data-enter aria-labelledby="hero-h">
     <div class="wrap"><div class="hero-text grid hero__grid">
-      <div class="hero__text span-5">
-        <h1 id="hero-h">iPhone apps for families, websites for local businesses</h1>
-        <p class="hero__lead">Clubhouse Apps makes DinnerPilot, the meal planner that fits a family&rsquo;s week to its grocery budget. Our Studio builds fast, custom websites for trades, restaurants and small shops.</p>
-        <div class="btn-row">
-          <a class="btn btn--primary" href="#apps">See our apps<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
-          <a class="btn btn--secondary" href="/studio/">Get a website</a>
+      <div class="span-3">
+        <h1 id="hero-h">Family iPhone apps, local websites</h1>
+        <p class="hero__lead">DinnerPilot plans a family&rsquo;s week from 2,532 recipes, inside its grocery budget. Our Studio builds websites for local trades and restaurants.</p>
+      </div>
+      <div class="ly-collage span-6 start-4" data-fx="aurora-curtains" data-fx-seed="27" data-fx-palette='{"bg":"#0a0d14","surface":"#131824","ink":"#e9edf3","muted":"#8891a1","accent":"#5ab9fc"}' data-fx-params='{"speed":0.06,"bands":4,"height":0.78,"intensity":1.8,"rayDetail":0.8,"stars":0.45,"calm":0,"waviness":0.7}' role="img" aria-label="DinnerPilot&rsquo;s screens, a week on track at $224 of a $250 budget and a grocery list of 40 items at an estimated $223.65, in turn with Sparky&rsquo;s Electric, a website the Studio built, on a desktop and a phone">
+        <div class="ly-collage__set is-on">
+          <div class="ly-piece ph ph--shot" style="left: 3%; top: 6%; --ph-h: 88cqh; --ph-w: 47cqw"><img src="assets/dp/home-week.webp" alt="" width="660" height="1434" fetchpriority="high"></div>
+          <div class="ly-piece cp-strip" style="left: 53%; top: 12%; width: 43%"><img src="assets/dp/budget.webp" alt="" width="820" height="683"></div>
+          <div class="ly-piece cp-strip" style="left: 53%; top: 50%; width: 43%"><img src="assets/dp/grocery-total.webp" alt="" width="820" height="485"></div>
+          <div class="ly-piece cp-strip hero-dinner" style="right: 4%; bottom: 4%; width: 43%"><img src="assets/dp/dinner-time.webp" alt="" width="820" height="426"></div>
         </div>
-        <p class="hero__proof">DinnerPilot is in TestFlight now.</p>
+        <div class="ly-collage__set" aria-hidden="true">
+          <div class="ly-piece bw bw--shot" style="left: 4%; top: 4%; width: 80%; height: 50%"><div class="bw__bar"><i></i><i></i><i></i><span class="bw__url">sparkys-electric</span></div><img src="assets/studio/sparkys-desktop.webp" alt="" width="1280" height="800"></div>
+          <div class="ly-piece cp-crop" style="left: 4%; top: 60%; width: 50%; height: 32%"><img src="assets/studio/sparkys-phone.webp" alt="" width="660" height="1434" style="object-position: 0 80%"></div>
+          <div class="ly-piece ph ph--shot" style="right: 4%; bottom: 4%; --ph-h: 62cqh; --ph-w: 34cqw"><img src="assets/studio/sparkys-phone.webp" alt="" width="660" height="1434"></div>
+        </div>
+        <div class="ly-collage__set" aria-hidden="true">
+          <div class="ly-piece cp-strip" style="left: 4%; top: 8%; width: 45%"><img src="assets/dp/traditions.webp" alt="" width="820" height="581"></div>
+          <div class="ly-piece cp-strip" style="left: 4%; top: 52%; width: 45%"><img src="assets/dp/dietary.webp" alt="" width="820" height="634"></div>
+          <div class="ly-piece ph ph--shot" style="right: 4%; bottom: 4%; --ph-h: 88cqh; --ph-w: 45cqw"><img src="assets/dp/grocery-list.webp" alt="" width="660" height="1434"></div>
+        </div>
+        <div class="ly-collage__set" aria-hidden="true">
+          <div class="ly-piece ph ph--shot" style="left: 4%; top: 4%; --ph-h: 84cqh; --ph-w: 42cqw"><img src="assets/studio/sparkys-phone.webp" alt="" width="660" height="1434"></div>
+          <div class="ly-piece cp-crop" style="right: 4%; top: 8%; width: 46%; height: 40%"><img src="assets/studio/sparkys-desktop.webp" alt="" width="1280" height="800" style="object-position: 0 0"></div>
+          <div class="ly-piece cp-crop" style="right: 4%; bottom: 4%; width: 46%; height: 40%"><img src="assets/studio/sparkys-desktop.webp" alt="" width="1280" height="800" style="object-position: 0 70%"></div>
+        </div>
       </div>
-      <div class="hero__art span-6 start-7" data-moment="cursor-spotlight" data-moment-opts='{"rest": [0.5, 0.18], "radius": 440}'>
-        <div class="hero__fx" data-fx="gradient-mesh" data-fx-seed="11" data-fx-palette='{"bg":"#d9ccb7","surface":"#e9e0d2","ink":"#2a2622","muted":"#6f675c","accent":"#a8794a"}' data-fx-params='{"speed":0,"calm":0.2,"calmX":0.5,"calmY":0.92,"tint":0.6,"relief":0.35}' style="--calm-k:0%" aria-hidden="true"></div>
-        <div class="stage stage--fade-b"><div class="hero__pair">
-          <div class="pair__item">
-            <p class="pair__label"><span class="t-label">Our app</span><b>DinnerPilot</b></p>
-            <div class="ph ph--shot"><img src="assets/dp/home-week.webp" alt="DinnerPilot&rsquo;s home screen: your week is on track, $224 of a $250 budget" width="660" height="1434" fetchpriority="high"></div>
-          </div>
-          <div class="pair__item">
-            <p class="pair__label"><span class="t-label">A Studio website</span><b>Sparky&rsquo;s Electric</b></p>
-            <div class="ph ph--shot"><img src="assets/studio/sparkys-phone.webp" alt="Sparky&rsquo;s Electric, a sample website the Studio built, on a phone" width="660" height="1434" fetchpriority="high"></div>
-          </div>
-        </div></div>
-      </div>
+      <div class="span-3 start-10 hero__cta"><a class="btn btn--primary" href="#contact">Get in touch<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a></div>
     </div></div>
   </section>
 
-  <section class="section" id="apps" aria-labelledby="apps-h">
+  <section class="section" id="apps" aria-labelledby="dp-h">
     <div class="wrap">
       <div class="grid grid--top">
-        <div class="section-head span-5" style="margin-bottom: 0">
+        <div class="span-5 stack-5">
           <p class="app-name"><img src="assets/dp-icon.png" alt="" width="40" height="40" loading="lazy">DinnerPilot</p>
-          <h2 id="apps-h">Our first app plans the family&rsquo;s week of meals, inside a grocery budget</h2>
-        </div>
-        <div class="span-6 start-7 stack-3">
-          <p>DinnerPilot builds breakfast, lunch and dinner from 2,532 recipes, writes the grocery list and swaps any meal you don&rsquo;t like. Pantry Chef, part of Pro, turns what is in your fridge into dinner.</p>
-          <p class="off-phone">In TestFlight for iPhone now. Free with ads; Pro is $5.99 a month.</p>
+          <h2 id="dp-h">Our first app plans meals inside your budget</h2>
+          <p>DinnerPilot builds breakfast, lunch and dinner for the whole week, and keeps the plan inside the budget you set.</p>
+          <ul class="rows">
+            <li><span class="rows__name">Recipes</span><span class="rows__value">2,532</span></li>
+            <li><span class="rows__name">Free</span><span class="rows__value">With ads</span></li>
+            <li><span class="rows__name">Pro</span><span class="rows__value">$5.99 a month</span></li>
+            <li><span class="rows__name">iPhone app</span><span class="rows__value">In TestFlight</span></li>
+          </ul>
           <a class="link" href="/dinnerpilot/">See DinnerPilot</a>
         </div>
-      </div>
-      <div class="frame frame--lit dp-stage">
-        <div class="stage stage--fade-b">
-          <div class="ph ph--shot"><img src="assets/dp/week-fri-sun.webp" alt="DinnerPilot&rsquo;s week from Friday to Sunday: breakfast, lunch and dinner each day" width="660" height="1434" loading="lazy" decoding="async"></div>
-          <div class="ph ph--shot"><img src="assets/dp/grocery-list.webp" alt="DinnerPilot&rsquo;s grocery list: 40 items to buy, 12 already at home, an estimated $223.65, $26 under budget" width="660" height="1434" loading="lazy" decoding="async"></div>
-          <div class="ph ph--shot"><img src="assets/dp/pantry-chef.webp" alt="Pantry Chef&rsquo;s three dinners: Beef Fried Rice, Cheesy Beef and Pepper Burritos, and Stuffed Bell Peppers with Beef and Rice" width="660" height="1434" loading="lazy" decoding="async"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section ground-surface" id="studio" aria-labelledby="studio-h">
-    <div class="wrap">
-      <div class="grid grid--top">
-        <div class="span-5 stack-4">
-          <p class="t-label">Clubhouse Apps Studio</p>
-          <div class="section-head" style="margin-bottom: 0"><h2 id="studio-h">Websites for the local businesses the internet still forgets</h2></div>
-          <p>The Studio designs and builds custom websites for plumbers, electricians, contractors, restaurants and small shops. Fast to load, clear on a phone, and built around the call or booking that pays the bills.</p>
-          <ul class="rows off-phone">
-            <li><span class="rows__name">The Handoff</span><span class="rows__value">$2,000, you own everything</span></li>
-            <li><span class="rows__name">The Care Plan</span><span class="rows__value">$500, then $100 a month</span></li>
-          </ul>
-          <a class="link" href="/studio/">See the Studio</a>
-        </div>
-        <div class="panel span-6 start-7" data-fx="painterly-landscape" data-fx-seed="34" data-fx-palette='{"bg":"#cdd6c6","accent":"#6c8e63"}' data-fx-params='{"blur":1,"brush":0.3,"slope":0,"hillY":0.3,"horizon":0.64,"calm":0.2,"calmX":0.5,"calmY":0.85,"drift":0,"side":1}' style="--calm-k:0%" role="img" aria-label="A Studio website project: the intro call, the quote and the preview done, the launch next">
-          <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max: 400px; --ax: max(24px, 50% - 200px); --ay: 64px; --ay-sm: 24px">
-            <div class="ui ui-panel ui-checks" data-ui="checklist">
-              <div class="ui-checks__head">
-                <div class="ui-title">Your website project</div>
-                <span class="ui-spacer"></span>
-                <div class="ui-meta" data-checks-count>3 of 4 done</div>
-              </div>
-              <div class="ui-checks__bar"><i data-checks-bar style="--k:.75"></i></div>
-              <ul class="ui-checks__list">
-                <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Intro call, 20 minutes</span></li>
-                <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">One-page quote, approved</span></li>
-                <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Preview link, reviewed</span></li>
-                <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Live on your domain</span></li>
-              </ul>
-            </div>
+        <div class="frame frame--split frame--lit span-6 start-7" role="img" aria-label="DinnerPilot&rsquo;s week: breakfast, lunch and dinner from Monday to Sunday">
+          <div class="stage stage--fade-b"><div class="dp-pair">
+            <div class="ph ph--shot"><img src="assets/dp/week-mon-wed.webp" alt="" width="660" height="1434" loading="lazy" decoding="async"></div>
+            <div class="ph ph--shot"><img src="assets/dp/week-fri-sun.webp" alt="" width="660" height="1434" loading="lazy" decoding="async"></div>
           </div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section statement" id="about" aria-label="About Clubhouse Apps">
-    <div class="wrap stack-6">
-      <p class="t-label">About Clubhouse Apps</p>
-      <div data-moment="liquid-type">
-        <p class="mo-lt__type">Made with care, not by committee.</p>
+  <section class="section" id="how" data-moment="pinned-chapters" aria-labelledby="how-h">
+    <div class="wrap mo-pc__grid">
+      <div class="mo-pc__text">
+        <h2 id="how-h">From the week&rsquo;s plan to the shopping</h2>
+        <ol class="mo-pc__steps">
+          <li class="mo-pc__step">
+            <h3>The grocery list, priced before you shop</h3><p>Every item for the week, priced as an estimate: here 40 items for about $223.65.</p>
+            <figure class="mo-pc__visual mo-pc__visual--lit"><div class="ph ph--shot"><img src="assets/dp/grocery-list.webp" alt="DinnerPilot&rsquo;s grocery list: 40 items to buy, an estimated $223.65, $26 under budget" width="660" height="1434" loading="lazy" decoding="async"></div></figure>
+          </li>
+          <li class="mo-pc__step">
+            <h3>Swap any meal on the plan</h3><p>DinnerPilot offers another recipe from its 2,532, and the grocery list follows.</p>
+            <figure class="mo-pc__visual mo-pc__visual--lit"><div class="ph ph--shot"><img src="assets/dp/swap-dinner.webp" alt="DinnerPilot&rsquo;s Swap Dinner screen listing recipes to choose from" width="660" height="1434" loading="lazy" decoding="async"></div></figure>
+          </li>
+          <li class="mo-pc__step">
+            <h3>Pantry Chef, on the Pro plan</h3><p>It turns what is already in your fridge into tonight&rsquo;s dinner.</p>
+            <figure class="mo-pc__visual mo-pc__visual--lit"><div class="ph ph--shot"><img src="assets/dp/pantry-chef.webp" alt="Pantry Chef suggesting Beef Fried Rice, Cheesy Beef and Pepper Burritos, and Stuffed Bell Peppers" width="660" height="1434" loading="lazy" decoding="async"></div></figure>
+          </li>
+        </ol>
+        <a class="link" href="/dinnerpilot/#features">See every feature</a>
       </div>
-      <div class="grid">
-        <div class="span-4 stack-3"><h3>One job for each app</h3><p>Each app does one thing well instead of ten things poorly.</p></div>
-        <div class="span-4 stack-3"><h3>A privacy policy in plain words</h3><p>Your data is never sold, there are no analytics of our own, and each policy lists what the app stores.</p></div>
-        <div class="span-4 stack-3 off-phone"><h3>Built for the iPhone</h3><p>Fast, native apps that feel at home on iOS. No dark patterns and no bloat.</p></div>
+      <div class="mo-pc__visuals frame"></div>
+    </div>
+  </section>
+
+  <section class="section g2" id="studio" aria-labelledby="studio-h">
+    <div class="wrap">
+      <div class="group">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="t-label">Clubhouse Apps Studio</p>
+            <h2 id="studio-h">The Studio builds websites for local trades</h2>
+          </div>
+          <a class="link" href="/studio/">See the Studio</a>
+        </div>
+        <div class="frame frame--lit frame--studio" role="img" aria-label="Sparky&rsquo;s Electric, a sample website the Studio built, in a desktop browser">
+          <div class="stage stage--fade-b">
+            <div class="bw bw--shot studio-win"><div class="bw__bar"><i></i><i></i><i></i><span class="bw__url">sparkys-electric</span></div><img src="assets/studio/sparkys-desktop.webp" alt="" width="1280" height="800" loading="lazy"></div>
+          </div>
+        </div>
       </div>
-      <ul class="rows off-phone">
-        <li><span class="rows__name">Apps</span><span class="rows__value">DinnerPilot, for iPhone</span></li>
-        <li><span class="rows__name">Studio</span><span class="rows__value">Websites for local businesses</span></li>
-        <li><span class="rows__name">Company</span><span class="rows__value">Clubhouse Apps LLC</span></li>
-      </ul>
+      <div class="grid studio-row">
+        <div class="span-4 studio-col">
+          <div class="stack-4">
+            <h3>Four steps to a live website</h3>
+            <p class="off-phone">For plumbers, electricians, contractors, restaurants and small shops: fast to load, clear on a phone, built around the call that pays the bills.</p>
+          </div>
+          <ol class="steps-list">
+            <li><span class="num">01</span><span>Intro call, 20 minutes</span></li>
+            <li><span class="num">02</span><span>A one-page quote</span></li>
+            <li><span class="num">03</span><span>A preview link to review</span></li>
+            <li><span class="num">04</span><span>Live on your domain</span></li>
+          </ol>
+        </div>
+        <div class="span-4 start-5 studio-col studio-plans" data-spot>
+          <article class="card card--plan m-nolift">
+            <h3>The Handoff</h3>
+            <p>One payment, and you own everything.</p>
+            <p class="price"><span class="plan-price">$2,000</span></p>
+            <a class="link" href="/studio/#contact">Get a quote</a>
+          </article>
+          <article class="card card--plan is-featured m-nolift">
+            <h3>The Care Plan</h3>
+            <p>A lower start, then a monthly plan.</p>
+            <p class="price"><span class="plan-price">$500</span><span class="muted">then $100 a month</span></p>
+            <a class="link" href="/studio/#contact">Get a quote</a>
+          </article>
+        </div>
+        <div class="frame frame--lit span-4 start-9 studio-phone off-phone" role="img" aria-label="Sparky&rsquo;s Electric on a phone, its Call now button under the headline">
+          <div class="stage stage--fade-b"><div class="ph ph--shot studio-ph"><img src="assets/studio/sparkys-phone.webp" alt="" width="660" height="1434" loading="lazy"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="grid about-row">
+        <div class="span-6 about-col">
+          <div class="section-head">
+            <p class="t-label">About Clubhouse Apps</p>
+            <h2 id="about-h">How we make apps. <span class="muted">Three rules for each one.</span></h2>
+          </div>
+          <ul class="about-list">
+            <li><h3>One job for each of our apps</h3><p>Each app does one thing, and does it well. DinnerPilot plans meals.</p></li>
+            <li><h3>A privacy policy in plain words</h3><p>Your data is never sold, we run no analytics of our own, and each policy lists what its app stores.</p></li>
+            <li><h3>Built for the iPhone</h3><p>Fast native apps with no dark patterns and no bloat.</p></li>
+          </ul>
+        </div>
+        <div class="frame frame--lit span-6 start-7 about-visual" role="img" aria-label="The DinnerPilot app icon">
+          <img class="about-icon" src="assets/dp-icon.png" alt="" width="512" height="512" loading="lazy">
+        </div>
+      </div>
     </div>
   </section>
 </main>
 
-<footer class="footer closing g2m" id="contact" aria-labelledby="close-h">
+<footer class="footer closing footer--dark ground-inverse" id="contact" aria-labelledby="close-h">
   <div class="wrap">
-    <div class="closing__cta close--type">
-      <div class="section-head">
-        <h2 id="close-h">A question about an app, or a website?</h2>
-        <p class="t-small muted">Email dave@clubhouseapps.com. We reply within one business day.</p>
+    <div class="closing__cta close--word">
+      <div class="section-head--split">
+        <div><h2 id="close-h">Ask about an app or a website</h2><p class="t-lead">Email dave@clubhouseapps.com. We reply within one business day.</p></div>
+        <a class="btn btn--primary" href="mailto:dave@clubhouseapps.com">Get in touch<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
       </div>
-      <a class="btn btn--primary btn--xl btn--wide" href="mailto:dave@clubhouseapps.com">Get in touch<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+      <p class="close__word" aria-hidden="true">Clubhouse Apps</p>
     </div>
     <div class="closing__links">
       <!-- site:footer-links -->
 <div class="grid">
         <div class="span-4 stack-4">
-          <a class="nav__logo" href="/"><span class="mark" data-mark="ring" aria-hidden="true"></span>Clubhouse Apps</a>
-          <p class="footer__lede">Apps for everyday life. Websites for local business.</p>
+          <a class="nav__logo" href="/"><span class="mark mark--initial" aria-hidden="true">C</span>Clubhouse Apps</a>
+          <p class="footer__lede">iPhone apps for families. Websites for local business.</p>
         </div>
         <div class="span-2 start-5 footer__col"><h3>Apps</h3><ul><li><a href="/dinnerpilot/">DinnerPilot</a></li><li><a href="/dinnerpilot/#pantry">Pantry Chef</a></li><li><a href="/dinnerpilot/account/">Account help</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Studio</h3><ul><li><a href="/studio/">Websites</a></li><li><a href="/studio/#pricing">Pricing</a></li><li><a href="/studio/#contact">Get a quote</a></li></ul></div>

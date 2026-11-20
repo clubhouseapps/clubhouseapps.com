@@ -116,7 +116,8 @@ URL structure mirrors folder structure exactly. `index.html` files serve as the 
 | 2026-11-19 | `1f81d4a` | Impeccable's three real findings fixed |
 | 2026-11-19 | `c64ef8e` | Five animations from the web-animations gallery (three didn't run live: their files weren't committed) |
 | 2026-11-19 | `2c6f335` | The three missing animation files committed; DinnerPilot gradient sped up |
-| 2026-11-19 | — | DinnerPilot gradient made faster and deeper so the drift shows beside the phone |
+| 2026-11-19 | `586984b` | DinnerPilot gradient made faster and deeper so the drift shows beside the phone |
+| 2026-11-20 | — | Whole site redone in the "Night shift" look (Dave chose it from three home-page previews): new colours, type, header, footer, every page rebuilt |
 
 The major work happened on **2026-05-17**: legal pages were added, then immediately reorganized under `/dinnerpilot/` (they had initially been at the root), then the entire site got a full visual redesign in one large commit that touched all three primary files.
 
@@ -124,10 +125,16 @@ The major work happened on **2026-05-17**: legal pages were added, then immediat
 
 ## Design System
 
-Every page uses the **Taste Skill** kit (`github.com/Leonxlnx/taste-skill`) with one dealt look:
-clay-pine palette (warm stone ground `#efe9e0`, pine green accent `#2e5b44`), Mona Sans + Geist Mono,
-tonal pill buttons, ring mark, round corners. The tokens live in the `site:head` block that `stamp.py`
-writes into every page; change them there, then re-stamp.
+Every page uses the **Taste Skill** kit (`github.com/Leonxlnx/taste-skill`) with one look, **"Night shift"**
+(Dave chose it on 2026-11-20 from three home-page previews; the earlier clay-pine look's favicon and share image
+are in `../_archive/2026-11-20 site overhaul/`): blue-black ground `#0a0d14`, surface `#131824`, cornflower accent
+`#5ab9fc` (palette blue-black-cornflower), Reddit Sans + JetBrains Mono, tonal buttons, the "C" initial mark, soft
+corners (`data-radius="soft"`), and the sky lit ground (`data-ground="sky"`: the light blue-grey panels the phones
+stand on). Header: nav-mega (the Apps menu opens a panel with a DinnerPilot card). Footer: footer-dark with the
+company name set huge across the close (`close--word`). The tokens live in the `site:head` block that `stamp.py`
+writes into every page; change them there, then re-stamp. A page with a scroll scene marks it in its markers:
+`<!-- site:head scene=letter-physics -->` and `<!-- site:scripts scene=1 -->`.
+- **One effect a page** (the kit's rule): a live shader ground, or a big scroll scene, never both on one page.
 
 - **Kit files** (`assets/system.css`, `assets/ui/…`, etc.) are never edited. Override in `assets/site.css` or a page's own `<style>`.
 - **`assets/site.css`** holds what the kit doesn't: the phone frame (`.ph`; `.ph--shot` holds a real screenshot), the screenshot strip card (`.shot`), the Studio's step card (`.dpn`), the browser window with the Sparky's Electric sample (`.bw`, `.sp__*`), the pricing halves (`.pricing`), and the text-page layout (`.doc`, `.prose`, `.doc__side`).
@@ -142,21 +149,21 @@ writes into every page; change them there, then re-stamp.
 - **Sparky's Electric is real too**: the Studio sample is captured from its live preview
   (`node .site/capture.mjs <url> .site/captures/sparkys-mobile.png 440 902 3`, and `... sparkys-desktop.png 1280 800 2`),
   then `python3 .site/shots.py` frames it. Recapture after the sample site changes.
-- **The home hero** is two labelled phones side by side: "Our app: DinnerPilot" and "A Studio website: Sparky's
-  Electric". No website-with-a-phone-on-top collage: the two businesses are shown apart.
+- **The home hero** is a collage of real screens on a moving aurora: every few seconds it turns between
+  DinnerPilot's screens and Sparky's Electric (desktop and phone), four sets in all (the kit's `ly-collage` sets).
 - **Motion** follows design-motion-principles: one entrance per hero, at most one timed loop per page, hover
   answers on every link; all of it stops under reduced motion and on touch screens where it follows the pointer.
-- **Animations** (from Dave's web-animations gallery, 2026-11-19; the kit's own moments where it has one):
+- **Animations** (Night shift, 2026-11-20; each page has one effect, as the kit allows):
   | Where | What | How |
   |---|---|---|
-  | Home hero | A soft light with a fine dot grid follows the pointer behind the two phones | kit moment `cursor-spotlight` on `.hero__art` |
-  | DinnerPilot hero | The gradient background drifts slowly (pause button bottom right) | gradient-mesh `speed` 0.28, `warp` 0.85, `relief` 0.8, `tint` 0.75: the phone covers most of the panel, so the drift has to read in the strips beside it (0.05 and 0.14 looked still) |
-  | DinnerPilot `#promise` | One statement lights up word by word as it scrolls past | kit moment `word-highlight` |
-  | Pricing on DinnerPilot and Studio | One soft glow follows the pointer across both plans, lighting their borders | `[data-spot]` + `assets/site.js` + `site.css` |
+  | Home hero | Curtains of blue light sway behind a collage that turns between DinnerPilot's screens and Sparky's Electric | effect `aurora-curtains` on `.ly-collage` (`data-fx`) + the kit's collage sets |
+  | Home `#how` | The section holds while you scroll; its three steps (grocery list, meal swap, Pantry Chef) change the phone | kit moment `pinned-chapters` (dealt by `moments.mjs pick`) |
+  | DinnerPilot `#claim` | "One app, one job." flies apart letter by letter; "DinnerPilot fits a week of meals to your grocery budget." lands | kit scene `letter-physics` (the page's one effect, so no shader ground on that page; card panels use the lit ground) |
+  | Studio hero | A soft dark grain gradient drifts behind the browser window; the project card ticks off its three steps | effect `grain-gradient` (dealt by `effects.mjs pick`) + `data-ly-steps` |
   | Studio `#services` | A slow row of the trades we build for (pause button beside its label; hidden on phones) | kit moment `marquee-row` |
-  Left out on purpose: liquid glass cursor, particle headline, ASCII 3D, fluid cursor and the globe (they fight the
-  site's calm look or don't fit a family app and local websites), and 3D tilt (the kit's motion rules forbid tilting).
-  No client logos in the marquee until real clients approve them.
+  | Pricing on home, DinnerPilot and Studio | One soft cornflower glow follows the pointer across the plans | `[data-spot]` + `assets/site.js` + `site.css` |
+  Retired with the clay-pine look: cursor-spotlight, liquid-type, word-highlight (letter-physics avoids it) and the
+  DinnerPilot gradient-mesh. Their files stay in git, unused. No client logos in the marquee until real clients approve them.
 - **Most of the kit is not committed.** `assets/moments/`, `assets/effects/` and `assets/components/` sit in this folder
   in full, but only the pieces a page uses are in git. When a page starts using a moment or effect, `git add` its
   `moment.js` + `moment.css` (or `effect.js`) too, or it works on this computer and is missing on the live site.

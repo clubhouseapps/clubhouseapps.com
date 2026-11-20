@@ -42,7 +42,7 @@
 }
 </style>
 <link rel="stylesheet" href="assets/ui/base.css">
-<link rel="stylesheet" href="assets/site.css?v=1981e7c6">
+<link rel="stylesheet" href="assets/site.css?v=775a5782">
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script src="assets/backgrounds/backgrounds.js"></script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
@@ -51,6 +51,7 @@
 <link rel="modulepreload" href="assets/moments/moments.js">
 <link rel="modulepreload" href="assets/moments/lib.js">
 <link rel="modulepreload" href="assets/moments/liquid-type/moment.js">
+<link rel="modulepreload" href="assets/moments/cursor-spotlight/moment.js">
 <style>
 /* page CSS: the hero's pair of phones, and panel heights per breakpoint */
 .hero__art { overflow: hidden; }
@@ -62,6 +63,10 @@
 .pair__label b { font: 500 var(--t-body)/1.2 var(--font-text); }
 .pair__item .ph { width: min(250px, 100%); }
 .hero__proof { font-size: var(--t-small); }
+/* the cursor spotlight (moment) lays its light between the hero's gradient and the two phones */
+.hero__art.mo-cs > .hero__fx { position: absolute; z-index: 0; }
+.hero__art.mo-cs > .mo-cs__light { z-index: 1; }
+.hero__art.mo-cs > .stage { position: absolute; z-index: 2; }
 @media (max-width: 1279px) { .hero__pair { padding-inline: var(--s-5); gap: var(--s-4); } }
 @media (max-width: 639px) { .hero__pair { padding: var(--s-5) 0 0; gap: var(--s-3); } .pair__item { gap: var(--s-3); overflow: hidden; } .pair__item .ph { width: 86%; flex: none; } .pair__item .ph { padding: 5px; border-radius: 30px; } .pair__item .ph > img { border-radius: 25px; } }
 #studio .panel { --p-h: 520px; }
@@ -74,7 +79,7 @@
      deal: hero collage (two real screens: our app, a Studio site) · palette clay-pine · type mona (Mona Sans + Geist Mono) · nav nav-centre ·
      footer footer-columns · close close-type · buttons tonal · mark ring · radius round ·
      effect gradient-mesh, still, in the hero art · grounds: studio ground-surface ·
-     moment liquid-type on the about statement
+     moments: cursor-spotlight in the hero art (a soft light follows the pointer); liquid-type on the about statement
      motion, why it moves: hero entrance (the name arrives, then what to do); liquid-type in #about (the
      company's one line, worth a touch); hover layer everywhere (every link answers)
      voice: plain company voice, "we" for Clubhouse Apps, "you" for the reader; no virtue words, no invented figures
@@ -127,7 +132,7 @@
         </div>
         <p class="hero__proof">DinnerPilot is in TestFlight now.</p>
       </div>
-      <div class="hero__art span-6 start-7">
+      <div class="hero__art span-6 start-7" data-moment="cursor-spotlight" data-moment-opts='{"rest": [0.5, 0.18], "radius": 440}'>
         <div class="hero__fx" data-fx="gradient-mesh" data-fx-seed="11" data-fx-palette='{"bg":"#d9ccb7","surface":"#e9e0d2","ink":"#2a2622","muted":"#6f675c","accent":"#a8794a"}' data-fx-params='{"speed":0,"calm":0.2,"calmX":0.5,"calmY":0.92,"tint":0.6,"relief":0.35}' style="--calm-k:0%" aria-hidden="true"></div>
         <div class="stage stage--fade-b"><div class="hero__pair">
           <div class="pair__item">
@@ -259,6 +264,7 @@
 <script type="module" src="assets/system.js"></script>
 <script type="module" src="assets/motion/motion.js"></script>
 <script type="module" src="assets/layout/layout.js"></script>
+<script type="module" src="assets/site.js?v=b3141f4f"></script>
 <!-- /site:scripts -->
 </body>
 </html>

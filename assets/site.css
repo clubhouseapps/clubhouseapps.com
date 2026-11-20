@@ -136,3 +136,16 @@
 
 /* the kit's "live" dot (layout.css) pulses forever; no page shows live data, so it stays still */
 .ly-live::before { animation: none; }
+
+/* card spotlight ([data-spot], assets/site.js): one soft glow follows the pointer across a group of cards,
+   lighting their surfaces and borders together, also across the gap between them; it fades on leave */
+[data-spot] .card { position: relative; isolation: isolate; --spot-r: 340px; }
+[data-spot] .card::before, [data-spot] .card::after { content: ""; position: absolute; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .45s ease; }
+[data-spot] .card::before { inset: -1px; padding: 1px;
+  background: radial-gradient(var(--spot-r) circle at var(--spot-x, -999px) var(--spot-y, -999px), color-mix(in oklab, var(--accent) 90%, transparent), transparent 60%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
+[data-spot] .card::after { inset: 0; z-index: -1;
+  background: radial-gradient(var(--spot-r) circle at var(--spot-x, -999px) var(--spot-y, -999px), color-mix(in oklab, #fff 55%, transparent), transparent 65%); }
+[data-spot].is-lit .card::before, [data-spot].is-lit .card::after { opacity: 1; }
+@media (prefers-reduced-motion: reduce), (hover: none) { [data-spot] .card::before, [data-spot] .card::after { display: none; } }

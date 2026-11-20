@@ -133,7 +133,8 @@ def footer_links(p, **_):
 def scripts(p, **_):
     return f"""<script type="module" src="{p}assets/system.js"></script>
 <script type="module" src="{p}assets/motion/motion.js"></script>
-<script type="module" src="{p}assets/layout/layout.js"></script>"""
+<script type="module" src="{p}assets/layout/layout.js"></script>
+<script type="module" src="{p}assets/site.js?v={ver("assets/site.js")}"></script>"""
 
 
 BLOCKS = {"head": head, "header": header, "footer-links": footer_links, "scripts": scripts}

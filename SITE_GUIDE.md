@@ -112,7 +112,9 @@ URL structure mirrors folder structure exactly. `index.html` files serve as the 
 | 2026-11-14 | `4d9ebbf` | Whole site rebuilt as one: parent-company home, every page on the same kit, shared header and footer |
 | 2026-11-14 | `f9d8015` | Every DinnerPilot picture is now a real app screenshot (build 58) instead of a drawn mock |
 | 2026-11-14 | `a1482ae` | DinnerPilot hero: grocery card hidden below 1024px |
-| 2026-11-14 | — | Home hero: two labelled real phones; Sparky's captured from the live preview; stylesheet fingerprint |
+| 2026-11-14 | `607b0d4` | Home hero: two labelled real phones; Sparky's captured from the live preview; stylesheet fingerprint |
+| 2026-11-19 | `1f81d4a` | Impeccable's three real findings fixed |
+| 2026-11-19 | — | Five animations from the web-animations gallery |
 
 The major work happened on **2026-05-17**: legal pages were added, then immediately reorganized under `/dinnerpilot/` (they had initially been at the root), then the entire site got a full visual redesign in one large commit that touched all three primary files.
 
@@ -140,7 +142,19 @@ writes into every page; change them there, then re-stamp.
   then `python3 .site/shots.py` frames it. Recapture after the sample site changes.
 - **The home hero** is two labelled phones side by side: "Our app: DinnerPilot" and "A Studio website: Sparky's
   Electric". No website-with-a-phone-on-top collage: the two businesses are shown apart.
-- **Motion** follows design-motion-principles: one entrance per hero, one timed loop per page at most (DinnerPilot's page has none now), hover answers on every link; all of it stops under reduced motion.
+- **Motion** follows design-motion-principles: one entrance per hero, at most one timed loop per page, hover
+  answers on every link; all of it stops under reduced motion and on touch screens where it follows the pointer.
+- **Animations** (from Dave's web-animations gallery, 2026-11-19; the kit's own moments where it has one):
+  | Where | What | How |
+  |---|---|---|
+  | Home hero | A soft light with a fine dot grid follows the pointer behind the two phones | kit moment `cursor-spotlight` on `.hero__art` |
+  | DinnerPilot hero | The gradient background drifts slowly (pause button bottom right) | gradient-mesh `speed` 0.05 |
+  | DinnerPilot `#promise` | One statement lights up word by word as it scrolls past | kit moment `word-highlight` |
+  | Pricing on DinnerPilot and Studio | One soft glow follows the pointer across both plans, lighting their borders | `[data-spot]` + `assets/site.js` + `site.css` |
+  | Studio `#services` | A slow row of the trades we build for (pause button beside its label; hidden on phones) | kit moment `marquee-row` |
+  Left out on purpose: liquid glass cursor, particle headline, ASCII 3D, fluid cursor and the globe (they fight the
+  site's calm look or don't fit a family app and local websites), and 3D tilt (the kit's motion rules forbid tilting).
+  No client logos in the marquee until real clients approve them.
 
 ### Shared header and footer: `.site/stamp.py`
 
@@ -197,6 +211,9 @@ heroes' soft background read as a "radial halo"). The three real ones were fixed
 card's title is no longer an `h5` that skips heading levels, the kit's pulsing "live" dot is held still in
 `site.css`, and the browser bar's address grey went from #77786e (4.47:1) to #6b6c62 (5.32:1). 25 findings remain,
 all of those two false-alarm kinds.
+The trades marquee adds three known false alarms in `consistency.mjs` (the kit's own marquee demo fails the same
+way when checked in full): `cut-text` for words entering and leaving its faded edges, and `row-lines` "a clipped
+carousel". `site.js` is fingerprinted by `stamp.py` like `site.css`; re-stamp after changing either.
 The three main pages were checked with the kit's `consistency.mjs` at 1440, 1024, 820, 768 and 390 and
 `copy-lint.mjs` (0 FAIL). Known checker false positives: the phone action bar crossing text mid-scroll
 (contrast), its twin-hiding of pricing buttons (scroll-reveal), plan cards not lifting on hover (the kit's

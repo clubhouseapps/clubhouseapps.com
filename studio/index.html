@@ -42,7 +42,7 @@
 }
 </style>
 <link rel="stylesheet" href="../assets/ui/base.css">
-<link rel="stylesheet" href="../assets/site.css?v=1981e7c6">
+<link rel="stylesheet" href="../assets/site.css?v=775a5782">
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script src="../assets/backgrounds/backgrounds.js"></script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
@@ -74,8 +74,13 @@
 }
 #contact .form .btn { width: 100%; }
 #contact .form textarea { min-height: 96px; }
-#services .panel { --p-h: 560px; margin-top: 0; }
-@media (min-width: 640px) and (max-width: 1023px) { #services .panel { --p-h: 449px; margin-top: var(--s-7); } }
+#services .panel { --p-h: 460px; margin-top: 0; }
+#services .trades { margin-top: var(--s-7); display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-2); min-width: 0; max-width: 100%; }
+#services .trades { position: relative; }
+#services .trades .mo-mq { position: static; padding-block: 0; }
+#services .trades .mo-mq__rail { padding-block: 6px; padding-right: 0; }
+#services .trades .mo-mq__pause { top: calc(-1 * var(--s-2)); transform: none; }
+@media (min-width: 640px) and (max-width: 1023px) { #services .panel { --p-h: 350px; margin-top: var(--s-7); } }
 @media (max-width: 639px) { #services .panel { --p-h: 330px; margin-top: var(--s-6); } }
 </style>
 </head>
@@ -186,11 +191,17 @@
           </div></div>
         </div>
       </div>
+      <div class="trades off-phone">
+        <p class="t-label">Who we build for</p>
+        <div data-moment="marquee-row" data-moment-opts='{"speed": 30}'>
+          <ul class="mo-mq__track"><li>Plumbers</li><li>Electricians</li><li>Contractors</li><li>Roofers</li><li>Landscapers</li><li>Painters</li><li>Auto repair</li><li>Restaurants</li><li>Caf&eacute;s</li><li>Bakeries</li><li>Salons</li><li>Shops</li></ul>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="section g2m" id="pricing" aria-labelledby="pr-h">
-    <div class="wrap pricing">
+    <div class="wrap pricing" data-spot>
       <div class="pricing__a grid">
         <div class="section-head section-head--row">
         <div><h2 id="pr-h">Pricing</h2><p>Two ways to work together, both built for small business budgets.</p></div>
@@ -332,6 +343,7 @@
 <script type="module" src="../assets/system.js"></script>
 <script type="module" src="../assets/motion/motion.js"></script>
 <script type="module" src="../assets/layout/layout.js"></script>
+<script type="module" src="../assets/site.js?v=b3141f4f"></script>
 <!-- /site:scripts -->
 </body>
 </html>

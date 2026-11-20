@@ -42,7 +42,7 @@
 }
 </style>
 <link rel="stylesheet" href="../assets/ui/base.css">
-<link rel="stylesheet" href="../assets/site.css?v=1981e7c6">
+<link rel="stylesheet" href="../assets/site.css?v=775a5782">
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script src="../assets/backgrounds/backgrounds.js"></script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
@@ -69,10 +69,12 @@
 </head>
 <body>
 <!-- type: software (DinnerPilot's product page, under the Clubhouse Apps site; same deal as the home page)
-     motion, why it moves: hero entrance; hover layer everywhere. Every picture of the app is a real screenshot
+     motion, why it moves: hero entrance; the hero's gradient drifts slowly (about a 40 s cycle, with a pause
+     button); #promise lights up word by word as it is scrolled through (word-highlight, the page's moment);
+     the pricing plans share one soft glow under the pointer; hover layer everywhere. Every picture of the app is a real screenshot
      (assets/dp/, made from Brand Assets by .site/shots.py), so nothing on this page animates the app itself
      voice: plain, "you" for the family, DinnerPilot the subject of feature lines; no invented figures
-     screens: hero 1 · week 1 · features 2 (g2) · pantry 1 · pricing 1 · questions 1 · footer 1 -->
+     screens: hero 1 · promise 1 · week 1 · features 2 (g2) · pantry 1 · pricing 1 · questions 1 · footer 1 -->
 
 <!-- site:header current=apps -->
 <header class="nav nav--centre">
@@ -123,11 +125,18 @@
         <p class="hero__proof">In TestFlight for iPhone now. Free with ads; Pro is $5.99 a month.</p>
       </div>
       <div class="hero__art span-6 start-7" role="img" aria-label="DinnerPilot&rsquo;s home screen, with the week on track at $224 of a $250 budget, and the grocery list: 40 items, an estimated $223.65">
-        <div class="hero__fx" data-fx="gradient-mesh" data-fx-seed="11" data-fx-palette='{"bg":"#d9ccb7","surface":"#e9e0d2","ink":"#2a2622","muted":"#6f675c","accent":"#a8794a"}' data-fx-params='{"speed":0,"calm":0.2,"calmX":0.5,"calmY":0.92,"tint":0.6,"relief":0.35}' style="--calm-k:0%" aria-hidden="true"></div>
+        <div class="hero__fx" data-fx="gradient-mesh" data-fx-seed="11" data-fx-palette='{"bg":"#d9ccb7","surface":"#e9e0d2","ink":"#2a2622","muted":"#6f675c","accent":"#a8794a"}' data-fx-params='{"speed":0.05,"calm":0.2,"calmX":0.5,"calmY":0.92,"tint":0.6,"relief":0.35}' style="--calm-k:0%" aria-hidden="true"></div>
         <div class="ly-piece ly-piece--main ph ph--shot" aria-hidden="true"><img src="../assets/dp/home-week.webp" alt="" width="660" height="1434" fetchpriority="high"></div>
         <img class="ly-piece ly-piece--note shot off-phone" src="../assets/dp/grocery-total.webp" alt="" width="820" height="485" aria-hidden="true">
       </div>
     </div></div>
+  </section>
+
+  <section class="section statement" id="promise" data-moment="word-highlight" aria-label="What DinnerPilot does">
+    <div class="wrap stack-4">
+      <p class="t-label">What DinnerPilot does</p>
+      <p class="mo-wh__text">Tell it who&rsquo;s eating and what the week can cost. DinnerPilot plans every breakfast, lunch and dinner, writes the grocery list, and keeps the estimated total <strong>inside your budget</strong>.</p>
+    </div>
   </section>
 
   <section class="section" id="week" aria-labelledby="wk-h">
@@ -218,7 +227,7 @@
   </section>
 
   <section class="section g2m" id="pricing" aria-labelledby="pr-h">
-    <div class="wrap pricing">
+    <div class="wrap pricing" data-spot>
       <div class="pricing__a grid">
         <div class="section-head section-head--row">
         <div><h2 id="pr-h">Pricing</h2><p>Start free. Both plans write the week, the grocery list and the budget.</p></div>
@@ -323,6 +332,7 @@
 <script type="module" src="../assets/system.js"></script>
 <script type="module" src="../assets/motion/motion.js"></script>
 <script type="module" src="../assets/layout/layout.js"></script>
+<script type="module" src="../assets/site.js?v=b3141f4f"></script>
 <!-- /site:scripts -->
 </body>
 </html>

@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["BRTYK7K3JS.com.dinnerpilot.DinnerPilot"],
+        "components": [
+          { "/": "/dinnerpilot/confirm/*", "comment": "DinnerPilot email confirmation links open the app" },
+          { "/": "/dinnerpilot/confirm", "comment": "Same, without the trailing slash" }
+        ]
+      }
+    ]
+  }
+}

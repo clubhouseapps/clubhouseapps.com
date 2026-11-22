@@ -117,7 +117,7 @@ URL structure mirrors folder structure exactly. `index.html` files serve as the 
 | 2026-11-19 | `c64ef8e` | Five animations from the web-animations gallery (three didn't run live: their files weren't committed) |
 | 2026-11-19 | `2c6f335` | The three missing animation files committed; DinnerPilot gradient sped up |
 | 2026-11-19 | `586984b` | DinnerPilot gradient made faster and deeper so the drift shows beside the phone |
-| 2026-11-20 | — | Whole site redone in the "Night shift" look (Dave chose it from three home-page previews): new colours, type, header, footer, every page rebuilt |
+| 2026-11-20 | 15fc34a | Whole site redone in the "Night shift" look (Dave chose it from three home-page previews): new colours, type, header, footer, every page rebuilt |
 
 The major work happened on **2026-05-17**: legal pages were added, then immediately reorganized under `/dinnerpilot/` (they had initially been at the root), then the entire site got a full visual redesign in one large commit that touched all three primary files.
 

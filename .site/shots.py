@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Make the web copies of the DinnerPilot screenshots the site shows.
 
-Source: ../Brand Assets/DinnerPilot Screenshots/ (the current set, TestFlight build 58), and the Studio's
+Source: ../../DinnerPilot/Brand Assets/Screenshots - build 58 (full set)/ (the current set, TestFlight build 58), and the Studio's
 Sparky's Electric sample captured from its live preview by .site/capture.mjs (.site/captures/).
 Output: assets/dp/*.webp and assets/studio/*.webp, sized for 2x screens. Run from the Website folder after the
 screenshots are retaken:
@@ -18,8 +18,8 @@ import pathlib
 from PIL import Image, ImageDraw
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SRC = ROOT.parent / "Brand Assets" / "DinnerPilot Screenshots"
-LOGO = ROOT.parent / "Brand Assets" / "DinnerPilot Logo" / "DinnerPilot app icon 1024.png"
+SRC = ROOT.parent.parent / "DinnerPilot" / "Brand Assets" / "Screenshots - build 58 (full set)"
+LOGO = ROOT.parent.parent / "DinnerPilot" / "Brand Assets" / "Logo" / "DinnerPilot app icon 1024.png"
 OUT = ROOT / "assets" / "dp"
 STUDIO = ROOT / "assets" / "studio"
 SPARKYS = ROOT / ".site" / "captures" / "sparkys-mobile.png"  # 440 x 902 at 3x, from capture.mjs

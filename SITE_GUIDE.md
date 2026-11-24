@@ -45,7 +45,7 @@ The site is hosted on **GitHub Pages** — GitHub's free static site hosting ser
 
 - **Repository:** `https://github.com/clubhouseapps/clubhouseapps.com`
 - **Branch:** `main` (GitHub Pages serves directly from this branch)
-- **Local path:** `~/Desktop/ClubhouseApps/Website/`
+- **Local path:** `~/Desktop/ClubhouseApps/Website/clubhouseapps.com/`
 
 ### How deployment works
 
@@ -127,7 +127,7 @@ The major work happened on **2026-05-17**: legal pages were added, then immediat
 
 Every page uses the **Taste Skill** kit (`github.com/Leonxlnx/taste-skill`) with one look, **"Night shift"**
 (Dave chose it on 2026-11-20 from three home-page previews; the earlier clay-pine look's favicon and share image
-are in `../_archive/2026-11-20 site overhaul/`): blue-black ground `#0a0d14`, surface `#131824`, cornflower accent
+are in `../../_archive/2026-11-20 site overhaul/`): blue-black ground `#0a0d14`, surface `#131824`, cornflower accent
 `#5ab9fc` (palette blue-black-cornflower), Reddit Sans + JetBrains Mono, tonal buttons, the "C" initial mark, soft
 corners (`data-radius="soft"`), and the sky lit ground (`data-ground="sky"`: the light blue-grey panels the phones
 stand on). Header: nav-mega (the Apps menu opens a panel with a DinnerPilot card). Footer: footer-dark with the
@@ -140,7 +140,7 @@ writes into every page; change them there, then re-stamp. A page with a scroll s
 - **`assets/site.css`** holds what the kit doesn't: the phone frame (`.ph`; `.ph--shot` holds a real screenshot), the screenshot strip card (`.shot`), the Studio's step card (`.dpn`), the browser window with the Sparky's Electric sample (`.bw`, `.sp__*`), the pricing halves (`.pricing`), and the text-page layout (`.doc`, `.prose`, `.doc__side`).
 - **Page `<style>` blocks** only position each hero's pieces and set panel heights per breakpoint (the kit sizes every section to whole screens).
 - **Real screenshots only** for DinnerPilot. Every app screen on the site comes from
-  `../Brand Assets/DinnerPilot Screenshots/` (TestFlight build 58). Never draw the app in HTML: drawn mocks
+  `../../DinnerPilot/Brand Assets/Screenshots - build 58 (full set)/` (TestFlight build 58). Never draw the app in HTML: drawn mocks
   don't look like the real app. `.site/shots.py` picks the shots, crops the strips used in #features, paints
   over Pantry Chef's small "AI" tags (marketing doesn't say "AI"), and writes `assets/dp/*.webp` at 2x. After
   the app's look changes and the screenshots are retaken, run `python3 .site/shots.py`. Follow the
@@ -216,9 +216,9 @@ Account page keeps its Supabase password-reset script exactly as it was (Supabas
 point to `/dinnerpilot/account/`).
 
 ### Checks
-The kit's checkers live in `~/Desktop/ClubhouseApps/Claude Tools/taste-skill/skills/taste-skill/scripts/`.
+The kit's checkers live in `~/Desktop/ClubhouseApps/Website/Design tools/taste-skill/skills/taste-skill/scripts/` (moved there from `Claude Tools/` on 2026-11-23).
 **Impeccable** (a second design skill) is installed for this folder only, in `.claude/` (git-ignored). When Claude
-Code is opened in `Website/`, it runs a design check after every file edit and again at the end of each turn.
+Code is opened in `Website/clubhouseapps.com/`, it runs a design check after every file edit and again at the end of each turn.
 Run it by hand with `.claude/skills/impeccable/scripts/impeccable detect index.html dinnerpilot/index.html studio/index.html`.
 First run (2026-11-19): 29 findings, mostly false alarms ("cramped padding" on the kit's ruled list rows, the
 heroes' soft background read as a "radial halo"). The three real ones were fixed the same day: the Studio hero
@@ -256,7 +256,7 @@ phone screens, so the checker no longer sees them as one card row).
 
 ```bash
 # Navigate to the site folder
-cd ~/Desktop/ClubhouseApps/Website
+cd ~/Desktop/ClubhouseApps/Website/clubhouseapps.com
 
 # Make your edits to HTML/CSS files
 

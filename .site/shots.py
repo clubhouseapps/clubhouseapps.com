@@ -18,7 +18,10 @@ import pathlib
 from PIL import Image, ImageDraw
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SRC = ROOT.parent.parent / "DinnerPilot" / "Brand Assets" / "Screenshots - build 58 (full set)"
+# 2026-11-24: the build 58 set was archived when the build 83 set replaced it. This still points at the
+# archived copy so the site's current images can be rebuilt exactly. Moving to build 83 needs new file
+# names, crop boxes and AI-tag boxes below (see "Screenshots - build 83 (full set)/SCREENSHOT GUIDE.md").
+SRC = ROOT.parent.parent / "DinnerPilot" / "Brand Assets" / "_archive" / "Screenshots - build 58 (full set, archived 2026-11-24)"
 LOGO = ROOT.parent.parent / "DinnerPilot" / "Brand Assets" / "Logo" / "DinnerPilot app icon 1024.png"
 OUT = ROOT / "assets" / "dp"
 STUDIO = ROOT / "assets" / "studio"

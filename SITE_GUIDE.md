@@ -91,6 +91,11 @@ clubhouseapps.com/          ← repo root
 ├── dinnerpilot/
 │   ├── index.html          ← DinnerPilot product page
 │   ├── privacy/ terms/ data-deletion/ account/   ← text pages
+├── soccar/
+│   ├── index.html          ← SoccAR page (text-page layout, TestFlight beta)
+│   ├── privacy/ terms/ data-deletion/   ← text pages, made by .site/soccar_pages.py, then stamped
+│   ├── confirm/ account/   ← standalone email-confirm and password-reset pages (SoccAR's own Supabase project)
+├── assets/soccar-icon.png  ← SoccAR app icon, 256 px, used by confirm/ and account/
 ├── studio/index.html       ← Studio service page
 └── samples/index.html      ← internal, unlinked, noindex
 ```
@@ -208,6 +213,16 @@ shows its confirmation only after Formspree answers).
 Hero (the real Sparky's site in a browser window + project card) · **#services** six kinds of work beside "Your website includes" ·
 **#pricing** The Handoff ($2,000) and The Care Plan ($500 + $100/mo) · **#sample** Sparky's Electric on a
 phone · **#questions** · **#contact** the quote form (Formspree `mlgvvbay`, honeypot `_gotcha`).
+
+### `/soccar/`
+SoccAR's section (added 2026-11-26). The product page, privacy, terms and data-deletion use the text-page layout
+and were generated from DinnerPilot's privacy page by `.site/soccar_pages.py` (edit the HTML directly from now on;
+re-running that script overwrites them). `confirm/` and `account/` are copies of DinnerPilot's, in pitch green and
+cone orange, calling SoccAR's Supabase project (`iedearstycluccfmrjlk`) with its publishable key only. Their
+"Open SoccAR" buttons use the `soccar://` scheme, because SoccAR is TestFlight-only. When it reaches the App Store,
+point them at its listing. SoccAR's Supabase Auth Site URL must be `https://clubhouseapps.com/soccar/account/`, and
+email templates must link to `/soccar/confirm/?token_hash=...&type=...`. `.well-known/apple-app-site-association` lists
+`BRTYK7K3JS.com.clubhouseapps.soccar` for `/soccar/confirm/*`.
 
 ### Text pages: privacy, terms, data-deletion, account
 Same header and footer; a side list of the four DinnerPilot help pages; the wording itself is unchanged

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Confirm your SoccAR email</title>
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#0F4A2A">
+<link rel="icon" href="../../assets/soccar-icon.png">
+<link rel="apple-touch-icon" href="../../assets/soccar-icon.png">
+<style>
+  :root { --teal-top:#1F7A44; --teal-bottom:#0F4A2A; --orange:#E86A00; --orange-deep:#C25700;
+          --cream:#FFF8F1; --ink:#1A1917; --ink-mid:#4A4845; --ink-soft:#8A8885; --line:#E8E1D8; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; align-items: center;
+         justify-content: center; gap: 22px; padding: 32px 16px calc(32px + env(safe-area-inset-bottom));
+         background: linear-gradient(180deg, var(--teal-top), var(--teal-bottom)); color: var(--ink);
+         font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .brand { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; }
+  .brand img { width: 52px; height: 52px; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+  .brand span { font: 700 30px/1 ui-serif, "New York", Georgia, "Times New Roman", serif; letter-spacing: -.01em; }
+  .brand b { color: #FFB066; font-weight: 700; }
+  .card { width: 100%; max-width: 440px; background: var(--cream); border-radius: 22px; padding: 32px 26px 28px;
+          box-shadow: 0 18px 50px rgba(0,0,0,.28); text-align: center; }
+  .badge { width: 64px; height: 64px; margin: 0 auto 14px; border-radius: 50%; display: grid; place-items: center;
+           background: #E8F0EB; color: #2F6B4F; }
+  .badge.warn { background: #FDF0E6; color: var(--orange-deep); }
+  h1 { margin: 0 0 8px; font: 700 26px/1.2 ui-serif, "New York", Georgia, "Times New Roman", serif; }
+  p { margin: 0 0 14px; color: var(--ink-mid); }
+  .btn { display: block; width: 100%; padding: 15px 18px; margin-top: 10px; border: 0; border-radius: 14px;
+         background: var(--orange); color: #fff; font: 600 17px/1.2 inherit; text-decoration: none; cursor: pointer; }
+  .btn:hover { background: var(--orange-deep); }
+  .btn:disabled { opacity: .6; cursor: default; }
+  .btn--ghost { background: transparent; color: var(--orange-deep); border: 1.5px solid var(--line); }
+  .btn--ghost:hover { background: #fff; }
+  .hint { font-size: 14px; color: var(--ink-soft); margin-top: 14px; }
+  form { text-align: left; margin-top: 8px; }
+  label { display: block; font-size: 14px; font-weight: 600; color: var(--ink-mid); margin: 12px 0 6px; }
+  input { width: 100%; padding: 13px 14px; border: 1.5px solid var(--line); border-radius: 12px; font: 16px inherit;
+          background: #fff; color: var(--ink); }
+  input:focus { outline: none; border-color: var(--orange); }
+  .msg { min-height: 1.4em; margin-top: 10px; font-size: 14px; color: #B3261E; text-align: center; }
+  footer { color: rgba(255,255,255,.7); font-size: 13px; text-align: center; }
+  footer a { color: rgba(255,255,255,.85); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+  <a class="brand" href="/soccar/" aria-label="SoccAR">
+    <img src="../../assets/soccar-icon.png" alt="">
+    <span>Socc<b>AR</b></span>
+  </a>
+
+  <main class="card">
+    <section id="v-start">
+      <h1>Confirm your email</h1>
+      <p>Tap the button to finish setting up your SoccAR account.</p>
+      <button id="go" class="btn" type="button">Confirm my email</button>
+      <div class="msg" id="msg" role="alert"></div>
+    </section>
+
+    <section id="v-confirmed" hidden>
+      <div class="badge" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+      <h1>Welcome to SoccAR!</h1>
+      <p>Your email is confirmed and your account is ready. Open SoccAR on your iPhone and sign in with your email and password.</p>
+      <a class="btn" href="soccar://signed-up">Open SoccAR</a>
+      <p class="hint">SoccAR is in beta: if the button doesn't open it, open SoccAR from the TestFlight app.</p>
+      <p class="hint">Reading this on a computer? Just open SoccAR on your iPhone and sign in.</p>
+    </section>
+
+    <section id="v-expired" hidden>
+      <div class="badge warn" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 7v6"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="9.5"/></svg></div>
+      <h1>This link has expired</h1>
+      <p>Confirmation links work once and only for a while. If you already confirmed, just open SoccAR and sign in. Otherwise sign in and tap <strong>Resend email</strong> for a new link.</p>
+      <a class="btn" href="soccar://link-expired">Open SoccAR</a>
+    </section>
+  </main>
+
+  <footer>
+    Need help? <a href="mailto:support@clubhouseapps.com">support@clubhouseapps.com</a><br>
+    <a href="/soccar/privacy/">Privacy</a> &middot; <a href="/soccar/terms/">Terms</a> &middot; &copy; 2026 Clubhouse Apps LLC
+  </footer>
+
+<script>
+(function () {
+  // With SoccAR installed on an iPhone, iOS opens this link in the app instead of this page.
+  // This page is the fallback (a computer, or a phone without the app). It only uses the one-time
+  // code when the button is tapped, so email security scanners that preview links can't use it up.
+  var API = "https://iedearstycluccfmrjlk.supabase.co";
+  var KEY = "sb_publishable_8y-94CHBZqHoyeEk62HmlA_YFDCzTH4"; // public key, the same one the app ships with
+  var q = new URLSearchParams(location.search);
+  var hash = q.get("token_hash"), type = q.get("type") || "signup";
+  try { history.replaceState(null, "", location.pathname); } catch (e) {}
+  function show(id) { ["v-start", "v-confirmed", "v-expired"].forEach(function (v) { document.getElementById(v).hidden = v !== id; }); }
+  if (!hash) { show("v-expired"); return; }
+  var btn = document.getElementById("go"), msg = document.getElementById("msg");
+  btn.addEventListener("click", function () {
+    btn.disabled = true; btn.textContent = "Confirming…"; msg.textContent = "";
+    fetch(API + "/auth/v1/verify", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "apikey": KEY, "Authorization": "Bearer " + KEY },
+      body: JSON.stringify({ type: type, token_hash: hash })
+    }).then(function (r) {
+      if (r.ok) { hash = null; show("v-confirmed"); return; }
+      if (r.status === 401 || r.status === 403 || r.status === 400 || r.status === 404) { show("v-expired"); return; }
+      btn.disabled = false; btn.textContent = "Confirm my email"; msg.textContent = "That didn't work. Please try again.";
+    }).catch(function () {
+      btn.disabled = false; btn.textContent = "Confirm my email";
+      msg.textContent = "Couldn't reach the server. Check your connection and try again.";
+    });
+  });
+})();
+</script>
+</body>
+</html>

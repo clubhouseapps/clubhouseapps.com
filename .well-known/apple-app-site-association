@@ -2,10 +2,33 @@
   "applinks": {
     "details": [
       {
-        "appIDs": ["BRTYK7K3JS.com.dinnerpilot.DinnerPilot"],
+        "appIDs": [
+          "BRTYK7K3JS.com.dinnerpilot.DinnerPilot"
+        ],
         "components": [
-          { "/": "/dinnerpilot/confirm/*", "comment": "DinnerPilot email confirmation links open the app" },
-          { "/": "/dinnerpilot/confirm", "comment": "Same, without the trailing slash" }
+          {
+            "/": "/dinnerpilot/confirm/*",
+            "comment": "DinnerPilot email confirmation links open the app"
+          },
+          {
+            "/": "/dinnerpilot/confirm",
+            "comment": "Same, without the trailing slash"
+          }
+        ]
+      },
+      {
+        "appIDs": [
+          "BRTYK7K3JS.com.clubhouseapps.soccar"
+        ],
+        "components": [
+          {
+            "/": "/soccar/confirm/*",
+            "comment": "SoccAR email confirmation links open the app"
+          },
+          {
+            "/": "/soccar/confirm",
+            "comment": "Same, without the trailing slash"
+          }
         ]
       }
     ]

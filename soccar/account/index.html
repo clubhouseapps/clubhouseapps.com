@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SoccAR account</title>
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#0F4A2A">
+<link rel="icon" href="../../assets/soccar-icon.png">
+<link rel="apple-touch-icon" href="../../assets/soccar-icon.png">
+<style>
+  :root { --teal-top:#1F7A44; --teal-bottom:#0F4A2A; --orange:#E86A00; --orange-deep:#C25700;
+          --cream:#FFF8F1; --ink:#1A1917; --ink-mid:#4A4845; --ink-soft:#8A8885; --line:#E8E1D8; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; align-items: center;
+         justify-content: center; gap: 22px; padding: 32px 16px calc(32px + env(safe-area-inset-bottom));
+         background: linear-gradient(180deg, var(--teal-top), var(--teal-bottom)); color: var(--ink);
+         font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .brand { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; }
+  .brand img { width: 52px; height: 52px; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+  .brand span { font: 700 30px/1 ui-serif, "New York", Georgia, "Times New Roman", serif; letter-spacing: -.01em; }
+  .brand b { color: #FFB066; font-weight: 700; }
+  .card { width: 100%; max-width: 440px; background: var(--cream); border-radius: 22px; padding: 32px 26px 28px;
+          box-shadow: 0 18px 50px rgba(0,0,0,.28); text-align: center; }
+  .badge { width: 64px; height: 64px; margin: 0 auto 14px; border-radius: 50%; display: grid; place-items: center;
+           background: #E8F0EB; color: #2F6B4F; }
+  .badge.warn { background: #FDF0E6; color: var(--orange-deep); }
+  h1 { margin: 0 0 8px; font: 700 26px/1.2 ui-serif, "New York", Georgia, "Times New Roman", serif; }
+  p { margin: 0 0 14px; color: var(--ink-mid); }
+  .btn { display: block; width: 100%; padding: 15px 18px; margin-top: 10px; border: 0; border-radius: 14px;
+         background: var(--orange); color: #fff; font: 600 17px/1.2 inherit; text-decoration: none; cursor: pointer; }
+  .btn:hover { background: var(--orange-deep); }
+  .btn:disabled { opacity: .6; cursor: default; }
+  .btn--ghost { background: transparent; color: var(--orange-deep); border: 1.5px solid var(--line); }
+  .btn--ghost:hover { background: #fff; }
+  .hint { font-size: 14px; color: var(--ink-soft); margin-top: 14px; }
+  form { text-align: left; margin-top: 8px; }
+  label { display: block; font-size: 14px; font-weight: 600; color: var(--ink-mid); margin: 12px 0 6px; }
+  input { width: 100%; padding: 13px 14px; border: 1.5px solid var(--line); border-radius: 12px; font: 16px inherit;
+          background: #fff; color: var(--ink); }
+  input:focus { outline: none; border-color: var(--orange); }
+  .msg { min-height: 1.4em; margin-top: 10px; font-size: 14px; color: #B3261E; text-align: center; }
+  footer { color: rgba(255,255,255,.7); font-size: 13px; text-align: center; }
+  footer a { color: rgba(255,255,255,.85); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+  <a class="brand" href="/soccar/" aria-label="SoccAR">
+    <img src="../../assets/soccar-icon.png" alt="">
+    <span>Socc<b>AR</b></span>
+  </a>
+
+  <main class="card">
+    <section id="v-confirmed" hidden>
+      <div class="badge" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+      <h1>Welcome to SoccAR!</h1>
+      <p>Your email is confirmed and your account is ready. Open SoccAR on your iPhone and sign in with your email and password.</p>
+      <a class="btn" href="soccar://signed-up">Open SoccAR</a>
+      <p class="hint">Reading this on a computer? Just open SoccAR on your iPhone and sign in.</p>
+    </section>
+
+    <section id="v-reset" hidden>
+      <h1>Choose a new password</h1>
+      <p>For your SoccAR account. Use at least 6 characters and pick something hard to guess.</p>
+      <form id="form" novalidate>
+        <label for="pw">New password</label>
+        <input id="pw" type="password" autocomplete="new-password" minlength="6" required>
+        <label for="pw2">Type it again</label>
+        <input id="pw2" type="password" autocomplete="new-password" minlength="6" required>
+        <button id="save" class="btn" type="submit">Save new password</button>
+        <div class="msg" id="msg" role="alert"></div>
+      </form>
+    </section>
+
+    <section id="v-done" hidden>
+      <div class="badge" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+      <h1>Password changed</h1>
+      <p>Open SoccAR on your iPhone and sign in with your email and your new password.</p>
+      <a class="btn" href="soccar://password-changed">Open SoccAR</a>
+    </section>
+
+    <section id="v-expired" hidden>
+      <div class="badge warn" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 7v6"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="9.5"/></svg></div>
+      <h1>This link has expired</h1>
+      <p>Email links work once and only for a short time.</p>
+      <p><strong>Confirming your account?</strong> Open SoccAR and sign in. If it asks you to confirm, tap <strong>Resend email</strong>.<br>
+         <strong>Resetting your password?</strong> Open SoccAR and tap <strong>Forgot password?</strong> for a new link.</p>
+      <a class="btn" href="soccar://link-expired">Open SoccAR</a>
+    </section>
+
+    <section id="v-none">
+      <h1>Your SoccAR account</h1>
+      <p>This is where the links in SoccAR account emails lead. To reset your password, open SoccAR and tap <strong>Forgot password?</strong> on the sign-in screen.</p>
+      <a class="btn btn--ghost" href="/soccar/">About SoccAR</a>
+    </section>
+  </main>
+
+  <footer>
+    Need help? <a href="mailto:support@clubhouseapps.com">support@clubhouseapps.com</a><br>
+    <a href="/soccar/privacy/">Privacy</a> &middot; <a href="/soccar/terms/">Terms</a> &middot; &copy; 2026 Clubhouse Apps LLC
+  </footer>
+
+<script>
+(function () {
+  var API = "https://iedearstycluccfmrjlk.supabase.co";
+  var KEY = "sb_publishable_8y-94CHBZqHoyeEk62HmlA_YFDCzTH4"; // public key, the same one the app ships with
+  var params = new URLSearchParams((location.hash || "").replace(/^#/, ""));
+  var query = new URLSearchParams(location.search);
+  var token = params.get("access_token");
+  var type = params.get("type") || query.get("type");
+  // Newer reset emails link here with ?token_hash=…&type=recovery; the code is only used when the
+  // new password is saved, so email scanners that preview links can't use it up.
+  var tokenHash = query.get("token_hash");
+  var failed = params.get("error") || params.get("error_code") || query.get("error");
+  // Remove the one-time token from the address bar and history straight away.
+  try { history.replaceState(null, "", location.pathname); } catch (e) {}
+  function show(id) {
+    ["v-reset", "v-done", "v-confirmed", "v-expired", "v-none"].forEach(function (v) {
+      document.getElementById(v).hidden = v !== id;
+    });
+  }
+  if (failed) { show("v-expired"); return; }
+  if ((token || tokenHash) && type === "recovery") { show("v-reset"); }
+  else if (token) { show("v-confirmed"); return; }
+  else { show("v-none"); return; }
+  var form = document.getElementById("form"), msg = document.getElementById("msg"), btn = document.getElementById("save");
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var a = document.getElementById("pw").value, b = document.getElementById("pw2").value;
+    if (a.length < 6) { msg.textContent = "Use at least 6 characters."; return; }
+    if (a !== b) { msg.textContent = "The two passwords don't match."; return; }
+    msg.textContent = ""; btn.disabled = true; btn.textContent = "Saving…";
+    var getToken = token ? Promise.resolve(token) : fetch(API + "/auth/v1/verify", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "apikey": KEY, "Authorization": "Bearer " + KEY },
+      body: JSON.stringify({ type: "recovery", token_hash: tokenHash })
+    }).then(function (r) { return r.ok ? r.json().then(function (j) { token = j.access_token; tokenHash = null; return token; }) : null; });
+    getToken.then(function (t) {
+    if (!t) { show("v-expired"); return; }
+    fetch(API + "/auth/v1/user", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json", "apikey": KEY, "Authorization": "Bearer " + token },
+      body: JSON.stringify({ password: a })
+    }).then(function (r) {
+      if (r.ok) { token = null; form.reset(); show("v-done"); return; }
+      return r.json().catch(function () { return {}; }).then(function (j) {
+        btn.disabled = false; btn.textContent = "Save new password";
+        if (r.status === 401 || r.status === 403) { show("v-expired"); return; }
+        var code = j && (j.error_code || j.code);
+        if (code === "weak_password") { msg.textContent = "That password is too easy to guess. Try a longer one, like three or four random words."; return; }
+        if (code === "same_password") { msg.textContent = "That's your current password. Choose a different one."; return; }
+        msg.textContent = "That didn't work. Please try again.";
+      });
+    }).catch(function () {
+      btn.disabled = false; btn.textContent = "Save new password";
+      msg.textContent = "Couldn't reach the server. Check your connection and try again.";
+    });
+    }).catch(function () {
+      btn.disabled = false; btn.textContent = "Save new password";
+      msg.textContent = "Couldn't reach the server. Check your connection and try again.";
+    });
+  });
+})();
+</script>
+</body>
+</html>

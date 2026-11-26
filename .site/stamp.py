@@ -3,7 +3,7 @@
 
 Every page carries marker pairs such as
     <!-- site:header current=apps --> ... <!-- /site:header -->
-and this script rewrites what sits between them, so the eight copies of the header and footer
+and this script rewrites what sits between them, so every copy of the header and footer
 stay identical. Edit the blocks below, then run from the Website folder:
 
     python3 .site/stamp.py
@@ -26,6 +26,10 @@ PAGES = [
     "dinnerpilot/terms/index.html",
     "dinnerpilot/data-deletion/index.html",
     "dinnerpilot/account/index.html",
+    "soccar/index.html",
+    "soccar/privacy/index.html",
+    "soccar/terms/index.html",
+    "soccar/data-deletion/index.html",
     "studio/index.html",
     "samples/index.html",
 ]
@@ -110,6 +114,12 @@ def header(p, current="", **_):
               <a href="/dinnerpilot/data-deletion/">Delete your data<span>How to remove your account</span></a>
               <a href="/dinnerpilot/privacy/">Privacy policy<span>What the app stores</span></a>
             </div>
+            <div class="menu-col span-3">
+              <p class="t-label">SoccAR</p>
+              <a href="/soccar/">Drill cones in AR<span>See the layout on the real field</span></a>
+              <a href="/soccar/account/">Account help<span>Password resets and email links</span></a>
+              <a href="/soccar/privacy/">Privacy policy<span>What the app stores</span></a>
+            </div>
             <a class="menu-card span-3 start-10" href="/dinnerpilot/">
               <div class="panel"><img class="frame__img" src="{p}assets/dp/budget.webp" alt="DinnerPilot showing a week on track at $224 of a $250 budget" loading="lazy"></div>
               <span class="t-card">DinnerPilot</span>
@@ -137,7 +147,7 @@ def footer_links(p, **_):
           <a class="nav__logo" href="/">{MARK_C}Clubhouse Apps</a>
           <p class="footer__lede">iPhone apps for families. Websites for local business.</p>
         </div>
-        <div class="span-2 start-5 footer__col"><h3>Apps</h3><ul><li><a href="/dinnerpilot/">DinnerPilot</a></li><li><a href="/dinnerpilot/#pantry">Pantry Chef</a></li><li><a href="/dinnerpilot/account/">Account help</a></li></ul></div>
+        <div class="span-2 start-5 footer__col"><h3>Apps</h3><ul><li><a href="/dinnerpilot/">DinnerPilot</a></li><li><a href="/dinnerpilot/#pantry">Pantry Chef</a></li><li><a href="/dinnerpilot/account/">Account help</a></li><li><a href="/soccar/">SoccAR</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Studio</h3><ul><li><a href="/studio/">Websites</a></li><li><a href="/studio/#pricing">Pricing</a></li><li><a href="/studio/#contact">Get a quote</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Company</h3><ul><li><a href="/#about">About</a></li><li><a href="/#contact">Contact</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Legal</h3><ul><li><a href="/dinnerpilot/privacy/">Privacy policy</a></li><li><a href="/dinnerpilot/terms/">Terms of service</a></li><li><a href="/dinnerpilot/data-deletion/">Delete your data</a></li></ul></div>

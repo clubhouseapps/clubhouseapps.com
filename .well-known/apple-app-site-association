@@ -28,6 +28,14 @@
           {
             "/": "/soccar/confirm",
             "comment": "Same, without the trailing slash"
+          },
+          {
+            "/": "/soccar/join/*",
+            "comment": "Coach invite links open SoccAR"
+          },
+          {
+            "/": "/soccar/join",
+            "comment": "Same, without the trailing slash"
           }
         ]
       }
